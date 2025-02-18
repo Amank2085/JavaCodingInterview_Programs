@@ -348,139 +348,94 @@ public class MyClass {
 ```
 ```
 
-### Topic-wise coding problems for interview preparation:
+# Topic-wise Coding Problems for Interview Preparation
 
-Table of Contents :
+## Table of Contents
+1. [Arrays](#arrays)
+2. [Strings](#strings)
+3. [Linked Lists](#linked-lists)
+4. [Stacks and Queues](#stacks-and-queues)
+5. [Trees](#trees)
+6. [Graphs](#graphs)
+7. [Sorting and Searching](#sorting-and-searching)
+8. [Dynamic Programming](#dynamic-programming)
+9. [Recursion](#recursion)
+10. [Backtracking](#backtracking)
+11. [Bit Manipulation](#bit-manipulation)
 
-Arrays
-Strings
-Linked Lists
-Stacks and Queues
-Trees
-Graphs
-Sorting and Searching
-Dynamic Programming
-Recursion
-Backtracking
-Bit Manipulation
+## Arrays
+1. [Find the maximum subarray sum using Kadane's Algorithm.](#)
+2. [Rotate an array by k positions.](#)
+3. [Merge two sorted arrays without using extra space.](#)
+4. [Find the missing number in an array of integers from 1 to n.](#)
+5. [Find the longest consecutive subsequence in an array.](#)
 
-Arrays
-Find the maximum subarray sum using Kadane's Algorithm.
+## Strings
+1. [Reverse a string without using extra space.](#)
+2. [Check if two strings are anagrams.](#)
+3. [Find the longest common prefix among a set of strings.](#)
+4. [Implement the KMP algorithm for pattern matching.](#)
+5. [Find the longest palindromic substring in a string.](#)
 
-Rotate an array by k positions.
+## Linked Lists
+1. [Reverse a singly linked list.](#)
+2. [Detect a cycle in a linked list and find the starting node.](#)
+3. [Merge two sorted linked lists.](#)
+4. [Find the intersection point of two linked lists.](#)
+5. [Remove duplicates from an unsorted linked list.](#)
 
-Merge two sorted arrays without using extra space.
+## Stacks and Queues
+1. [Implement a stack using two queues.](#)
+2. [Implement a queue using two stacks.](#)
+3. [Evaluate a postfix expression using a stack.](#)
+4. [Find the next greater element for each element in an array.](#)
+5. [Implement a circular queue.](#)
 
-Find the missing number in an array of integers from 1 to n.
+## Trees
+1. [Find the height of a binary tree.](#)
+2. [Perform a level order traversal of a binary tree.](#)
+3. [Check if two binary trees are identical.](#)
+4. [Find the lowest common ancestor of two nodes in a binary tree.](#)
+5. [Serialize and deserialize a binary tree.](#)
 
-Find the longest consecutive subsequence in an array.
+## Graphs
+1. [Perform a breadth-first search (BFS) of a graph.](#)
+2. [Perform a depth-first search (DFS) of a graph.](#)
+3. [Find the shortest path in an unweighted graph using BFS.](#)
+4. [Detect a cycle in an undirected graph.](#)
+5. [Implement Dijkstra's algorithm for finding the shortest path in a weighted graph.](#)
 
-Strings
-Reverse a string without using extra space.
+## Sorting and Searching
+1. [Implement the quicksort algorithm.](#)
+2. [Implement the mergesort algorithm.](#)
+3. [Find the k-th smallest element in an unsorted array.](#)
+4. [Perform a binary search on a sorted array.](#)
+5. [Count the number of inversions in an array using a modified mergesort.](#)
 
-Check if two strings are anagrams.
+## Dynamic Programming
+1. [Find the nth Fibonacci number using dynamic programming.](#)
+2. [Solve the 0/1 knapsack problem using dynamic programming.](#)
+3. [Find the longest increasing subsequence in an array.](#)
+4. [Solve the edit distance problem using dynamic programming.](#)
+5. [Find the maximum profit in a stock buy and sell problem.](#)
 
-Find the longest common prefix among a set of strings.
+## Recursion
+1. [Solve the Tower of Hanoi problem.](#)
+2. [Generate all subsets of a given set.](#)
+3. [Solve the N-Queens problem.](#)
+4. [Find the nth Catalan number using recursion.](#)
+5. [Generate all permutations of a string.](#)
 
-Implement the KMP algorithm for pattern matching.
+## Backtracking
+1. [Solve the Sudoku puzzle.](#)
+2. [Find all possible combinations of k numbers that add up to a target sum.](#)
+3. [Solve the Rat in a Maze problem.](#)
+4. [Generate all valid parenthesis combinations for a given number of pairs.](#)
+5. [Find all Hamiltonian paths in a graph.](#)
 
-Find the longest palindromic substring in a string.
-
-Linked Lists
-Reverse a singly linked list.
-
-Detect a cycle in a linked list and find the starting node.
-
-Merge two sorted linked lists.
-
-Find the intersection point of two linked lists.
-
-Remove duplicates from an unsorted linked list.
-
-Stacks and Queues
-Implement a stack using two queues.
-
-Implement a queue using two stacks.
-
-Evaluate a postfix expression using a stack.
-
-Find the next greater element for each element in an array.
-
-Implement a circular queue.
-
-Trees
-Find the height of a binary tree.
-
-Perform a level order traversal of a binary tree.
-
-Check if two binary trees are identical.
-
-Find the lowest common ancestor of two nodes in a binary tree.
-
-Serialize and deserialize a binary tree.
-
-Graphs
-Perform a breadth-first search (BFS) of a graph.
-
-Perform a depth-first search (DFS) of a graph.
-
-Find the shortest path in an unweighted graph using BFS.
-
-Detect a cycle in an undirected graph.
-
-Implement Dijkstra's algorithm for finding the shortest path in a weighted graph.
-
-Sorting and Searching
-Implement the quicksort algorithm.
-
-Implement the mergesort algorithm.
-
-Find the k-th smallest element in an unsorted array.
-
-Perform a binary search on a sorted array.
-
-Count the number of inversions in an array using a modified mergesort.
-
-Dynamic Programming
-Find the nth Fibonacci number using dynamic programming.
-
-Solve the 0/1 knapsack problem using dynamic programming.
-
-Find the longest increasing subsequence in an array.
-
-Solve the edit distance problem using dynamic programming.
-
-Find the maximum profit in a stock buy and sell problem.
-
-Recursion
-Solve the Tower of Hanoi problem.
-
-Generate all subsets of a given set.
-
-Solve the N-Queens problem.
-
-Find the nth Catalan number using recursion.
-
-Generate all permutations of a string.
-
-Backtracking
-Solve the Sudoku puzzle.
-
-Find all possible combinations of k numbers that add up to a target sum.
-
-Solve the Rat in a Maze problem.
-
-Generate all valid parenthesis combinations for a given number of pairs.
-
-Find all Hamiltonian paths in a graph.
-
-Bit Manipulation
-Find the single non-repeating element in an array of pairs.
-
-Count the number of set bits in an integer.
-
-Find the two non-repeating elements in an array of pairs.
-
-Reverse the bits of a given integer.
-
-Check if a number is a power of two using bit manipulation.
+## Bit Manipulation
+1. [Find the single non-repeating element in an array of pairs.](#)
+2. [Count the number of set bits in an integer.](#)
+3. [Find the two non-repeating elements in an array of pairs.](#)
+4. [Reverse the bits of a given integer.](#)
+5. [Check if a number is a power of two using bit manipulation.](#)
