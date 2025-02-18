@@ -1,0 +1,153 @@
+Java Memory Management and Garbage Collector
+
+2 Types of Memory
+------------------
+- Stack
+- Heap
+
+Both Stack and Heap are created by JVM and Stored in RAM
+
+Stack Memory:
+-------------
+- Store Temporary Variables and separate memory block for methods
+- Store Primitive data types
+- Store Reference of the heap objects
+   -> Strong reference
+   -> Weak Reference
+         * Soft Reference
+- Each thread has it's own Stack memory
+- Variables within a scope is only visible as soon as any variable goes out of the SCOPE, it get deleted
+  from the Stack (in LIFO order)
+- When Stack memory goes full , it throws "java.lang.StackOverflowError"
+
+public class MemoryManagementJava {
+
+    public static void main(String args[]) {
+        int[] array = new int[10];
+        MemoryManagementJava obj = new MemoryManagementJava();
+        int primitiveVariable1 = 10;
+        Person personObj = new Person();
+        String stringLiteral = "24";
+        obj.memoryManagementTest(personObj);
+    }
+
+    private void memoryManagementTest(Person personObj)
+    {
+         Person personObj2 = personObj;
+         String stringLiteral2 = "24";
+         String stringLiteral3 = new String("24");
+    }
+}
+
+ Stack:
+ -------------------------------------------------
+ | Main Method Frame                             |
+ |-----------------------------------------------|
+ | array (reference)                             |
+ | obj (reference)                               |
+ | primitiveVariable1                            |
+ | personObj (reference)                         |
+ | stringLiteral (reference)                     |
+ -------------------------------------------------
+ | memoryManagementTest Method Frame             |
+ |-----------------------------------------------|
+ | personObj2 (reference)                        |
+ | stringLiteral2 (reference)                    |
+ | stringLiteral3 (reference)                    |
+ -------------------------------------------------
+
+ Heap:
+ -------------------------------------------------
+ | int[10] array                                 |
+ | MemoryManagementJava object                   |
+ | Person object                                 |
+ | String "24" (new instance)                    |
+ -------------------------------------------------
+
+ String Pool (Part of Heap):
+ -------------------------------------------------
+ | String "24" (literal)                         |
+ -------------------------------------------------
+
+
+ `System.gc()` is a method in Java that suggests to the JVM (Java Virtual Machine) to perform garbage collection. Garbage collection is the process of reclaiming memory that is no longer in use by the program, freeing it up for other objects and resources.
+
+ ### Key Points about `System.gc()`:
+
+ 1. **Request to JVM:**
+     - `System.gc()` is a request to the JVM to run the garbage collector. However, it's not guaranteed that the garbage collection will actually occur immediately or at all. The JVM may decide to ignore the request.
+
+ 2. **Garbage Collection:**
+     - Garbage collection helps manage memory by automatically cleaning up objects that are no longer reachable or needed. This prevents memory leaks and helps optimize memory usage.
+
+ 3. **Methods of Garbage Collection:**
+     - There are different garbage collection algorithms and strategies used by the JVM, such as mark-and-sweep, generational garbage collection, and more. These algorithms determine how and when memory is reclaimed.
+
+ 4. **Performance Impact:**
+     - Calling `System.gc()` can have a performance impact because it can potentially pause the application while garbage collection is being performed. It's generally recommended to let the JVM manage garbage collection automatically.
+
+ ### Example Usage:
+ Here's a simple example of how `System.gc()` might be used:
+ ```java
+
+ public class GarbageCollectionExample {
+     public static void main(String[] args) {
+         // Create some objects
+         for (int i = 0; i < 1000; i++) {
+             new Object();
+         }
+
+         // Suggest garbage collection
+         System.gc();
+
+         // Continue with the program
+         System.out.println("Garbage collection suggested.");
+     }
+ }
+ ```
+
+ In this example, a loop creates a large number of objects, and then `System.gc()` is called to suggest garbage collection. Remember, it's just a suggestion to the JVM and not a command.
+
+ Heap Memory: Heap memory is used for dynamic memory allocation of Java objects and their data. It is divided into two main regions:
+
+   1.)Young Generation:
+         -> Eden Space: Where new objects are allocated.
+         -> Survivor Spaces (S0 and S1): Where objects that survive garbage collection(gc invoke and performs Mark and sweep algo) in the Eden Space are moved.
+                                         Gc marks objects with no reference and sweeps algo remove those from eden memory. Sweep also move surviving objects to S0.
+                                         Again when gc is invoked it performs same mark and sweep from eden and s0 promoted to s1.
+
+   2.) Old Generation:
+         -> Long-Lived Objects: Objects that have survived multiple garbage collection cycles in the Young Generation are promoted here. (Major GC)
+
+ This division helps manage memory more efficiently by categorizing objects based on their lifespan.
+
+ Visual Representation:
+          +--------------------------------+
+          |           Heap Memory          |
+          +--------------------------------+
+          |                                |
+          |    +---------------------+     |
+          |    |    Young Generation |     |
+          |    |    +-------------+  |     |
+          |    |    | Eden Space  |  |     |
+          |    |    +-------------+  |     |
+          |    |    | Survivor S0 |  |     |
+          |    |    +-------------+  |     |
+          |    |    | Survivor S1 |  |     |
+          |    |    +-------------+  |     |
+          |    +---------------------+     |
+          |                                |
+          |    +---------------------+     |
+          |    |    Old Generation   |     |
+          |    |                     |     |
+          |    +---------------------+     |
+          |                                |
+          +--------------------------------+
+
+ >> Different Ways to Collect Garbage
+
+ ---> By making reference to object null
+ ---> By using an anonymous object
+ ---> By Pointing one's reference to another object or reference
+
+ https://www.youtube.com/watch?v=rkJ7VENErtM&list=PLkJOnuuvS98a5RG8WXBUC9Lp-sG6FvOos
