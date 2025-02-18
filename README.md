@@ -347,3 +347,140 @@ public class MyClass {
 }
 ```
 ```
+
+### Topic-wise coding problems for interview preparation:
+
+Table of Contents :
+
+Arrays
+Strings
+Linked Lists
+Stacks and Queues
+Trees
+Graphs
+Sorting and Searching
+Dynamic Programming
+Recursion
+Backtracking
+Bit Manipulation
+
+Arrays
+Find the maximum subarray sum using Kadane's Algorithm.
+
+Rotate an array by k positions.
+
+Merge two sorted arrays without using extra space.
+
+Find the missing number in an array of integers from 1 to n.
+
+Find the longest consecutive subsequence in an array.
+
+Strings
+Reverse a string without using extra space.
+
+Check if two strings are anagrams.
+
+Find the longest common prefix among a set of strings.
+
+Implement the KMP algorithm for pattern matching.
+
+Find the longest palindromic substring in a string.
+
+Linked Lists
+Reverse a singly linked list.
+
+Detect a cycle in a linked list and find the starting node.
+
+Merge two sorted linked lists.
+
+Find the intersection point of two linked lists.
+
+Remove duplicates from an unsorted linked list.
+
+Stacks and Queues
+Implement a stack using two queues.
+
+Implement a queue using two stacks.
+
+Evaluate a postfix expression using a stack.
+
+Find the next greater element for each element in an array.
+
+Implement a circular queue.
+
+Trees
+Find the height of a binary tree.
+
+Perform a level order traversal of a binary tree.
+
+Check if two binary trees are identical.
+
+Find the lowest common ancestor of two nodes in a binary tree.
+
+Serialize and deserialize a binary tree.
+
+Graphs
+Perform a breadth-first search (BFS) of a graph.
+
+Perform a depth-first search (DFS) of a graph.
+
+Find the shortest path in an unweighted graph using BFS.
+
+Detect a cycle in an undirected graph.
+
+Implement Dijkstra's algorithm for finding the shortest path in a weighted graph.
+
+Sorting and Searching
+Implement the quicksort algorithm.
+
+Implement the mergesort algorithm.
+
+Find the k-th smallest element in an unsorted array.
+
+Perform a binary search on a sorted array.
+
+Count the number of inversions in an array using a modified mergesort.
+
+Dynamic Programming
+Find the nth Fibonacci number using dynamic programming.
+
+Solve the 0/1 knapsack problem using dynamic programming.
+
+Find the longest increasing subsequence in an array.
+
+Solve the edit distance problem using dynamic programming.
+
+Find the maximum profit in a stock buy and sell problem.
+
+Recursion
+Solve the Tower of Hanoi problem.
+
+Generate all subsets of a given set.
+
+Solve the N-Queens problem.
+
+Find the nth Catalan number using recursion.
+
+Generate all permutations of a string.
+
+Backtracking
+Solve the Sudoku puzzle.
+
+Find all possible combinations of k numbers that add up to a target sum.
+
+Solve the Rat in a Maze problem.
+
+Generate all valid parenthesis combinations for a given number of pairs.
+
+Find all Hamiltonian paths in a graph.
+
+Bit Manipulation
+Find the single non-repeating element in an array of pairs.
+
+Count the number of set bits in an integer.
+
+Find the two non-repeating elements in an array of pairs.
+
+Reverse the bits of a given integer.
+
+Check if a number is a power of two using bit manipulation.
