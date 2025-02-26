@@ -1,4 +1,4 @@
-package com.core.javacodes;
+package com.core.javacodes.Arrays_Hashing;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -8,6 +8,8 @@ import java.util.stream.IntStream;
 public class TwoSum {
 
     /*
+    https://leetcode.com/problems/two-sum/description/
+
     Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
      You may assume that each input would have exactly one solution, and you may not use the same element twice.
      You can return the answer in any order.
@@ -38,7 +40,11 @@ public class TwoSum {
 //    using HashMap Two pass
     public int [] twoSumMapTwoPass(int[] nums,int target)
     {
-        Map<Integer,Integer> map = new HashMap<>();
+        //Create a HashMap to store numbers and their indices
+        HashMap<Integer,Integer> map = new HashMap<>();
+
+        // Key --> value / value -- index
+        // Iterate through the array
         for (int i =0; i < nums.length; i++)
         {
             map.put(nums[i],i);
@@ -58,14 +64,20 @@ public class TwoSum {
         Map<Integer,Integer> map = new HashMap<>();
         for (int i =0; i < nums.length; i++)
         {
+            // Calculate the findMe of the current number
             int findMe = target - nums[i];
+
+            // Check if the findMe is already in the Map
             if(map.containsKey(findMe) && map.get(findMe) != i) {
+                //If found return the indices of the findMe and the current number
                 return new int[]{i, map.get(findMe)};
             }
+
+            //Otherwise, add the current number and its index to the map
             map.put(nums[i],i);
         }
 
-        return null;
+        return new int[] {};
     }
 
 //    using streams
