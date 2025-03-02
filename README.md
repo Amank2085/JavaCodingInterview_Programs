@@ -227,74 +227,282 @@ public int add(int a, int b) {
 int result = add(5, 3);
 ```
 
-## Object-Oriented Programming (OOP)
-Java is an object-oriented programming language, which means it supports concepts like inheritance, encapsulation, and polymorphism.
+# Object-Oriented Programming (OOP) Concepts
 
-### Class Definition
+## Classes and Objects
+- **Class**: A blueprint for creating objects. It defines properties and behaviors.
+- **Object**: An instance of a class. It has state and behavior.
+
 ```java
-public class Car {
-    // Fields
-    private String color;
-    private String model;
+class Animal {
+    String name;
+    int age;
 
-    // Constructor
-    public Car(String color, String model) {
-        this.color = color;
-        this.model = model;
+    Animal(String name, int age) {
+        this.name = name;
+        this.age = age;
     }
 
-    // Method
-    public void displayInfo() {
-        System.out.println("Car color: " + color + ", model: " + model);
+    void makeSound() {
+        System.out.println("Some sound");
     }
 }
 
-// Object Creation
-Car myCar = new Car("Red", "Toyota");
-myCar.displayInfo();
+Animal dog = new Animal("Buddy", 5);
+dog.makeSound();
+```
+
+## Inheritance
+- **Inheritance**: A mechanism where one class acquires the properties and behaviors of a parent class.
+
+```java
+class Animal {
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Barking...");
+    }
+}
+
+Dog dog = new Dog();
+dog.eat();
+dog.bark();
+```
+
+## Polymorphism
+- **Polymorphism**: The ability of different objects to respond to the same method in different ways.
+
+```java
+class Animal {
+    void makeSound() {
+        System.out.println("Some sound");
+    }
+}
+
+class Dog extends Animal {
+    void makeSound() {
+        System.out.println("Bark");
+    }
+}
+
+Animal myDog = new Dog();
+myDog.makeSound();  // Outputs: Bark
+```
+
+## Abstraction
+- **Abstraction**: Hiding the implementation details and showing only the functionality.
+
+```java
+abstract class Animal {
+    abstract void makeSound();
+
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
+
+class Dog extends Animal {
+    void makeSound() {
+        System.out.println("Bark");
+    }
+}
+
+Dog dog = new Dog();
+dog.makeSound();
+dog.eat();
+```
+
+## Encapsulation
+- **Encapsulation**: Wrapping data (variables) and code (methods) together as a single unit. It restricts direct access to some of an object's components.
+
+```java
+class Person {
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+
+Person person = new Person();
+person.setName("Alice");
+System.out.println(person.getName());
 ```
 
 ## Exception Handling
-Exception handling allows you to handle runtime errors in your programs.
+- **Exception Handling**: A mechanism to handle runtime errors, allowing the program to continue normal execution.
 
 ```java
 try {
-    // code that may throw an exception
-} catch (ExceptionType e) {
-    // code to handle the exception
+    int[] arr = new int[5];
+    System.out.println(arr[10]);  // This will throw ArrayIndexOutOfBoundsException
+} catch (ArrayIndexOutOfBoundsException e) {
+    System.out.println("Index out of bounds");
 } finally {
-    // code that will always execute
+    System.out.println("Finally block executed");
 }
 ```
 
 ## Collections
-Collections framework provides various classes and interfaces for working with groups of objects.
 
-### List Example
+### List
+- **List**: An ordered collection that allows duplicate elements.
+
 ```java
-import java.util.*;
-
 List<String> list = new ArrayList<>();
-list.add("item1");
-list.add("item2");
+list.add("A");
+list.add("B");
+list.add("C");
+for (String s : list) {
+    System.out.println(s);
+}
 ```
 
-### Set Example
-```java
-import java.util.*;
+### Set
+- **Set**: An unordered collection that does not allow duplicate elements.
 
+```java
 Set<String> set = new HashSet<>();
-set.add("item1");
-set.add("item2");
+set.add("A");
+set.add("B");
+set.add("C");
+for (String s : set) {
+    System.out.println(s);
+}
 ```
 
-### Map Example
-```java
-import java.util.*;
+### Queue
+- **Queue**: A collection that follows the First-In-First-Out (FIFO) principle.
 
+```java
+Queue<String> queue = new LinkedList<>();
+queue.add("A");
+queue.add("B");
+queue.add("C");
+while (!queue.isEmpty()) {
+    System.out.println(queue.poll());
+}
+```
+
+### Map
+- **Map**: A collection of key-value pairs, where each key is unique.
+
+```java
 Map<String, String> map = new HashMap<>();
 map.put("key1", "value1");
 map.put("key2", "value2");
+map.put("key3", "value3");
+for (Map.Entry<String, String> entry : map.entrySet()) {
+    System.out.println(entry.getKey() + ": " + entry.getValue());
+}
+```
+
+### Collections Utility Class
+- **Collections Utility Class**: A utility class that provides static methods for operating on collections.
+
+```java
+List<String> list = new ArrayList<>();
+list.add("C");
+list.add("A");
+list.add("B");
+
+Collections.sort(list);
+System.out.println("Sorted List: " + list);
+
+Collections.shuffle(list);
+System.out.println("Shuffled List: " + list);
+
+Collections.reverse(list);
+System.out.println("Reversed List: " + list);
+
+List<String> synchronizedList = Collections.synchronizedList(list);
+```
+
+## Custom Exceptions
+- **Custom Exceptions**: User-defined exceptions for handling specific error conditions.
+
+```java
+class CustomException extends Exception {
+    CustomException(String message) {
+        super(message);
+    }
+}
+
+try {
+    throw new CustomException("This is a custom exception");
+} catch (CustomException e) {
+    System.out.println(e.getMessage());
+}
+```
+
+## CopyOnWriteArrayList
+- **CopyOnWriteArrayList**: A thread-safe variant of `ArrayList`.
+
+```java
+CopyOnWriteArrayList<String> list = new CopyOnWriteArrayList<>();
+list.add("A");
+list.add("B");
+for (String s : list) {
+    System.out.println(s);
+}
+```
+
+## CopyOnWriteArraySet
+- **CopyOnWriteArraySet**: A thread-safe variant of `HashSet`.
+
+```java
+CopyOnWriteArraySet<String> set = new CopyOnWriteArraySet<>();
+set.add("A");
+set.add("B");
+for (String s : set) {
+    System.out.println(s);
+}
+```
+
+## ConcurrentSkipListMap
+- **ConcurrentSkipListMap**: A thread-safe variant of `TreeMap`.
+
+```java
+ConcurrentSkipListMap<String, String> map = new ConcurrentSkipListMap<>();
+map.put("key1", "value1");
+map.put("key2", "value2");
+for (Map.Entry<String, String> entry : map.entrySet()) {
+    System.out.println(entry.getKey() + ": " + entry.getValue());
+}
+```
+
+## SortedMap and NavigableMap
+
+### SortedMap Interface
+- **SortedMap**: A Map that maintains its elements in ascending order.
+
+```java
+SortedMap<String, String> sortedMap = new TreeMap<>();
+sortedMap.put("key1", "value1");
+sortedMap.put("key2", "value2");
+for (Map.Entry<String, String> entry : sortedMap.entrySet()) {
+    System.out.println(entry.getKey() + ": " + entry.getValue());
+}
+```
+
+### NavigableMap Interface
+- **NavigableMap**: A SortedMap that provides methods to navigate through the map.
+
+```java
+NavigableMap<String, String> navigableMap = new TreeMap<>();
+navigableMap.put("key1", "value1");
+navigableMap.put("key2", "value2");
+for (Map.Entry<String, String> entry : navigableMap.entrySet()) {
+    System.out.println(entry.getKey() + ": " + entry.getValue());
+}
 ```
 
 ## File I/O
