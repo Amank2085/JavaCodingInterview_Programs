@@ -17,7 +17,7 @@ Sure! Here's the Table of Contents in the right order with the subtopics nested 
    - [Polymorphism](#polymorphism)
    - [Abstraction](#abstraction)
    - [Encapsulation](#encapsulation)
-8. [Exception Handling](#exception-handling)
+8. [Exception Handling in Java](#exception-handling-in-java)
    - [Try-Catch Block](#try-catch-block)
    - [Throw and Throws](#throw-and-throws)
    - [Custom Exceptions](#custom-exceptions)
