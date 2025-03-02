@@ -336,17 +336,61 @@ person.setName("Alice");
 System.out.println(person.getName());
 ```
 
-## Exception Handling
-- **Exception Handling**: A mechanism to handle runtime errors, allowing the program to continue normal execution.
+## Exception Handling in Java
 
+#### What is Exception Handling?
+- **Exception:** An event that disrupts the normal flow of a program.
+- **Exception Handling:** Mechanism to handle runtime errors to maintain normal program flow.
+
+#### Why Do We Need Exception Handling?
+- **Error Detection:** Identifies errors during execution.
+- **Error Handling:** Provides a way to respond to various error conditions.
+- **Program Continuity:** Ensures the program doesn’t crash and continues to operate smoothly.
+- **Resource Management:** Helps in proper resource management like closing files, releasing memory, etc.
+
+#### Try-Catch Block
+- **Try Block:** Encloses code that might throw exceptions.
+- **Catch Block:** Handles exceptions thrown by the try block.
 ```java
 try {
-    int[] arr = new int[5];
-    System.out.println(arr[10]);  // This will throw ArrayIndexOutOfBoundsException
-} catch (ArrayIndexOutOfBoundsException e) {
-    System.out.println("Index out of bounds");
-} finally {
-    System.out.println("Finally block executed");
+    // Code that may throw an exception
+} catch (ExceptionType e) {
+    // Handle exception
+}
+```
+
+#### Throw and Throws
+- **Throw:** Used to explicitly throw an exception.
+- **Throws:** Declares exceptions that a method can throw.
+```java
+// Throw example
+if (someCondition) {
+    throw new ExceptionType("Error message");
+}
+
+// Throws example
+public void myMethod() throws ExceptionType {
+    // Method logic
+}
+```
+
+#### Custom Exceptions
+- Create user-defined exceptions by extending the `Exception` class.
+```java
+class MyCustomException extends Exception {
+    public MyCustomException(String message) {
+        super(message);
+    }
+}
+
+public class TestCustomException {
+    public static void main(String[] args) {
+        try {
+            throw new MyCustomException("Custom error message");
+        } catch (MyCustomException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
 ```
 
