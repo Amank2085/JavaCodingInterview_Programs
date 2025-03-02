@@ -1,6 +1,4 @@
-package com.core.javacodes.Arrays_Hashing;
-
-import java.util.Arrays;
+package com.core.javacodes.ArraysHashing;
 
 public class ValidAnagram242 {
     /*

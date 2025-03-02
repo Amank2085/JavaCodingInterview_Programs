@@ -1,4 +1,4 @@
-package com.core.javacodes.Arrays_Hashing;
+package com.core.javacodes.ArraysHashing;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -34,7 +34,7 @@ public class TwoSum {
                 }
             }
         }
-        return null;
+        return new int[] {};
     }
 
 //    using HashMap Two pass
@@ -56,7 +56,7 @@ public class TwoSum {
             if(map.containsKey(findMe) && map.get(findMe) != i)
                 return new int[]{i, map.get(findMe)};
         }
-        return null;
+        return new int[] {};
     }
 
     public int [] twoSumMapSinglePass(int[] nums,int target)
@@ -80,7 +80,7 @@ public class TwoSum {
         return new int[] {};
     }
 
-//    using streams
+//    -using streams
     public static int[] twoSumStream(int[] nums, int target)
     {
         Map<Integer, Integer> numMap = new HashMap<>();
