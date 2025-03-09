@@ -1,4 +1,4 @@
-package com.core.javacodes;
+package com.core.javacodes.ArraysHashing;
 
 import java.util.Arrays;
 

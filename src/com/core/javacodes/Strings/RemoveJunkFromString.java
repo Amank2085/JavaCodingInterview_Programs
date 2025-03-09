@@ -1,4 +1,4 @@
-package com.core.javacodes;
+package com.core.javacodes.Strings;
 
 public class RemoveJunkFromString {
     public static void main(String[] args) {

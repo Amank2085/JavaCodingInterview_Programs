@@ -1,4 +1,4 @@
-package com.core.javacodes;
+package com.core.javacodes.AbstractionConcept;
 
 import java.util.Arrays;
 

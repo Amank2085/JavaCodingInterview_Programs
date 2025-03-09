@@ -99,7 +99,7 @@ Sure! Here's the Table of Contents in the right order with the subtopics nested 
 Java programs are composed of classes and methods. The `main` method is the entry point for any Java application.
 
 ```java
-public class Main {
+public class com.core.javacodes.Main {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
     }

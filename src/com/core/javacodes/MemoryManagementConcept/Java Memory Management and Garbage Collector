@@ -41,7 +41,7 @@ public class MemoryManagementJava {
 
  Stack:
  -------------------------------------------------
- | Main Method Frame                             |
+ | com.core.javacodes.Main Method Frame                             |
  |-----------------------------------------------|
  | array (reference)                             |
  | obj (reference)                               |
@@ -149,5 +149,16 @@ public class MemoryManagementJava {
  ---> By making reference to object null
  ---> By using an anonymous object
  ---> By Pointing one's reference to another object or reference
+
+--> String n1 = new String("new World");
+    In above statement, two objects are created.
+
+    1. String literal "new World": When the code is executed, the string literal "new World" is first created and stored in the string pool. This is because all string literals in Java are interned and stored in a shared pool for reuse.
+    2. New String object: The new String("new World") expression creates a new String object in the heap, which is distinct from the string literal in the pool. This new String object is initialized with the value of the string literal "new World".
+
+  Here's a visual representation of the process:
+    1.Create the string literal "new World" in the string pool.
+    2.Create a new String object in the heap with the value "new World".
+  So, in total, there are two String objects created in this scenario: one in the string pool and one in the heap.
 
  https://www.youtube.com/watch?v=rkJ7VENErtM&list=PLkJOnuuvS98a5RG8WXBUC9Lp-sG6FvOos

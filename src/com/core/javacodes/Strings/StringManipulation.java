@@ -1,4 +1,4 @@
-package com.core.javacodes;
+package com.core.javacodes.Strings;
 
 import java.util.OptionalInt;
 import java.util.stream.IntStream;
