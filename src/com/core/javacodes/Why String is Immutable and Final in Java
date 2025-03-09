@@ -5,9 +5,6 @@
 2. **String Pooling**: JVM maintains a string pool to optimize memory. If a string exists, the same reference is used instead of creating a new one, which wouldn't be safe if Strings were mutable.
 3. **Thread Safety**: Immutable objects are inherently thread-safe as they can't change state, avoiding data corruption or the need for synchronization.
 
--- amankk2224
-   aman21159 ---
-
 ### `final` Keyword:
 1. **Prevent Subclassing**: Declaring the String class as `final` prevents it from being subclassed, ensuring the fundamental behavior of String objects remains unchanged.
 2. **Performance**: Avoids additional overhead associated with subclassing and method calls, optimizing performance.
@@ -98,23 +95,3 @@ Here's a summary diagram:
 | str1 = "World" |  
 +---------------+  
 ```
-
- /*
-    Mein pehle vachan se tumhara haat mangti hun
-    Dharm aur pooja mein tumhara saath maangti hun
-    Dusre vachan mein na hichkichana , ulajna
-    Mere maa baap ko bhi apna samajhna
-    Teesre vachan se bhi dono jude ho
-    Jawani bhi dekhe aur saathe
-    aur saath mein budhe ho
-    Chuthe vachan ke liye himmat jutana hoga
-    Ab tumhe ghar ka bhaar uthana hoga
-    Paanchve vachan mein priye , haa samucha karoge
-    Len den kharch aur ghar ke har kaam mein pucha karoge
-    chatve vachan do - do sarte h
-    ek ek karke uspe baat krte hai
-    tum sakhiyon ke samne na mujh par chillaoge
-    jue jaise karm dekhte hi dur ho jaonge
-    aur tum itne jo pyare ho satva vachan to jaante hi hoge
-    Har parayi stree ko , Mata saman maante hi hoge
-     */
