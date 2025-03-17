@@ -1,0 +1,94 @@
+1. What is a class?
+
+2. What is the difference between heap and stack?
+
+3. What is the difference between instance variable and a local variable?
+
+4. What is Constructor? Types of Constructor?
+
+5. Difference between Break and Continue?
+
+6. To exit the system from the current execution what command is used in java?
+
+7. Addition features in Java 8?
+
+8. Difference between for and foreach loops in java and use of it?
+
+9. Can we have multiple public class within a class?
+
+10. What is inheritance? Types of inheritance? Does multiple inheritances allow in java? If not, why?
+
+11. What is polymorphism? How we can achieve it?
+
+12. Difference between method overloading and method overriding?
+
+13. Can we achieve method overloading when two methods have an only difference in return type?
+
+14. Method overloading and overriding examples in the Selenium project?
+
+15. What is encapsulation?
+
+16. What are IS-A and HAS-A relation in java With examples?
+
+17. What is final and super keyword? Difference between them?
+
+18. Explain runtime polymorphism and compile-time with examples?
+
+19. Can the final/Static method be overloaded?
+
+20. Can final/Static methods be overridden?
+
+21. Can we overload the main method?
+
+22. Can we execute a class without a main method?
+
+23. What is Package?
+
+24. What is an Abstract Class? Write an example code?
+
+25. What is an Interface? What is the difference from the Abstract class?
+
+26. Can we use private and protect access modified inside an Interface?
+
+27. Can multiple inheritances support in Interface?
+
+28. Examples of Abstract and Interface used in the selenium project?
+
+29. What is Exception and what is the base class of it?
+
+30. What is Final, Finally, Finalize?
+
+31. What is done in finally block?
+
+32. What is garbage collection java? How it is done?
+
+33. What is the difference between Throws and Throw?
+
+34. Gives some examples of java and Selenium?
+
+35. What is Java Reflection, Singleton?
+
+36. What is threading? How does multithreading achieve? How to initiate a thread in java? What do you mean by thread-safe?
+
+37. What is the difference between collection and collections?
+
+38. collection type in java?
+
+39. Difference between Array and ArrayList?
+
+40. Difference between Set and HashSet?
+
+41. Difference between HashMap and HasTable?
+
+42. Difference between ArrayList and LinkList?
+
+43. How do you use Map collection your project?
+
+44. Can we have a duplicate key value in HasMap?
+
+45. How to fetch values from a hashmap?
+
+46. Difference between String, StringBuilder and StringBuffer?
+
+
+

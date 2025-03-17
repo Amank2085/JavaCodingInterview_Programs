@@ -2,6 +2,13 @@ package com.core.javacodes.Strings;
 
 public class ReverseString {
 
+    /*
+    * Using toCharArray() method
+    * Using charAt(int index) method
+    * Using java.lang.StringBuffer class provided reverse() method
+    * Using java.lang.StringBuilder class provided reverse() method
+     */
+
     public String reverseString(String input)
     {
         int length = input.length();
