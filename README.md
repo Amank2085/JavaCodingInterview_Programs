@@ -125,6 +125,64 @@ Java has both primitive and non-primitive data types.
 - **Classes**
 - **Interfaces**
 
+## Java Data Types and Variables
+
+# Variables in Java
+A variable is a named container that holds a value of a specific type. You must declare a variable before using it, specifying its data type and name. Variables can be initialized (assigned a value) during declaration or later.
+Syntax
+```java
+type variableName;           // Declaration
+type variableName = value;   // Declaration + Initialization
+```
+Examples
+```java
+int age = 25;              // Integer variable
+double height = 5.9;       // Decimal variable
+String name = "Alice";     // String variable
+```
+Naming Rules
+Must start with a letter, _, or $.
+Can include letters, digits (0-9), _, or $.
+Case-sensitive (e.g., age ≠ Age).
+Cannot use Java keywords (e.g., int, class).
+
+2. Reference Data Types
+Reference types are objects, storing references to data rather than the data itself. Common examples:
+String: A sequence of characters.
+```java
+String text = "Hello, Java!";
+Arrays: Collections of elements of the same type.
+```java
+int[] numbers = {1, 2, 3};
+Classes/Interfaces: User-defined or built-in (e.g., ArrayList).
+Reference types can be assigned null to indicate no value.
+Example Program
+Here’s a simple Java program demonstrating variables and data types:
+```java
+public class Main {
+    public static void main(String[] args) {
+        // Primitive types
+        int age = 30;
+        double salary = 75000.50;
+        char grade = 'A';
+        boolean isEmployed = true;
+
+        // Reference type
+        String name = "Bob";
+
+        // Output
+        System.out.println(name + " is " + age + ", earns $" + salary + ", grade: " + grade + ", employed: " + isEmployed);
+    }
+}
+Output:
+Bob is 30, earns $75000.5, grade: A, employed: true
+```
+
+Key Points
+Primitive vs. Reference: Primitives hold values directly; reference types hold memory addresses.
+Scope: Variables are only accessible within their declared block (e.g., method, class).
+Default Values: Local variables need initialization; class-level variables get defaults (e.g., 0 for int, null for objects).
+
 ## Operators
 ### Arithmetic Operators
 - Addition: `+`
