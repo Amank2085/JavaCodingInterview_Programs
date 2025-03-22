@@ -943,11 +943,6 @@ In Java, `this` is a reference variable that points to the **current instance**.
 - **Supports Method Chaining**    – Allows methods to return the current instance for **fluent coding style**.  
 - **Passes the Current Instance** – Helps in **object interaction** by passing the object to methods or constructors of another class.  
 
----
-
-Here is your `README.md` file content with short, to-the-point interview answers:  
-
-```md
 # Immutable Classes in Java
 
 ## What is an Immutable Class in Java?
