@@ -994,25 +994,149 @@ dog.eat();
 ```
 
 ## Encapsulation
-- **Encapsulation**: Wrapping data (variables) and code (methods) together as a single unit. It restricts direct access to some of an object's components.
 
+# **Encapsulation in Java**
+
+## **What is Encapsulation?**
+Encapsulation is one of the **four fundamental principles** of Object-Oriented Programming (**OOP**) in Java.  
+It refers to **wrapping** the **data (variables)** and **methods (functions)** together into a **single unit (class)** while **restricting direct access** to some of the object's details.
+
+### **Key Concepts of Encapsulation**
+- **Data Hiding**: Instance variables are kept **private** and cannot be accessed directly.
+- **Getter and Setter Methods**: Public methods are provided to access and update private variables.
+- **Improves Security**: Prevents unauthorized access to sensitive data.
+- **Enhances Maintainability**: Code changes in one part of the program do not affect other parts.
+- **Increases Reusability**: The same class can be used without modification.
+
+---
+
+## **Why is Encapsulation Important in Java?**
+| **Benefit**          | **Description** |
+|----------------------|----------------|
+| **Data Protection**  | Prevents direct modification of variables. |
+| **Improved Security** | Hides implementation details from external access. |
+| **Code Maintainability** | Easy to modify code without affecting other parts of the program. |
+| **Reusability** | Encapsulated code can be reused without modification. |
+| **Control Over Data** | Access to variables is controlled using getter and setter methods. |
+
+---
+
+## **Example of Encapsulation in Java**
+### **Encapsulated Class with Getter and Setter Methods**
 ```java
-class Person {
-    private String name;
+class BankAccount {
+    private String accountHolder;
+    private double balance;
 
-    public String getName() {
-        return name;
+    // Constructor
+    public BankAccount(String accountHolder, double balance) {
+        this.accountHolder = accountHolder;
+        this.balance = balance;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    // Getter method to retrieve account holder's name
+    public String getAccountHolder() {
+        return accountHolder;
+    }
+
+    // Setter method to update account holder's name
+    public void setAccountHolder(String accountHolder) {
+        this.accountHolder = accountHolder;
+    }
+
+    // Getter method to retrieve balance
+    public double getBalance() {
+        return balance;
+    }
+
+    // Setter method to update balance with validation
+    public void setBalance(double balance) {
+        if (balance >= 0) {
+            this.balance = balance;
+        } else {
+            System.out.println("Balance cannot be negative!");
+        }
+    }
+
+    // Method to deposit money
+    public void deposit(double amount) {
+        if (amount > 0) {
+            this.balance += amount;
+            System.out.println("Deposited: $" + amount);
+        } else {
+            System.out.println("Deposit amount must be positive.");
+        }
+    }
+
+    // Method to withdraw money
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            this.balance -= amount;
+            System.out.println("Withdrawn: $" + amount);
+        } else {
+            System.out.println("Insufficient balance or invalid amount!");
+        }
     }
 }
 
-Person person = new Person();
-person.setName("Alice");
-System.out.println(person.getName());
+public class Main {
+    public static void main(String[] args) {
+        // Creating an encapsulated object
+        BankAccount account = new BankAccount("John Doe", 1000);
+
+        // Accessing data using getters
+        System.out.println("Account Holder: " + account.getAccountHolder());
+        System.out.println("Initial Balance: $" + account.getBalance());
+
+        // Updating balance using setters
+        account.deposit(500);
+        account.withdraw(300);
+        account.setBalance(-100); // Invalid operation
+
+        System.out.println("Final Balance: $" + account.getBalance());
+    }
+}
 ```
+### **Output:**
+```
+Account Holder: John Doe
+Initial Balance: $1000.0
+Deposited: $500.0
+Withdrawn: $300.0
+Balance cannot be negative!
+Final Balance: $1200.0
+```
+**Explanation:**
+- The variables `accountHolder` and `balance` are **private** (cannot be accessed directly).
+- `getBalance()` and `setBalance()` **control access** to balance.
+- **Validation** is added in `setBalance()`, `deposit()`, and `withdraw()` to prevent invalid operations.
+
+---
+
+## **Encapsulation in Real-World Applications**
+Encapsulation is widely used in Java programming, including:
+1. **Banking Applications** (e.g., Account details should not be modified directly)
+2. **Medical Systems** (e.g., Patient records should be secure)
+3. **E-commerce Websites** (e.g., User data should be hidden and only accessible via methods)
+4. **Game Development** (e.g., Player stats should be modified through controlled methods)
+
+---
+
+## **Key Takeaways**
+| **Feature**              | **Encapsulation in Java**                                    |
+|--------------------------|--------------------------------------------------------------|
+| **Access Control**       | Uses `private` variables and `public` getter/setter methods. |
+| **Data Security**        | Prevents unauthorized modification of variables.             |
+| **Code Maintainability** | Changes in one class do not affect others.                   |
+| **Reusability**          | The class can be reused without modifications.               |
+
+---
+
+## **Conclusion**
+- **Encapsulation** is a core OOP concept in Java.
+- It **hides data** and **ensures controlled access** through methods.
+- It **improves security, maintainability, and reusability** of code.
+- **Encapsulation is widely used** in real-world applications for data protection.
 
 ## Exception Handling in Java
 
