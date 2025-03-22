@@ -11,7 +11,7 @@ Sure! Here's the Table of Contents in the right order with the subtopics nested 
 4. [Control Statements](#control-statements)
 5. [Loops](#loops)
 6. [Methods](#methods)
-7. [Object-Oriented Programming (OOP)](#object-oriented-programming-oop)
+7. [Object-Oriented Programming (OOP) Concepts](#object-oriented-programming-oop-concepts)
    - [Classes and Objects](#classes-and-objects)
    - [Inheritance](#inheritance)
    - [Polymorphism](#polymorphism)
