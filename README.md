@@ -395,32 +395,38 @@ int result = add(5, 3);
         -- **Object**: Created in the heap memory at runtime.
 
 ```java
-// Defining the class "Car"
+// Outer class: Car
 class Car {
-    // Instance Variables (Each object has its own copy)
+    // Instance variables (Each object has its own copy, stored in heap memory)
     private String brand;
     private String model;
     private int year;
     private double price;
 
-    // Static Variable (Shared across all objects of this class)
+    // Static variable (Shared among all objects, stored in method area)
     private static int totalCars = 0;
 
-    // Constructor - Initializes object properties and increments totalCars
+    // Constructor (Local variables: `brand`, `model`, `year`, `price` stored in stack memory)
     public Car(String brand, String model, int year, double price) {
         this.brand = brand;
         this.model = model;
         this.year = year;
         this.price = price;
-        totalCars++; // Increment static variable when a new car is created
+        totalCars++; // Increment static variable (stored in method area)
     }
 
     // Instance Method: Displays car details
     public void displayCarInfo() {
-        System.out.println("Car Brand: " + brand);
+        // Local variables: `message`, `taxRate`, `finalPrice` (Stored in stack memory)
+        String message = "Car Details:";
+        double taxRate = 0.10; // 10% tax rate
+        double finalPrice = price + (price * taxRate); // Price after tax
+
+        System.out.println(message);
+        System.out.println("Brand: " + brand);
         System.out.println("Model: " + model);
         System.out.println("Year: " + year);
-        System.out.println("Price: $" + price);
+        System.out.println("Price (after tax): $" + finalPrice);
     }
 
     // Static Method: Returns the total number of cars created
@@ -428,14 +434,59 @@ class Car {
         return totalCars;
     }
 
-    // Setter Method (Modifies the price)
-    public void setPrice(double newPrice) {
-        this.price = newPrice;
+    // ============================ //
+    // Static Nested Class: Engine  //
+    // ============================ //
+    static class Engine {
+        private int horsepower;
+        private String type;
+
+        // Constructor (Local variables: `horsepower`, `type` stored in stack memory)
+        public Engine(int horsepower, String type) {
+            this.horsepower = horsepower;
+            this.type = type;
+        }
+
+        // Method to display engine details
+        public void displayEngineInfo() {
+            System.out.println("Engine Horsepower: " + horsepower);
+            System.out.println("Engine Type: " + type);
+        }
     }
 
-    // Getter Method (Retrieves the price)
-    public double getPrice() {
-        return price;
+    // ============================== //
+    // Non-Static Inner Class: Battery //
+    // ============================== //
+    class Battery {
+        private int capacity; // Capacity in kWh
+
+        // Constructor (Local variable: `capacity` stored in stack memory)
+        public Battery(int capacity) {
+            this.capacity = capacity;
+        }
+
+        // Method to display battery details
+        public void displayBatteryInfo() {
+            System.out.println("Battery Capacity: " + capacity + " kWh");
+            System.out.println("This battery belongs to: " + brand + " " + model);
+        }
+    }
+
+    // Method with a Local Inner Class
+    public void showCarWarranty() {
+        // Local variable (Stored in stack memory)
+        int warrantyYears = 5;
+
+        // Local Inner Class (Stored in stack memory until the method executes)
+        class Warranty {
+            public void displayWarrantyInfo() {
+                System.out.println("Warranty Period: " + warrantyYears + " years.");
+            }
+        }
+
+        // Creating an object of the local inner class
+        Warranty warranty = new Warranty();
+        warranty.displayWarrantyInfo();
     }
 }
 ```
@@ -444,22 +495,32 @@ class Car {
 ``` java
 public class Main {
     public static void main(String[] args) {
-        // Creating objects using the constructor
+        // Local variables: `car1`, `car2` (Stored in stack memory)
         Car car1 = new Car("Tesla", "Model S", 2023, 79999.99);
         Car car2 = new Car("BMW", "X5", 2022, 60000.50);
-        Car car3 = new Car("Audi", "A6", 2021, 55000.75);
 
-        // Displaying car details using an instance method
+        // Displaying car details
         System.out.println("Car 1 Details:");
         car1.displayCarInfo();
 
         System.out.println("\nCar 2 Details:");
         car2.displayCarInfo();
 
-        System.out.println("\nCar 3 Details:");
-        car3.displayCarInfo();
+        // Accessing the Static Nested Class (Engine)
+        System.out.println("\nCar 1 Engine Details:");
+        Car.Engine engine1 = new Car.Engine(670, "Electric");
+        engine1.displayEngineInfo();
 
-        // Accessing the static method using the class name
+        // Accessing the Non-Static Inner Class (Battery)
+        System.out.println("\nCar 1 Battery Details:");
+        Car.Battery battery1 = car1.new Battery(100);
+        battery1.displayBatteryInfo();
+
+        // Accessing the Local Inner Class (Defined in a method)
+        System.out.println("\nCar 1 Warranty Details:");
+        car1.showCarWarranty();
+
+        // Displaying total cars created
         System.out.println("\nTotal Cars Created: " + Car.getTotalCars());
     }
 }
