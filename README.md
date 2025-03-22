@@ -6,7 +6,7 @@ Sure! Here's the Table of Contents in the right order with the subtopics nested 
 
 ## Table of Contents
 1. [Basic Syntax](#basic-syntax)
-2. [Data Types](#data-types)
+2. [Java Data Types and Variables](#java-data-types-and-variables)
 3. [Operators](#operators)
 4. [Control Statements](#control-statements)
 5. [Loops](#loops)
@@ -213,7 +213,7 @@ int num = (int) d;  // num = 5 (fraction truncated)
 ```
 ### Variable Scope
 The scope of a variable determines where it can be accessed in a program. Common scopes include:
-# Local Variables: Declared inside a method or block; accessible only within that block.  
+### Local Variables: Declared inside a method or block; accessible only within that block.  
 Must be initialized before use.  
 Example:
 ```java
@@ -222,7 +222,7 @@ void method() {
     System.out.println(x);
 }  // x is inaccessible outside method
 ```
-# Instance Variables: Declared in a class but outside methods; belong to an object.  
+### Instance Variables: Declared in a class but outside methods; belong to an object.  
 Default values apply (e.g., 0 for int, null for objects).  
 Example:
 ```java
@@ -230,7 +230,7 @@ class Person {
     String name;  // Instance variable
 }
 ```
-# Static Variables: Declared with static keyword; belong to the class, not instances.  
+### Static Variables: Declared with static keyword; belong to the class, not instances.  
 Example:
 ```java
 class Example {
@@ -279,10 +279,10 @@ Temperature (int): 98
 Wrapped Age: 30
 ```
 ## Key Points
-Primitive vs. Reference: Primitives store values directly; reference types store memory addresses.
-Default Values: Local variables require initialization; instance/static variables get defaults (e.g., 0 for int, null for String).
-Memory: Primitives use fixed memory (e.g., int = 4 bytes); reference types’ size depends on the object.
-Immutability: String is immutable; arrays are mutable.
+   - Primitive vs. Reference: Primitives store values directly; reference types store memory addresses.
+   - Default Values: Local variables require initialization; instance/static variables get defaults (e.g., 0 for int, null for String).
+   - Memory: Primitives use fixed memory (e.g., int = 4 bytes); reference types’ size depends on the object.
+   - Immutability: String is immutable; arrays are mutable.
 
 ## Operators
 ### Arithmetic Operators
