@@ -526,6 +526,18 @@ public class Main {
 }
 ```
 
+## Key Differences Between Instance and Local Variables  
+
+| Feature              | Instance Variables                          | Local Variables                           |
+|----------------------|---------------------------------------------|-------------------------------------------|
+| **Declared Inside**  | Class (outside methods)                     | Inside methods, constructors, or blocks   |
+| **Scope**            | Available throughout the object's lifetime  | Available only within the method/block    |
+| **Storage**          | Stored in **heap memory**                   | Stored in **stack memory**                |
+| **Default Values**   | Yes (e.g., `0`, `false`, `null`)            | No (must be initialized before use)       |
+| **Access Modifiers** | Can have (`private`, `public`, etc.)        | Cannot have access modifiers              |
+| **Lifetime**         | Exists as long as the object exists         | Exists only during method execution       |
+
+
 ## Inheritance
 - **Inheritance**: A mechanism where one class acquires the properties and behaviors of a parent class.
 
