@@ -106,32 +106,79 @@ public class com.core.javacodes.Main {
 }
 ```
 
-## Data Types
-Java has both primitive and non-primitive data types.
+# Java Data Types and Variables
 
-### Primitive Data Types
-- **byte**: 8-bit integer
-- **short**: 16-bit integer
-- **int**: 32-bit integer
-- **long**: 64-bit integer
-- **float**: Single-precision floating-point
-- **double**: Double-precision floating-point
-- **char**: Single 16-bit Unicode character
-- **boolean**: `true` or `false`
+Java is a statically-typed language, meaning every variable must be declared with a specific data type before use. Java categorizes data types into two main groups: **primitive** and **non-primitive (reference)** data types.
 
-### Non-Primitive Data Types
-- **String**
-- **Arrays**
-- **Classes**
-- **Interfaces**
+---
 
-## Java Data Types and Variables
+## Primitive Data Types
+Primitive data types are the basic building blocks in Java, storing simple values directly in memory. They have predefined sizes and ranges:
 
-# Variables in Java
-A variable is a named container that holds a value of a specific type. You must declare a variable before using it, specifying its data type and name. Variables can be initialized (assigned a value) during declaration or later.
-Syntax
+- **`byte`**: 8-bit signed integer  
+  - Range: `-128` to `127`  
+  - Default: `0`  
+  - Example: `byte b = 100;`
+
+- **`short`**: 16-bit signed integer  
+  - Range: `-32,768` to `32,767`  
+  - Default: `0`  
+  - Example: `short s = 1000;`
+
+- **`int`**: 32-bit signed integer  
+  - Range: `-2^31` to `2^31 - 1` (`-2,147,483,648` to `2,147,483,647`)  
+  - Default: `0`  
+  - Example: `int i = 50000;`
+
+- **`long`**: 64-bit signed integer  
+  - Range: `-2^63` to `2^63 - 1`  
+  - Default: `0L` (suffix `L` required for literals)  
+  - Example: `long l = 123456789L;`
+
+- **`float`**: 32-bit single-precision floating-point (IEEE 754)  
+  - Range: Approximately `±3.4E38` (6-7 decimal digits precision)  
+  - Default: `0.0f` (suffix `f` required for literals)  
+  - Example: `float f = 3.14f;`
+
+- **`double`**: 64-bit double-precision floating-point (IEEE 754)  
+  - Range: Approximately `±1.7E308` (15 decimal digits precision)  
+  - Default: `0.0`  
+  - Example: `double d = 3.14159;`
+
+- **`char`**: 16-bit Unicode character  
+  - Range: `'\u0000'` to `'\uffff'` (0 to 65,535)  
+  - Default: `'\u0000'` (null character)  
+  - Example: `char c = 'A';` or `char c = '\u0041';`
+
+- **`boolean`**: Represents `true` or `false`  
+  - Default: `false`  
+  - Example: `boolean isActive = true;`
+
+---
+
+## Non-Primitive (Reference) Data Types
+Non-primitive data types are objects and store references (memory addresses) to the actual data rather than the data itself. They are created using classes or interfaces and can be assigned `null`.
+
+- **`String`**: A sequence of characters (immutable).  
+  - Example: `String text = "Hello, Java!";`
+
+- **`Arrays`**: Ordered collections of elements of the same type.  
+  - Example: `int[] numbers = {1, 2, 3};` or `int[] numbers = new int[3];`
+
+- **`Classes`**: User-defined or built-in types (e.g., `ArrayList`, `HashMap`).  
+  - Example: `ArrayList<String> list = new ArrayList<>();`
+
+- **`Interfaces`**: Abstract types defining behavior (e.g., `List`, `Map`).  
+  - Example: `List<Integer> nums = new ArrayList<>();`
+
+---
+
+## Variables in Java
+A **variable** is a named container that holds a value of a specific data type. Variables must be declared before use, specifying their type and name. They can be initialized at declaration or later.
+
+### Syntax
 ```java
-type variableName;           // Declaration
+type variableName;           // Declaration only
 type variableName = value;   // Declaration + Initialization
 ```
 Examples
@@ -139,27 +186,63 @@ Examples
 int age = 25;              // Integer variable
 double height = 5.9;       // Decimal variable
 String name = "Alice";     // String variable
+char initial = 'A';        // Character variable
 ```
-Naming Rules
-Must start with a letter, _, or $.
-Can include letters, digits (0-9), _, or $.
-Case-sensitive (e.g., age ≠ Age).
-Cannot use Java keywords (e.g., int, class).
+### Naming Rules
+  - Must start with a letter (a-z, A-Z), underscore (_), or dollar sign ($).
+  - Can include letters, digits (0-9), _, or $.
+  - Case-sensitive (e.g., age ≠ Age).
+  - Cannot use Java reserved keywords (e.g., int, class, public).
 
-2. Reference Data Types
-Reference types are objects, storing references to data rather than the data itself. Common examples:
-String: A sequence of characters.
+### Type Casting
+Type casting converts a value from one data type to another. It can be implicit (automatic) or explicit (manual).
+
+## Implicit Casting
+Smaller type to larger type (no data loss).  
+Example: int to double
 ```java
-String text = "Hello, Java!";
-Arrays: Collections of elements of the same type.
+int num = 10;
+double d = num;  // d = 10.0
+```
+## Explicit Casting
+Larger type to smaller type (possible data loss). Requires a cast operator.  
+Example: double to int
 ```java
-int[] numbers = {1, 2, 3};
-Classes/Interfaces: User-defined or built-in (e.g., ArrayList).
-Reference types can be assigned null to indicate no value.
-Example Program
-Here’s a simple Java program demonstrating variables and data types:
+double d = 5.7;
+int num = (int) d;  // num = 5 (fraction truncated)
+```
+### Variable Scope
+The scope of a variable determines where it can be accessed in a program. Common scopes include:
+# Local Variables: Declared inside a method or block; accessible only within that block.  
+Must be initialized before use.  
+Example:
+```java
+void method() {
+    int x = 10;  // Local to method
+    System.out.println(x);
+}  // x is inaccessible outside method
+```
+# Instance Variables: Declared in a class but outside methods; belong to an object.  
+Default values apply (e.g., 0 for int, null for objects).  
+Example:
+```java
+class Person {
+    String name;  // Instance variable
+}
+```
+# Static Variables: Declared with static keyword; belong to the class, not instances.  
+Example:
+```java
+class Example {
+    static int count = 0;  // Static variable
+}
+```
+#### Example Program
+Here’s an expanded Java program demonstrating data types, variables, casting, and scope:
 ```java
 public class Main {
+    static int instanceCount = 0;  // Static variable
+
     public static void main(String[] args) {
         // Primitive types
         int age = 30;
@@ -169,19 +252,37 @@ public class Main {
 
         // Reference type
         String name = "Bob";
+        int[] scores = {85, 90, 95};
+
+        // Type casting
+        double temp = 98.6;
+        int intTemp = (int) temp;  // Explicit casting
+
+        // Wrapper class
+        Integer wrappedAge = age;  // Autoboxing
 
         // Output
-        System.out.println(name + " is " + age + ", earns $" + salary + ", grade: " + grade + ", employed: " + isEmployed);
+        System.out.println(name + " is " + age + ", earns $" + salary);
+        System.out.println("Grade: " + grade + ", Employed: " + isEmployed);
+        System.out.println("Scores: " + java.util.Arrays.toString(scores));
+        System.out.println("Temperature (int): " + intTemp);
+        System.out.println("Wrapped Age: " + wrappedAge);
     }
 }
-Output:
-Bob is 30, earns $75000.5, grade: A, employed: true
 ```
-
-Key Points
-Primitive vs. Reference: Primitives hold values directly; reference types hold memory addresses.
-Scope: Variables are only accessible within their declared block (e.g., method, class).
-Default Values: Local variables need initialization; class-level variables get defaults (e.g., 0 for int, null for objects).
+### Output
+```java
+Bob is 30, earns $75000.5
+Grade: A, Employed: true
+Scores: [85, 90, 95]
+Temperature (int): 98
+Wrapped Age: 30
+```
+## Key Points
+Primitive vs. Reference: Primitives store values directly; reference types store memory addresses.
+Default Values: Local variables require initialization; instance/static variables get defaults (e.g., 0 for int, null for String).
+Memory: Primitives use fixed memory (e.g., int = 4 bytes); reference types’ size depends on the object.
+Immutability: String is immutable; arrays are mutable.
 
 ## Operators
 ### Arithmetic Operators
