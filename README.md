@@ -927,7 +927,23 @@ Square: 25
 
 ## **Conclusion**
 - **Yes, a constructor can be private** in Java.  
-- It **prevents direct instantiation** and is useful for **Singletons, Factory Methods, and Utility Classes**.  
+- It **prevents direct instantiation** and is useful for **Singletons, Factory Methods, and Utility Classes**.
+
+# **The `this` Keyword in Java**
+
+## **What is `this`?**
+In Java, `this` is a reference variable that points to the **current instance**. It is used to differentiate instance variables, call constructors, return the current instance, and pass the object to methods.
+
+---
+
+## **When and Why is `this` Used?**
+
+- **Avoids Variable Ambiguity**   – Distinguishes instance variables from local variables when they have the same name.  
+- **Calls Another Constructor**   – Enables **constructor chaining** within the same class, reducing duplicate code.  
+- **Supports Method Chaining**    – Allows methods to return the current instance for **fluent coding style**.  
+- **Passes the Current Instance** – Helps in **object interaction** by passing the object to methods or constructors of another class.  
+
+---
 
 ## Inheritance
 - **Inheritance**: A mechanism where one class acquires the properties and behaviors of a parent class.
