@@ -945,6 +945,55 @@ In Java, `this` is a reference variable that points to the **current instance**.
 
 ---
 
+Here is your `README.md` file content with short, to-the-point interview answers:  
+
+```md
+# Immutable Classes in Java
+
+## What is an Immutable Class in Java?
+An immutable class is a class whose objects cannot be modified after creation.
+
+## How to Create an Immutable Class?
+Follow these steps:
+1. Declare the class as `final`.
+2. Make all fields `private` and `final`.
+3. Provide only getter methods, no setters.
+4. Initialize all fields via a constructor.
+5. Avoid exposing mutable objects by returning copies.
+
+## How to Handle Mutable Objects in an Immutable Class?
+Return a **defensive copy** instead of the original reference.
+
+Example:
+```java
+import java.util.Date;
+
+final class ImmutableEmployee {
+    private final String name;
+    private final Date joiningDate;
+
+    public ImmutableEmployee(String name, Date joiningDate) {
+        this.name = name;
+        this.joiningDate = new Date(joiningDate.getTime()); // Defensive copy
+    }
+
+    public String getName() { return name; }
+    public Date getJoiningDate() { return new Date(joiningDate.getTime()); } // Return a copy
+}
+```
+
+## Why Use Immutable Classes?
+- **Thread-safety**: No need for synchronization.
+- **Security**: Prevents unintended modifications.
+- **Consistent Hashing**: Useful in HashMap keys.
+- **Easier Debugging**: No risk of accidental changes.
+
+## Examples of Immutable Classes in Java
+- `String`
+- `Integer`
+- `BigDecimal`
+- `LocalDate` (Java 8+)
+
 ## Inheritance
 - **Inheritance**: A mechanism where one class acquires the properties and behaviors of a parent class.
 
