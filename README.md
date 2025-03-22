@@ -395,22 +395,74 @@ int result = add(5, 3);
         -- **Object**: Created in the heap memory at runtime.
 
 ```java
-class Animal {
-    String name;
-    int age;
+// Defining the class "Car"
+class Car {
+    // Instance Variables (Each object has its own copy)
+    private String brand;
+    private String model;
+    private int year;
+    private double price;
 
-    Animal(String name, int age) {
-        this.name = name;
-        this.age = age;
+    // Static Variable (Shared across all objects of this class)
+    private static int totalCars = 0;
+
+    // Constructor - Initializes object properties and increments totalCars
+    public Car(String brand, String model, int year, double price) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.price = price;
+        totalCars++; // Increment static variable when a new car is created
     }
 
-    void makeSound() {
-        System.out.println("Some sound");
+    // Instance Method: Displays car details
+    public void displayCarInfo() {
+        System.out.println("Car Brand: " + brand);
+        System.out.println("Model: " + model);
+        System.out.println("Year: " + year);
+        System.out.println("Price: $" + price);
+    }
+
+    // Static Method: Returns the total number of cars created
+    public static int getTotalCars() {
+        return totalCars;
+    }
+
+    // Setter Method (Modifies the price)
+    public void setPrice(double newPrice) {
+        this.price = newPrice;
+    }
+
+    // Getter Method (Retrieves the price)
+    public double getPrice() {
+        return price;
     }
 }
+```
+** Creating Objects and Accessing Static Members **
 
-Animal dog = new Animal("Buddy", 5);
-dog.makeSound();
+``` java
+public class Main {
+    public static void main(String[] args) {
+        // Creating objects using the constructor
+        Car car1 = new Car("Tesla", "Model S", 2023, 79999.99);
+        Car car2 = new Car("BMW", "X5", 2022, 60000.50);
+        Car car3 = new Car("Audi", "A6", 2021, 55000.75);
+
+        // Displaying car details using an instance method
+        System.out.println("Car 1 Details:");
+        car1.displayCarInfo();
+
+        System.out.println("\nCar 2 Details:");
+        car2.displayCarInfo();
+
+        System.out.println("\nCar 3 Details:");
+        car3.displayCarInfo();
+
+        // Accessing the static method using the class name
+        System.out.println("\nTotal Cars Created: " + Car.getTotalCars());
+    }
+}
 ```
 
 ## Inheritance
