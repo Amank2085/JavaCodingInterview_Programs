@@ -388,8 +388,8 @@ int result = add(5, 3);
 # Object-Oriented Programming (OOP) Concepts
 
 ## Classes and Objects
-- **Class**: A blueprint for creating objects. It defines properties and behaviors.
-- **Object**: An instance of a class. It has state and behavior.
+- **Class**: A blueprint for creating objects. It defines properties and behaviors. It is set of rules that defines how an object will behave.
+- **Object**: An instance of a class with specific values for it's propeties and access to it's behaviour
 
 ```java
 class Animal {
