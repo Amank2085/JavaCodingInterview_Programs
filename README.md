@@ -16,7 +16,7 @@ Sure! Here's the Table of Contents in the right order with the subtopics nested 
    - [Key Differences Between Instance and Local Variables](#key-differences-between-instance-and-local-variables)
    - [Constructors in Java](#constructors-in-java)
    - [Can Constructors Be Private?](#can-constructors-be-private)
-   - [The `this` Keyword in Java](#the-`this`-keyword-in-java)
+   - [The `this` Keyword in Java](#the-this-keyword-in-java)
    - [Immutable Classes in Java](#immutable-classes-in-java)
    - [Inheritance](#inheritance)
    - [Polymorphism](#polymorphism)
