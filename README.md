@@ -537,6 +537,246 @@ public class Main {
 | **Access Modifiers** | Can have (`private`, `public`, etc.)        | Cannot have access modifiers              |
 | **Lifetime**         | Exists as long as the object exists         | Exists only during method execution       |
 
+# **Constructors in Java**
+
+A **constructor** in Java is a special method used to initialize objects. It is called automatically when an object is created.
+
+## **Characteristics of a Constructor**
+- Has the **same name as the class**.
+- **No return type** (not even `void`).
+- Can be **parameterized** or **non-parameterized**.
+- Used to set **initial values** for object attributes.
+- If no constructor is defined, **Java provides a default constructor**.
+
+---
+
+## **Types of Constructors in Java**
+
+### **1. Default Constructor (No-Arg Constructor)**
+A constructor **without parameters** that initializes default values.
+
+#### **Example:**
+```java
+class Car {
+    String brand;
+    int speed;
+
+    // Default Constructor
+    public Car() {
+        brand = "Unknown";
+        speed = 0;
+        System.out.println("Default Constructor Called");
+    }
+
+    public void display() {
+        System.out.println("Brand: " + brand + ", Speed: " + speed + " km/h");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = new Car(); // Calls the default constructor
+        car1.display();
+    }
+}
+```
+### **Output:**
+```
+Default Constructor Called
+Brand: Unknown, Speed: 0 km/h
+```
+
+---
+
+### **2. Parameterized Constructor**
+A constructor that **accepts arguments** to initialize instance variables.
+
+#### **Example:**
+```java
+class Car {
+    String brand;
+    int speed;
+
+    // Parameterized Constructor
+    public Car(String brand, int speed) {
+        this.brand = brand;
+        this.speed = speed;
+    }
+
+    public void display() {
+        System.out.println("Brand: " + brand + ", Speed: " + speed + " km/h");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = new Car("Tesla", 120);
+        Car car2 = new Car("BMW", 150);
+
+        car1.display();
+        car2.display();
+    }
+}
+```
+### **Output:**
+```
+Brand: Tesla, Speed: 120 km/h
+Brand: BMW, Speed: 150 km/h
+```
+
+---
+
+### **3. Copy Constructor**
+A constructor that **copies values from another object** of the same class.
+
+#### **Example:**
+```java
+class Car {
+    String brand;
+    int speed;
+
+    // Parameterized Constructor
+    public Car(String brand, int speed) {
+        this.brand = brand;
+        this.speed = speed;
+    }
+
+    // Copy Constructor
+    public Car(Car otherCar) {
+        this.brand = otherCar.brand;
+        this.speed = otherCar.speed;
+    }
+
+    public void display() {
+        System.out.println("Brand: " + brand + ", Speed: " + speed + " km/h");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = new Car("Audi", 180);
+        Car car2 = new Car(car1); // Using copy constructor
+
+        car1.display();
+        car2.display();
+    }
+}
+```
+### **Output:**
+```
+Brand: Audi, Speed: 180 km/h
+Brand: Audi, Speed: 180 km/h
+```
+
+---
+
+## **4. Constructor Overloading**
+Java allows **multiple constructors** in a class with different parameter lists.
+
+#### **Example:**
+```java
+class Car {
+    String brand;
+    int speed;
+
+    // Default Constructor
+    public Car() {
+        brand = "Unknown";
+        speed = 0;
+    }
+
+    // Parameterized Constructor
+    public Car(String brand, int speed) {
+        this.brand = brand;
+        this.speed = speed;
+    }
+
+    public void display() {
+        System.out.println("Brand: " + brand + ", Speed: " + speed + " km/h");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = new Car(); // Calls default constructor
+        Car car2 = new Car("Mercedes", 200); // Calls parameterized constructor
+
+        car1.display();
+        car2.display();
+    }
+}
+```
+### **Output:**
+```
+Brand: Unknown, Speed: 0 km/h
+Brand: Mercedes, Speed: 200 km/h
+```
+
+---
+
+## **5. Constructor Chaining**
+**Constructor Chaining** is the process of calling one constructor from another within the same class using the `this` keyword.
+
+### **Advantages of Constructor Chaining**
+- Avoids **duplicate code** by reusing constructors.
+- Allows **flexibility** in initializing objects.
+
+#### **Example:**
+```java
+class Car {
+    String brand;
+    int speed;
+
+    // Default Constructor
+    public Car() {
+        this("Unknown", 0); // Calls the parameterized constructor
+        System.out.println("Default Constructor Called");
+    }
+
+    // Parameterized Constructor
+    public Car(String brand, int speed) {
+        this.brand = brand;
+        this.speed = speed;
+    }
+
+    public void display() {
+        System.out.println("Brand: " + brand + ", Speed: " + speed + " km/h");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = new Car(); // Calls default constructor -> which calls parameterized constructor
+        car1.display();
+    }
+}
+```
+### **Output:**
+```
+Default Constructor Called
+Brand: Unknown, Speed: 0 km/h
+```
+
+---
+
+## **Key Differences Between Types of Constructors**
+
+| Constructor Type              | Description                                     | Example                                             |
+|-------------------------------|-------------------------------------------------|-----------------------------------------------------|
+| **Default Constructor**       | No parameters, assigns default values           | `Car c = new Car();`                                |
+| **Parameterized Constructor** | Takes parameters to initialize fields           | `Car c = new Car("Tesla", 120);`                    |
+| **Copy Constructor**          | Copies values from another object               | `Car c2 = new Car(c1);`                             |
+| **Overloaded Constructors**   | Multiple constructors with different parameters | `Car c1 = new Car(); Car c2 = new Car("BMW", 150);` |
+| **Constructor Chaining**      | Calls another constructor using `this()`        | `Car c = new Car();` (calls another constructor)    |
+
+---
+
+## **Conclusion**
+- **Constructors** are automatically called when an object is created.
+- **Default constructors** initialize default values, while **parameterized constructors** allow custom initialization.
+- **Copy constructors** copy data from another object.
+- **Constructor overloading** allows multiple ways to initialize an object.
+- **Constructor chaining** improves code reusability by calling one constructor from another.
 
 ## Inheritance
 - **Inheritance**: A mechanism where one class acquires the properties and behaviors of a parent class.
