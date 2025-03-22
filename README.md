@@ -389,7 +389,10 @@ int result = add(5, 3);
 
 ## Classes and Objects
 - **Class**: A blueprint for creating objects. It defines properties and behaviors. It is set of rules that defines how an object will behave.
-- **Object**: An instance of a class with specific values for it's propeties and access to it's behaviour
+- **Object**: An instance of a class with specific values for it's propeties and access to it's behaviours. All real world entities are objects!
+- * Memory Allocation * :
+        -- **Class**: Loaded into the method area during runtime.
+        -- **Object**: Created in the heap memory at runtime.
 
 ```java
 class Animal {
