@@ -778,6 +778,157 @@ Brand: Unknown, Speed: 0 km/h
 - **Constructor overloading** allows multiple ways to initialize an object.
 - **Constructor chaining** improves code reusability by calling one constructor from another.
 
+## **Can Constructors Be Private?**
+Yes, **constructors can be private** in Java. A **private constructor** restricts object creation from outside the class.
+
+## **Implications of a Private Constructor**
+1. **Prevents Direct Object Creation**  
+   - Objects **cannot** be created **outside** the class using `new ClassName()`.  
+2. **Used in Singleton Design Pattern**  
+   - Ensures that only **one instance** of a class is created.  
+3. **Used in Factory Methods**  
+   - Prevents direct instantiation and allows controlled object creation through **static methods**.  
+4. **Used in Utility Classes**  
+   - Prevents instantiation of classes that contain **only static methods** (e.g., `Math`, `Collections`).  
+
+---
+
+## **1. Singleton Design Pattern (Using a Private Constructor)**
+A Singleton class allows **only one instance** throughout the program.
+
+### **Example:**
+```java
+class Singleton {
+    private static Singleton instance; // Single instance
+
+    // Private Constructor
+    private Singleton() {
+        System.out.println("Singleton Instance Created");
+    }
+
+    // Public Method to Get Instance
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Singleton obj1 = Singleton.getInstance();
+        Singleton obj2 = Singleton.getInstance();
+
+        // Both references point to the same instance
+        System.out.println(obj1 == obj2); // Output: true
+    }
+}
+```
+### **Output:**
+```
+Singleton Instance Created
+true
+```
+**Explanation:**  
+- The **private constructor** prevents direct object creation (`new Singleton()` is not allowed).  
+- The **getInstance()** method ensures only **one instance** is created.  
+
+---
+
+## **2. Factory Method Pattern (Using a Private Constructor)**
+A **factory method** allows controlled object creation and can decide which subclass object to return.
+
+### **Example:**
+```java
+class Car {
+    String model;
+
+    // Private Constructor
+    private Car(String model) {
+        this.model = model;
+    }
+
+    // Factory Method
+    public static Car createCar(String model) {
+        return new Car(model);
+    }
+
+    public void display() {
+        System.out.println("Car Model: " + model);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = Car.createCar("Tesla Model S");
+        Car car2 = Car.createCar("BMW X5");
+
+        car1.display();
+        car2.display();
+    }
+}
+```
+### **Output:**
+```
+Car Model: Tesla Model S
+Car Model: BMW X5
+```
+**Explanation:**  
+- The **private constructor** prevents direct instantiation (`new Car()` is not allowed).  
+- The **factory method (`createCar()`)** controls object creation.  
+
+---
+
+## **3. Preventing Instantiation of Utility Classes**
+Utility classes contain only **static methods** and should **not** be instantiated.
+
+### **Example:**
+```java
+class MathUtils {
+    // Private Constructor (Prevents Instantiation)
+    private MathUtils() {
+        throw new UnsupportedOperationException("Cannot instantiate utility class");
+    }
+
+    // Static Utility Method
+    public static int square(int num) {
+        return num * num;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        int result = MathUtils.square(5);
+        System.out.println("Square: " + result);
+
+        // MathUtils obj = new MathUtils(); // ERROR: Cannot instantiate
+    }
+}
+```
+### **Output:**
+```
+Square: 25
+```
+**Explanation:**  
+- The **private constructor** prevents instantiation of `MathUtils`.  
+- All methods are **static**, so object creation is unnecessary.  
+
+---
+
+## **Key Takeaways**
+| **Use Case**          | **Why Use a Private Constructor?** |
+|-----------------------|--------------------------------|
+| **Singleton Pattern** | Ensures only one instance of a class exists. |
+| **Factory Pattern** | Controls how objects are created. |
+| **Utility Classes** | Prevents object creation for static-only classes. |
+
+---
+
+## **Conclusion**
+- **Yes, a constructor can be private** in Java.  
+- It **prevents direct instantiation** and is useful for **Singletons, Factory Methods, and Utility Classes**.  
+
 ## Inheritance
 - **Inheritance**: A mechanism where one class acquires the properties and behaviors of a parent class.
 
