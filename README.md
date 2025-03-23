@@ -18,10 +18,10 @@ Sure! Here's the Table of Contents in the right order with the subtopics nested 
    - [Can Constructors Be Private?](#can-constructors-be-private)
    - [The `this` Keyword in Java](#the-this-keyword-in-java)
    - [Immutable Classes in Java](#immutable-classes-in-java)
-   - [Inheritance](#inheritance)
+   - [Inheritance in Java](#inheritance-in-java)
    - [Polymorphism](#polymorphism)
    - [Abstraction](#abstraction)
-   - [Encapsulation](#encapsulation)
+   - [Encapsulation in Java](#encapsulation-in-java)
 8. [Exception Handling in Java](#exception-handling-in-java)
    - [Try-Catch Block](#try-catch-block)
    - [Throw and Throws](#throw-and-throws)
@@ -994,26 +994,178 @@ final class ImmutableEmployee {
 - `BigDecimal`
 - `LocalDate` (Java 8+)
 
-## Inheritance
-- **Inheritance**: A mechanism where one class acquires the properties and behaviors of a parent class.
+# Inheritance in Java
 
-```java
-class Animal {
-    void eat() {
-        System.out.println("Eating...");
-    }
-}
+## What is Inheritance?
 
-class Dog extends Animal {
-    void bark() {
-        System.out.println("Barking...");
-    }
-}
+**Inheritance** is one of the fundamental concepts of Object-Oriented Programming (OOP). It allows a class (child class) to acquire the properties and behaviors (fields and methods) of another class (parent class). In Java, inheritance is implemented using the `extends` keyword.
 
-Dog dog = new Dog();
-dog.eat();
-dog.bark();
-```
+- **Parent Class (Superclass)**: The class whose properties and methods are inherited.
+- **Child Class (Subclass)**: The class that inherits the properties and methods from the parent class.
+
+Inheritance promotes **code reusability** and allows for a hierarchical class structure.
+
+---
+
+## Key Concepts of Inheritance
+
+1. **Single Inheritance**  
+   A class inherits from a single parent class.
+
+2. **Method Overriding**  
+   The child class can override the methods of the parent class to provide specific behavior.
+
+3. **Access to Parent Class Members**  
+   - Child classes can access `public` and `protected` members of the parent class.
+   - `private` members are not accessible directly in the child class.
+
+4. **Constructor Inheritance**  
+   Constructors are **not inherited**, but the child class can call the parent class constructor using `super()`.
+
+5. **The `super` Keyword**  
+   Used to refer to the immediate parent class, and can be used to call parent class methods, constructors, or access parent class members.
+
+6. **The `Object` Class**  
+   All Java classes inherit from the `Object` class, which is the root of the class hierarchy.
+
+---
+
+## Types of Inheritance in Java
+
+### 1. **Single Inheritance**
+   A class inherits from only one parent class.
+   
+   **Example:**
+   ```java
+   class Animal {
+       void eat() {
+           System.out.println("Eating...");
+       }
+   }
+
+   class Dog extends Animal {
+       void bark() {
+           System.out.println("Barking...");
+       }
+   }
+   ```
+
+### 2. **Multilevel Inheritance**
+   A class inherits from a subclass, forming a chain of inheritance.
+
+   **Example:**
+   ```java
+   class Animal {
+       void eat() {
+           System.out.println("Eating...");
+       }
+   }
+
+   class Dog extends Animal {
+       void bark() {
+           System.out.println("Barking...");
+       }
+   }
+
+   class Puppy extends Dog {
+       void play() {
+           System.out.println("Playing...");
+       }
+   }
+   ```
+
+### 3. **Hierarchical Inheritance**
+   Multiple classes inherit from a single parent class.
+
+   **Example:**
+   ```java
+   class Animal {
+       void eat() {
+           System.out.println("Eating...");
+       }
+   }
+
+   class Dog extends Animal {
+       void bark() {
+           System.out.println("Barking...");
+       }
+   }
+
+   class Cat extends Animal {
+       void meow() {
+           System.out.println("Meowing...");
+       }
+   }
+   ```
+
+### 4. **Hybrid Inheritance (Not Supported Directly in Java)**
+   **Hybrid inheritance** is a combination of two or more inheritance types, such as multilevel inheritance and multiple inheritance. While Java does not support multiple inheritance directly, it can be simulated using **interfaces**.
+
+   **Example (via interfaces):**
+   ```java
+   interface Animal {
+       void eat();
+   }
+
+   interface Pet {
+       void play();
+   }
+
+   class Dog implements Animal, Pet {
+       public void eat() {
+           System.out.println("Dog eating...");
+       }
+
+       public void play() {
+           System.out.println("Dog playing...");
+       }
+   }
+   ```
+
+### 5. **Multiple Inheritance (via Interfaces)**
+   Java does not support multiple inheritance through classes, but it allows a class to implement multiple interfaces.
+
+   **Example (via interfaces):**
+   ```java
+   interface Animal {
+       void eat();
+   }
+
+   interface Pet {
+       void play();
+   }
+
+   class Dog implements Animal, Pet {
+       public void eat() {
+           System.out.println("Dog eating...");
+       }
+
+       public void play() {
+           System.out.println("Dog playing...");
+       }
+   }
+   ```
+
+---
+
+## Advantages of Inheritance
+
+- **Code Reusability**: Enables reuse of existing code in new classes.
+- **Extensibility**: New functionality can be added to existing classes.
+- **Method Overriding**: Provides runtime polymorphism, allowing child classes to define specific behavior.
+- **Improved Organization**: Promotes a logical hierarchy and better organization of code.
+
+---
+
+## Summary of Inheritance Types
+
+1. **Single Inheritance**: A class inherits from a single parent class.
+2. **Multilevel Inheritance**: A class inherits from another class that already inherits from another class.
+3. **Hierarchical Inheritance**: Multiple classes inherit from a single parent class.
+4. **Hybrid Inheritance**: A combination of multiple inheritance types, simulated using interfaces.
+5. **Multiple Inheritance**: Achieved by implementing multiple interfaces, not supported via classes in Java.
+
+---
 
 ## Polymorphism
 - **Polymorphism**: The ability of different objects to respond to the same method in different ways.
@@ -1057,10 +1209,7 @@ Dog dog = new Dog();
 dog.makeSound();
 dog.eat();
 ```
-
-## Encapsulation
-
-# **Encapsulation in Java**
+# Encapsulation in Java
 
 ## **What is Encapsulation?**
 Encapsulation is one of the **four fundamental principles** of Object-Oriented Programming (**OOP**) in Java.  
