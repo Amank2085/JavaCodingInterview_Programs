@@ -6,17 +6,22 @@ Sure! Here's the Table of Contents in the right order with the subtopics nested 
 
 ## Table of Contents
 1. [Basic Syntax](#basic-syntax)
-2. [Data Types](#data-types)
+2. [Java Data Types and Variables](#java-data-types-and-variables)
 3. [Operators](#operators)
 4. [Control Statements](#control-statements)
 5. [Loops](#loops)
 6. [Methods](#methods)
-7. [Object-Oriented Programming (OOP)](#object-oriented-programming-oop)
+7. [Object-Oriented Programming (OOP) Concepts](#object-oriented-programming-oop-concepts)
    - [Classes and Objects](#classes-and-objects)
-   - [Inheritance](#inheritance)
+   - [Key Differences Between Instance and Local Variables](#key-differences-between-instance-and-local-variables)
+   - [Constructors in Java](#constructors-in-java)
+   - [Can Constructors Be Private?](#can-constructors-be-private)
+   - [The `this` Keyword in Java](#the-this-keyword-in-java)
+   - [Immutable Classes in Java](#immutable-classes-in-java)
+   - [Inheritance in Java](#inheritance-in-java)
    - [Polymorphism](#polymorphism)
    - [Abstraction](#abstraction)
-   - [Encapsulation](#encapsulation)
+   - [Encapsulation in Java](#encapsulation-in-java)
 8. [Exception Handling in Java](#exception-handling-in-java)
    - [Try-Catch Block](#try-catch-block)
    - [Throw and Throws](#throw-and-throws)
@@ -106,24 +111,183 @@ public class com.core.javacodes.Main {
 }
 ```
 
-## Data Types
-Java has both primitive and non-primitive data types.
+# Java Data Types and Variables
 
-### Primitive Data Types
-- **byte**: 8-bit integer
-- **short**: 16-bit integer
-- **int**: 32-bit integer
-- **long**: 64-bit integer
-- **float**: Single-precision floating-point
-- **double**: Double-precision floating-point
-- **char**: Single 16-bit Unicode character
-- **boolean**: `true` or `false`
+Java is a statically-typed language, meaning every variable must be declared with a specific data type before use. Java categorizes data types into two main groups: **primitive** and **non-primitive (reference)** data types.
 
-### Non-Primitive Data Types
-- **String**
-- **Arrays**
-- **Classes**
-- **Interfaces**
+---
+
+## Primitive Data Types
+Primitive data types are the basic building blocks in Java, storing simple values directly in memory. They have predefined sizes and ranges:
+
+- **`byte`**: 8-bit signed integer  
+  - Range: `-128` to `127`  
+  - Default: `0`  
+  - Example: `byte b = 100;`
+
+- **`short`**: 16-bit signed integer  
+  - Range: `-32,768` to `32,767`  
+  - Default: `0`  
+  - Example: `short s = 1000;`
+
+- **`int`**: 32-bit signed integer  
+  - Range: `-2^31` to `2^31 - 1` (`-2,147,483,648` to `2,147,483,647`)  
+  - Default: `0`  
+  - Example: `int i = 50000;`
+
+- **`long`**: 64-bit signed integer  
+  - Range: `-2^63` to `2^63 - 1`  
+  - Default: `0L` (suffix `L` required for literals)  
+  - Example: `long l = 123456789L;`
+
+- **`float`**: 32-bit single-precision floating-point (IEEE 754)  
+  - Range: Approximately `±3.4E38` (6-7 decimal digits precision)  
+  - Default: `0.0f` (suffix `f` required for literals)  
+  - Example: `float f = 3.14f;`
+
+- **`double`**: 64-bit double-precision floating-point (IEEE 754)  
+  - Range: Approximately `±1.7E308` (15 decimal digits precision)  
+  - Default: `0.0`  
+  - Example: `double d = 3.14159;`
+
+- **`char`**: 16-bit Unicode character  
+  - Range: `'\u0000'` to `'\uffff'` (0 to 65,535)  
+  - Default: `'\u0000'` (null character)  
+  - Example: `char c = 'A';` or `char c = '\u0041';`
+
+- **`boolean`**: Represents `true` or `false`  
+  - Default: `false`  
+  - Example: `boolean isActive = true;`
+
+---
+
+## Non-Primitive (Reference) Data Types
+Non-primitive data types are objects and store references (memory addresses) to the actual data rather than the data itself. They are created using classes or interfaces and can be assigned `null`.
+
+- **`String`**: A sequence of characters (immutable).  
+  - Example: `String text = "Hello, Java!";`
+
+- **`Arrays`**: Ordered collections of elements of the same type.  
+  - Example: `int[] numbers = {1, 2, 3};` or `int[] numbers = new int[3];`
+
+- **`Classes`**: User-defined or built-in types (e.g., `ArrayList`, `HashMap`).  
+  - Example: `ArrayList<String> list = new ArrayList<>();`
+
+- **`Interfaces`**: Abstract types defining behavior (e.g., `List`, `Map`).  
+  - Example: `List<Integer> nums = new ArrayList<>();`
+
+---
+
+## Variables in Java
+A **variable** is a named container that holds a value of a specific data type. Variables must be declared before use, specifying their type and name. They can be initialized at declaration or later.
+
+### Syntax
+```java
+type variableName;           // Declaration only
+type variableName = value;   // Declaration + Initialization
+```
+Examples
+```java
+int age = 25;              // Integer variable
+double height = 5.9;       // Decimal variable
+String name = "Alice";     // String variable
+char initial = 'A';        // Character variable
+```
+### Naming Rules
+  - Must start with a letter (a-z, A-Z), underscore (_), or dollar sign ($).
+  - Can include letters, digits (0-9), _, or $.
+  - Case-sensitive (e.g., age ≠ Age).
+  - Cannot use Java reserved keywords (e.g., int, class, public).
+
+### Type Casting
+Type casting converts a value from one data type to another. It can be implicit (automatic) or explicit (manual).
+
+## Implicit Casting
+Smaller type to larger type (no data loss).  
+Example: int to double
+```java
+int num = 10;
+double d = num;  // d = 10.0
+```
+## Explicit Casting
+Larger type to smaller type (possible data loss). Requires a cast operator.  
+Example: double to int
+```java
+double d = 5.7;
+int num = (int) d;  // num = 5 (fraction truncated)
+```
+### Variable Scope
+The scope of a variable determines where it can be accessed in a program. Common scopes include:
+### Local Variables: Declared inside a method or block; accessible only within that block.  
+Must be initialized before use.  
+Example:
+```java
+void method() {
+    int x = 10;  // Local to method
+    System.out.println(x);
+}  // x is inaccessible outside method
+```
+### Instance Variables: Declared in a class but outside methods; belong to an object.  
+Default values apply (e.g., 0 for int, null for objects).  
+Example:
+```java
+class Person {
+    String name;  // Instance variable
+}
+```
+### Static Variables: Declared with static keyword; belong to the class, not instances.  
+Example:
+```java
+class Example {
+    static int count = 0;  // Static variable
+}
+```
+#### Example Program
+Here’s an expanded Java program demonstrating data types, variables, casting, and scope:
+```java
+public class Main {
+    static int instanceCount = 0;  // Static variable
+
+    public static void main(String[] args) {
+        // Primitive types
+        int age = 30;
+        double salary = 75000.50;
+        char grade = 'A';
+        boolean isEmployed = true;
+
+        // Reference type
+        String name = "Bob";
+        int[] scores = {85, 90, 95};
+
+        // Type casting
+        double temp = 98.6;
+        int intTemp = (int) temp;  // Explicit casting
+
+        // Wrapper class
+        Integer wrappedAge = age;  // Autoboxing
+
+        // Output
+        System.out.println(name + " is " + age + ", earns $" + salary);
+        System.out.println("Grade: " + grade + ", Employed: " + isEmployed);
+        System.out.println("Scores: " + java.util.Arrays.toString(scores));
+        System.out.println("Temperature (int): " + intTemp);
+        System.out.println("Wrapped Age: " + wrappedAge);
+    }
+}
+```
+### Output
+```java
+Bob is 30, earns $75000.5
+Grade: A, Employed: true
+Scores: [85, 90, 95]
+Temperature (int): 98
+Wrapped Age: 30
+```
+## Key Points
+   - Primitive vs. Reference: Primitives store values directly; reference types store memory addresses.
+   - Default Values: Local variables require initialization; instance/static variables get defaults (e.g., 0 for int, null for String).
+   - Memory: Primitives use fixed memory (e.g., int = 4 bytes); reference types’ size depends on the object.
+   - Immutability: String is immutable; arrays are mutable.
 
 ## Operators
 ### Arithmetic Operators
@@ -229,48 +393,779 @@ int result = add(5, 3);
 # Object-Oriented Programming (OOP) Concepts
 
 ## Classes and Objects
-- **Class**: A blueprint for creating objects. It defines properties and behaviors.
-- **Object**: An instance of a class. It has state and behavior.
+- **Class**: A blueprint for creating objects. It defines properties and behaviors. It is set of rules that defines how an object will behave.
+- **Object**: An instance of a class with specific values for it's propeties and access to it's behaviours. All real world entities are objects!
+- * Memory Allocation * :
+        -- **Class**: Loaded into the method area during runtime.
+        -- **Object**: Created in the heap memory at runtime.
 
 ```java
-class Animal {
-    String name;
-    int age;
+// Outer class: Car
+class Car {
+    // Instance variables (Each object has its own copy, stored in heap memory)
+    private String brand;
+    private String model;
+    private int year;
+    private double price;
 
-    Animal(String name, int age) {
+    // Static variable (Shared among all objects, stored in method area)
+    private static int totalCars = 0;
+
+    // Constructor (Local variables: `brand`, `model`, `year`, `price` stored in stack memory)
+    public Car(String brand, String model, int year, double price) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.price = price;
+        totalCars++; // Increment static variable (stored in method area)
+    }
+
+    // Instance Method: Displays car details
+    public void displayCarInfo() {
+        // Local variables: `message`, `taxRate`, `finalPrice` (Stored in stack memory)
+        String message = "Car Details:";
+        double taxRate = 0.10; // 10% tax rate
+        double finalPrice = price + (price * taxRate); // Price after tax
+
+        System.out.println(message);
+        System.out.println("Brand: " + brand);
+        System.out.println("Model: " + model);
+        System.out.println("Year: " + year);
+        System.out.println("Price (after tax): $" + finalPrice);
+    }
+
+    // Static Method: Returns the total number of cars created
+    public static int getTotalCars() {
+        return totalCars;
+    }
+
+    // ============================ //
+    // Static Nested Class: Engine  //
+    // ============================ //
+    static class Engine {
+        private int horsepower;
+        private String type;
+
+        // Constructor (Local variables: `horsepower`, `type` stored in stack memory)
+        public Engine(int horsepower, String type) {
+            this.horsepower = horsepower;
+            this.type = type;
+        }
+
+        // Method to display engine details
+        public void displayEngineInfo() {
+            System.out.println("Engine Horsepower: " + horsepower);
+            System.out.println("Engine Type: " + type);
+        }
+    }
+
+    // ============================== //
+    // Non-Static Inner Class: Battery //
+    // ============================== //
+    class Battery {
+        private int capacity; // Capacity in kWh
+
+        // Constructor (Local variable: `capacity` stored in stack memory)
+        public Battery(int capacity) {
+            this.capacity = capacity;
+        }
+
+        // Method to display battery details
+        public void displayBatteryInfo() {
+            System.out.println("Battery Capacity: " + capacity + " kWh");
+            System.out.println("This battery belongs to: " + brand + " " + model);
+        }
+    }
+
+    // Method with a Local Inner Class
+    public void showCarWarranty() {
+        // Local variable (Stored in stack memory)
+        int warrantyYears = 5;
+
+        // Local Inner Class (Stored in stack memory until the method executes)
+        class Warranty {
+            public void displayWarrantyInfo() {
+                System.out.println("Warranty Period: " + warrantyYears + " years.");
+            }
+        }
+
+        // Creating an object of the local inner class
+        Warranty warranty = new Warranty();
+        warranty.displayWarrantyInfo();
+    }
+}
+```
+** Creating Objects and Accessing Static Members **
+
+``` java
+public class Main {
+    public static void main(String[] args) {
+        // Local variables: `car1`, `car2` (Stored in stack memory)
+        Car car1 = new Car("Tesla", "Model S", 2023, 79999.99);
+        Car car2 = new Car("BMW", "X5", 2022, 60000.50);
+
+        // Displaying car details
+        System.out.println("Car 1 Details:");
+        car1.displayCarInfo();
+
+        System.out.println("\nCar 2 Details:");
+        car2.displayCarInfo();
+
+        // Accessing the Static Nested Class (Engine)
+        System.out.println("\nCar 1 Engine Details:");
+        Car.Engine engine1 = new Car.Engine(670, "Electric");
+        engine1.displayEngineInfo();
+
+        // Accessing the Non-Static Inner Class (Battery)
+        System.out.println("\nCar 1 Battery Details:");
+        Car.Battery battery1 = car1.new Battery(100);
+        battery1.displayBatteryInfo();
+
+        // Accessing the Local Inner Class (Defined in a method)
+        System.out.println("\nCar 1 Warranty Details:");
+        car1.showCarWarranty();
+
+        // Displaying total cars created
+        System.out.println("\nTotal Cars Created: " + Car.getTotalCars());
+    }
+}
+```
+
+## Key Differences Between Instance and Local Variables  
+
+| Feature              | Instance Variables                          | Local Variables                           |
+|----------------------|---------------------------------------------|-------------------------------------------|
+| **Declared Inside**  | Class (outside methods)                     | Inside methods, constructors, or blocks   |
+| **Scope**            | Available throughout the object's lifetime  | Available only within the method/block    |
+| **Storage**          | Stored in **heap memory**                   | Stored in **stack memory**                |
+| **Default Values**   | Yes (e.g., `0`, `false`, `null`)            | No (must be initialized before use)       |
+| **Access Modifiers** | Can have (`private`, `public`, etc.)        | Cannot have access modifiers              |
+| **Lifetime**         | Exists as long as the object exists         | Exists only during method execution       |
+
+# **Constructors in Java**
+
+A **constructor** in Java is a special method used to initialize objects. It is called automatically when an object is created.
+
+## **Characteristics of a Constructor**
+- Has the **same name as the class**.
+- **No return type** (not even `void`).
+- Can be **parameterized** or **non-parameterized**.
+- Used to set **initial values** for object attributes.
+- If no constructor is defined, **Java provides a default constructor**.
+
+---
+
+## **Types of Constructors in Java**
+
+### **1. Default Constructor (No-Arg Constructor)**
+A constructor **without parameters** that initializes default values.
+
+#### **Example:**
+```java
+class Car {
+    String brand;
+    int speed;
+
+    // Default Constructor
+    public Car() {
+        brand = "Unknown";
+        speed = 0;
+        System.out.println("Default Constructor Called");
+    }
+
+    public void display() {
+        System.out.println("Brand: " + brand + ", Speed: " + speed + " km/h");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = new Car(); // Calls the default constructor
+        car1.display();
+    }
+}
+```
+### **Output:**
+```
+Default Constructor Called
+Brand: Unknown, Speed: 0 km/h
+```
+
+---
+
+### **2. Parameterized Constructor**
+A constructor that **accepts arguments** to initialize instance variables.
+
+#### **Example:**
+```java
+class Car {
+    String brand;
+    int speed;
+
+    // Parameterized Constructor
+    public Car(String brand, int speed) {
+        this.brand = brand;
+        this.speed = speed;
+    }
+
+    public void display() {
+        System.out.println("Brand: " + brand + ", Speed: " + speed + " km/h");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = new Car("Tesla", 120);
+        Car car2 = new Car("BMW", 150);
+
+        car1.display();
+        car2.display();
+    }
+}
+```
+### **Output:**
+```
+Brand: Tesla, Speed: 120 km/h
+Brand: BMW, Speed: 150 km/h
+```
+
+---
+
+### **3. Copy Constructor**
+A constructor that **copies values from another object** of the same class.
+
+#### **Example:**
+```java
+class Car {
+    String brand;
+    int speed;
+
+    // Parameterized Constructor
+    public Car(String brand, int speed) {
+        this.brand = brand;
+        this.speed = speed;
+    }
+
+    // Copy Constructor
+    public Car(Car otherCar) {
+        this.brand = otherCar.brand;
+        this.speed = otherCar.speed;
+    }
+
+    public void display() {
+        System.out.println("Brand: " + brand + ", Speed: " + speed + " km/h");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = new Car("Audi", 180);
+        Car car2 = new Car(car1); // Using copy constructor
+
+        car1.display();
+        car2.display();
+    }
+}
+```
+### **Output:**
+```
+Brand: Audi, Speed: 180 km/h
+Brand: Audi, Speed: 180 km/h
+```
+
+---
+
+## **4. Constructor Overloading**
+Java allows **multiple constructors** in a class with different parameter lists.
+
+#### **Example:**
+```java
+class Car {
+    String brand;
+    int speed;
+
+    // Default Constructor
+    public Car() {
+        brand = "Unknown";
+        speed = 0;
+    }
+
+    // Parameterized Constructor
+    public Car(String brand, int speed) {
+        this.brand = brand;
+        this.speed = speed;
+    }
+
+    public void display() {
+        System.out.println("Brand: " + brand + ", Speed: " + speed + " km/h");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = new Car(); // Calls default constructor
+        Car car2 = new Car("Mercedes", 200); // Calls parameterized constructor
+
+        car1.display();
+        car2.display();
+    }
+}
+```
+### **Output:**
+```
+Brand: Unknown, Speed: 0 km/h
+Brand: Mercedes, Speed: 200 km/h
+```
+
+---
+
+## **5. Constructor Chaining**
+**Constructor Chaining** is the process of calling one constructor from another within the same class using the `this` keyword.
+
+### **Advantages of Constructor Chaining**
+- Avoids **duplicate code** by reusing constructors.
+- Allows **flexibility** in initializing objects.
+
+#### **Example:**
+```java
+class Car {
+    String brand;
+    int speed;
+
+    // Default Constructor
+    public Car() {
+        this("Unknown", 0); // Calls the parameterized constructor
+        System.out.println("Default Constructor Called");
+    }
+
+    // Parameterized Constructor
+    public Car(String brand, int speed) {
+        this.brand = brand;
+        this.speed = speed;
+    }
+
+    public void display() {
+        System.out.println("Brand: " + brand + ", Speed: " + speed + " km/h");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = new Car(); // Calls default constructor -> which calls parameterized constructor
+        car1.display();
+    }
+}
+```
+### **Output:**
+```
+Default Constructor Called
+Brand: Unknown, Speed: 0 km/h
+```
+
+---
+
+## **Key Differences Between Types of Constructors**
+
+| Constructor Type              | Description                                     | Example                                             |
+|-------------------------------|-------------------------------------------------|-----------------------------------------------------|
+| **Default Constructor**       | No parameters, assigns default values           | `Car c = new Car();`                                |
+| **Parameterized Constructor** | Takes parameters to initialize fields           | `Car c = new Car("Tesla", 120);`                    |
+| **Copy Constructor**          | Copies values from another object               | `Car c2 = new Car(c1);`                             |
+| **Overloaded Constructors**   | Multiple constructors with different parameters | `Car c1 = new Car(); Car c2 = new Car("BMW", 150);` |
+| **Constructor Chaining**      | Calls another constructor using `this()`        | `Car c = new Car();` (calls another constructor)    |
+
+---
+
+## **Conclusion**
+- **Constructors** are automatically called when an object is created.
+- **Default constructors** initialize default values, while **parameterized constructors** allow custom initialization.
+- **Copy constructors** copy data from another object.
+- **Constructor overloading** allows multiple ways to initialize an object.
+- **Constructor chaining** improves code reusability by calling one constructor from another.
+
+## **Can Constructors Be Private?**
+Yes, **constructors can be private** in Java. A **private constructor** restricts object creation from outside the class.
+
+## **Implications of a Private Constructor**
+1. **Prevents Direct Object Creation**  
+   - Objects **cannot** be created **outside** the class using `new ClassName()`.  
+2. **Used in Singleton Design Pattern**  
+   - Ensures that only **one instance** of a class is created.  
+3. **Used in Factory Methods**  
+   - Prevents direct instantiation and allows controlled object creation through **static methods**.  
+4. **Used in Utility Classes**  
+   - Prevents instantiation of classes that contain **only static methods** (e.g., `Math`, `Collections`).  
+
+---
+
+## **1. Singleton Design Pattern (Using a Private Constructor)**
+A Singleton class allows **only one instance** throughout the program.
+
+### **Example:**
+```java
+class Singleton {
+    private static Singleton instance; // Single instance
+
+    // Private Constructor
+    private Singleton() {
+        System.out.println("Singleton Instance Created");
+    }
+
+    // Public Method to Get Instance
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Singleton obj1 = Singleton.getInstance();
+        Singleton obj2 = Singleton.getInstance();
+
+        // Both references point to the same instance
+        System.out.println(obj1 == obj2); // Output: true
+    }
+}
+```
+### **Output:**
+```
+Singleton Instance Created
+true
+```
+**Explanation:**  
+- The **private constructor** prevents direct object creation (`new Singleton()` is not allowed).  
+- The **getInstance()** method ensures only **one instance** is created.  
+
+---
+
+## **2. Factory Method Pattern (Using a Private Constructor)**
+A **factory method** allows controlled object creation and can decide which subclass object to return.
+
+### **Example:**
+```java
+class Car {
+    String model;
+
+    // Private Constructor
+    private Car(String model) {
+        this.model = model;
+    }
+
+    // Factory Method
+    public static Car createCar(String model) {
+        return new Car(model);
+    }
+
+    public void display() {
+        System.out.println("Car Model: " + model);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = Car.createCar("Tesla Model S");
+        Car car2 = Car.createCar("BMW X5");
+
+        car1.display();
+        car2.display();
+    }
+}
+```
+### **Output:**
+```
+Car Model: Tesla Model S
+Car Model: BMW X5
+```
+**Explanation:**  
+- The **private constructor** prevents direct instantiation (`new Car()` is not allowed).  
+- The **factory method (`createCar()`)** controls object creation.  
+
+---
+
+## **3. Preventing Instantiation of Utility Classes**
+Utility classes contain only **static methods** and should **not** be instantiated.
+
+### **Example:**
+```java
+class MathUtils {
+    // Private Constructor (Prevents Instantiation)
+    private MathUtils() {
+        throw new UnsupportedOperationException("Cannot instantiate utility class");
+    }
+
+    // Static Utility Method
+    public static int square(int num) {
+        return num * num;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        int result = MathUtils.square(5);
+        System.out.println("Square: " + result);
+
+        // MathUtils obj = new MathUtils(); // ERROR: Cannot instantiate
+    }
+}
+```
+### **Output:**
+```
+Square: 25
+```
+**Explanation:**  
+- The **private constructor** prevents instantiation of `MathUtils`.  
+- All methods are **static**, so object creation is unnecessary.  
+
+---
+
+## **Key Takeaways**
+| **Use Case**          | **Why Use a Private Constructor?** |
+|-----------------------|--------------------------------|
+| **Singleton Pattern** | Ensures only one instance of a class exists. |
+| **Factory Pattern** | Controls how objects are created. |
+| **Utility Classes** | Prevents object creation for static-only classes. |
+
+---
+
+## **Conclusion**
+- **Yes, a constructor can be private** in Java.  
+- It **prevents direct instantiation** and is useful for **Singletons, Factory Methods, and Utility Classes**.
+
+# **The `this` Keyword in Java**
+
+## **What is `this`?**
+In Java, `this` is a reference variable that points to the **current instance**. It is used to differentiate instance variables, call constructors, return the current instance, and pass the object to methods.
+
+---
+
+## **When and Why is `this` Used?**
+
+- **Avoids Variable Ambiguity**   – Distinguishes instance variables from local variables when they have the same name.  
+- **Calls Another Constructor**   – Enables **constructor chaining** within the same class, reducing duplicate code.  
+- **Supports Method Chaining**    – Allows methods to return the current instance for **fluent coding style**.  
+- **Passes the Current Instance** – Helps in **object interaction** by passing the object to methods or constructors of another class.  
+
+# Immutable Classes in Java
+
+## What is an Immutable Class in Java?
+An immutable class is a class whose objects cannot be modified after creation.
+
+## How to Create an Immutable Class?
+Follow these steps:
+1. Declare the class as `final`.
+2. Make all fields `private` and `final`.
+3. Provide only getter methods, no setters.
+4. Initialize all fields via a constructor.
+5. Avoid exposing mutable objects by returning copies.
+
+## How to Handle Mutable Objects in an Immutable Class?
+Return a **defensive copy** instead of the original reference.
+
+Example:
+```java
+import java.util.Date;
+
+final class ImmutableEmployee {
+    private final String name;
+    private final Date joiningDate;
+
+    public ImmutableEmployee(String name, Date joiningDate) {
         this.name = name;
-        this.age = age;
+        this.joiningDate = new Date(joiningDate.getTime()); // Defensive copy
     }
 
-    void makeSound() {
-        System.out.println("Some sound");
-    }
+    public String getName() { return name; }
+    public Date getJoiningDate() { return new Date(joiningDate.getTime()); } // Return a copy
 }
-
-Animal dog = new Animal("Buddy", 5);
-dog.makeSound();
 ```
 
-## Inheritance
-- **Inheritance**: A mechanism where one class acquires the properties and behaviors of a parent class.
+## Why Use Immutable Classes?
+- **Thread-safety**: No need for synchronization.
+- **Security**: Prevents unintended modifications.
+- **Consistent Hashing**: Useful in HashMap keys.
+- **Easier Debugging**: No risk of accidental changes.
 
-```java
-class Animal {
-    void eat() {
-        System.out.println("Eating...");
-    }
-}
+## Examples of Immutable Classes in Java
+- `String`
+- `Integer`
+- `BigDecimal`
+- `LocalDate` (Java 8+)
 
-class Dog extends Animal {
-    void bark() {
-        System.out.println("Barking...");
-    }
-}
+# Inheritance in Java
 
-Dog dog = new Dog();
-dog.eat();
-dog.bark();
-```
+## What is Inheritance?
+
+**Inheritance** is one of the fundamental concepts of Object-Oriented Programming (OOP). It allows a class (child class) to acquire the properties and behaviors (fields and methods) of another class (parent class). In Java, inheritance is implemented using the `extends` keyword.
+
+- **Parent Class (Superclass)**: The class whose properties and methods are inherited.
+- **Child Class (Subclass)**: The class that inherits the properties and methods from the parent class.
+
+Inheritance promotes **code reusability** and allows for a hierarchical class structure.
+
+---
+
+## Key Concepts of Inheritance
+
+1. **Single Inheritance**  
+   A class inherits from a single parent class.
+
+2. **Method Overriding**  
+   The child class can override the methods of the parent class to provide specific behavior.
+
+3. **Access to Parent Class Members**  
+   - Child classes can access `public` and `protected` members of the parent class.
+   - `private` members are not accessible directly in the child class.
+
+4. **Constructor Inheritance**  
+   Constructors are **not inherited**, but the child class can call the parent class constructor using `super()`.
+
+5. **The `super` Keyword**  
+   Used to refer to the immediate parent class, and can be used to call parent class methods, constructors, or access parent class members.
+
+6. **The `Object` Class**  
+   All Java classes inherit from the `Object` class, which is the root of the class hierarchy.
+
+---
+
+## Types of Inheritance in Java
+
+### 1. **Single Inheritance**
+   A class inherits from only one parent class.
+   
+   **Example:**
+   ```java
+   class Animal {
+       void eat() {
+           System.out.println("Eating...");
+       }
+   }
+
+   class Dog extends Animal {
+       void bark() {
+           System.out.println("Barking...");
+       }
+   }
+   ```
+
+### 2. **Multilevel Inheritance**
+   A class inherits from a subclass, forming a chain of inheritance.
+
+   **Example:**
+   ```java
+   class Animal {
+       void eat() {
+           System.out.println("Eating...");
+       }
+   }
+
+   class Dog extends Animal {
+       void bark() {
+           System.out.println("Barking...");
+       }
+   }
+
+   class Puppy extends Dog {
+       void play() {
+           System.out.println("Playing...");
+       }
+   }
+   ```
+
+### 3. **Hierarchical Inheritance**
+   Multiple classes inherit from a single parent class.
+
+   **Example:**
+   ```java
+   class Animal {
+       void eat() {
+           System.out.println("Eating...");
+       }
+   }
+
+   class Dog extends Animal {
+       void bark() {
+           System.out.println("Barking...");
+       }
+   }
+
+   class Cat extends Animal {
+       void meow() {
+           System.out.println("Meowing...");
+       }
+   }
+   ```
+
+### 4. **Hybrid Inheritance (Not Supported Directly in Java)**
+   **Hybrid inheritance** is a combination of two or more inheritance types, such as multilevel inheritance and multiple inheritance. While Java does not support multiple inheritance directly, it can be simulated using **interfaces**.
+
+   **Example (via interfaces):**
+   ```java
+   interface Animal {
+       void eat();
+   }
+
+   interface Pet {
+       void play();
+   }
+
+   class Dog implements Animal, Pet {
+       public void eat() {
+           System.out.println("Dog eating...");
+       }
+
+       public void play() {
+           System.out.println("Dog playing...");
+       }
+   }
+   ```
+
+### 5. **Multiple Inheritance (via Interfaces)**
+   Java does not support multiple inheritance through classes, but it allows a class to implement multiple interfaces.
+
+   **Example (via interfaces):**
+   ```java
+   interface Animal {
+       void eat();
+   }
+
+   interface Pet {
+       void play();
+   }
+
+   class Dog implements Animal, Pet {
+       public void eat() {
+           System.out.println("Dog eating...");
+       }
+
+       public void play() {
+           System.out.println("Dog playing...");
+       }
+   }
+   ```
+
+---
+
+## Advantages of Inheritance
+
+- **Code Reusability**: Enables reuse of existing code in new classes.
+- **Extensibility**: New functionality can be added to existing classes.
+- **Method Overriding**: Provides runtime polymorphism, allowing child classes to define specific behavior.
+- **Improved Organization**: Promotes a logical hierarchy and better organization of code.
+
+---
+
+## Summary of Inheritance Types
+
+1. **Single Inheritance**: A class inherits from a single parent class.
+2. **Multilevel Inheritance**: A class inherits from another class that already inherits from another class.
+3. **Hierarchical Inheritance**: Multiple classes inherit from a single parent class.
+4. **Hybrid Inheritance**: A combination of multiple inheritance types, simulated using interfaces.
+5. **Multiple Inheritance**: Achieved by implementing multiple interfaces, not supported via classes in Java.
+
+---
 
 ## Polymorphism
 - **Polymorphism**: The ability of different objects to respond to the same method in different ways.
@@ -314,27 +1209,148 @@ Dog dog = new Dog();
 dog.makeSound();
 dog.eat();
 ```
+# Encapsulation in Java
 
-## Encapsulation
-- **Encapsulation**: Wrapping data (variables) and code (methods) together as a single unit. It restricts direct access to some of an object's components.
+## **What is Encapsulation?**
+Encapsulation is one of the **four fundamental principles** of Object-Oriented Programming (**OOP**) in Java.  
+It refers to **wrapping** the **data (variables)** and **methods (functions)** together into a **single unit (class)** while **restricting direct access** to some of the object's details.
 
+### **Key Concepts of Encapsulation**
+- **Data Hiding**: Instance variables are kept **private** and cannot be accessed directly.
+- **Getter and Setter Methods**: Public methods are provided to access and update private variables.
+- **Improves Security**: Prevents unauthorized access to sensitive data.
+- **Enhances Maintainability**: Code changes in one part of the program do not affect other parts.
+- **Increases Reusability**: The same class can be used without modification.
+
+---
+
+## **Why is Encapsulation Important in Java?**
+| **Benefit**          | **Description** |
+|----------------------|----------------|
+| **Data Protection**  | Prevents direct modification of variables. |
+| **Improved Security** | Hides implementation details from external access. |
+| **Code Maintainability** | Easy to modify code without affecting other parts of the program. |
+| **Reusability** | Encapsulated code can be reused without modification. |
+| **Control Over Data** | Access to variables is controlled using getter and setter methods. |
+
+---
+
+## **Example of Encapsulation in Java**
+### **Encapsulated Class with Getter and Setter Methods**
 ```java
-class Person {
-    private String name;
+class BankAccount {
+    private String accountHolder;
+    private double balance;
 
-    public String getName() {
-        return name;
+    // Constructor
+    public BankAccount(String accountHolder, double balance) {
+        this.accountHolder = accountHolder;
+        this.balance = balance;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    // Getter method to retrieve account holder's name
+    public String getAccountHolder() {
+        return accountHolder;
+    }
+
+    // Setter method to update account holder's name
+    public void setAccountHolder(String accountHolder) {
+        this.accountHolder = accountHolder;
+    }
+
+    // Getter method to retrieve balance
+    public double getBalance() {
+        return balance;
+    }
+
+    // Setter method to update balance with validation
+    public void setBalance(double balance) {
+        if (balance >= 0) {
+            this.balance = balance;
+        } else {
+            System.out.println("Balance cannot be negative!");
+        }
+    }
+
+    // Method to deposit money
+    public void deposit(double amount) {
+        if (amount > 0) {
+            this.balance += amount;
+            System.out.println("Deposited: $" + amount);
+        } else {
+            System.out.println("Deposit amount must be positive.");
+        }
+    }
+
+    // Method to withdraw money
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            this.balance -= amount;
+            System.out.println("Withdrawn: $" + amount);
+        } else {
+            System.out.println("Insufficient balance or invalid amount!");
+        }
     }
 }
 
-Person person = new Person();
-person.setName("Alice");
-System.out.println(person.getName());
+public class Main {
+    public static void main(String[] args) {
+        // Creating an encapsulated object
+        BankAccount account = new BankAccount("John Doe", 1000);
+
+        // Accessing data using getters
+        System.out.println("Account Holder: " + account.getAccountHolder());
+        System.out.println("Initial Balance: $" + account.getBalance());
+
+        // Updating balance using setters
+        account.deposit(500);
+        account.withdraw(300);
+        account.setBalance(-100); // Invalid operation
+
+        System.out.println("Final Balance: $" + account.getBalance());
+    }
+}
 ```
+### **Output:**
+```
+Account Holder: John Doe
+Initial Balance: $1000.0
+Deposited: $500.0
+Withdrawn: $300.0
+Balance cannot be negative!
+Final Balance: $1200.0
+```
+**Explanation:**
+- The variables `accountHolder` and `balance` are **private** (cannot be accessed directly).
+- `getBalance()` and `setBalance()` **control access** to balance.
+- **Validation** is added in `setBalance()`, `deposit()`, and `withdraw()` to prevent invalid operations.
+
+---
+
+## **Encapsulation in Real-World Applications**
+Encapsulation is widely used in Java programming, including:
+1. **Banking Applications** (e.g., Account details should not be modified directly)
+2. **Medical Systems** (e.g., Patient records should be secure)
+3. **E-commerce Websites** (e.g., User data should be hidden and only accessible via methods)
+4. **Game Development** (e.g., Player stats should be modified through controlled methods)
+
+---
+
+## **Key Takeaways**
+| **Feature**              | **Encapsulation in Java**                                    |
+|--------------------------|--------------------------------------------------------------|
+| **Access Control**       | Uses `private` variables and `public` getter/setter methods. |
+| **Data Security**        | Prevents unauthorized modification of variables.             |
+| **Code Maintainability** | Changes in one class do not affect others.                   |
+| **Reusability**          | The class can be reused without modifications.               |
+
+---
+
+## **Conclusion**
+- **Encapsulation** is a core OOP concept in Java.
+- It **hides data** and **ensures controlled access** through methods.
+- It **improves security, maintainability, and reusability** of code.
+- **Encapsulation is widely used** in real-world applications for data protection.
 
 ## Exception Handling in Java
 
