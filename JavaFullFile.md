@@ -16,8 +16,7 @@ Every flaky test, memory leak, CI slowness, and concurrency bug traces back to t
 
 A program is a set of instructions that the CPU executes step by step.
 
-<details>
-<summary><b>Full Java Execution Pipeline</b></summary>
+### Full Java Execution Pipeline
 
 ```text
 Source Code (.java)
