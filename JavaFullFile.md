@@ -104,31 +104,24 @@ JIT Compiler
 Native Machine Code
 ```
 
-Examples
+**Compiled Languages**
+- C
+- C++ 
+- Go
+- Rust
 
-Compiled Languages
+**Interpreted Languages**
+- Python
+- JavaScript
+- Ruby
 
-· C
-· C++
-· Go
-· Rust
-
-Interpreted Languages
-
-· Python
-· JavaScript
-· Ruby
-
-SDET Lead Insight
-
+**SDET Lead Insight**
 Automation ecosystems usually combine multiple runtime models:
-
-· Java → compiled
-· Groovy → interpreted
-· Python → interpreted
+- Java → compiled
+- Groovy → interpreted  
+- Python → interpreted
 
 Understanding this helps with startup optimization, debugging, and CI/CD pipeline tuning.
-
 ---
 
 3. Binary & Decimal Basics
