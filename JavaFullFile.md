@@ -1,6 +1,4 @@
-I see the issue - the "At the lowest level, the CPU performs..." text got merged inside the first code block. That happens when there’s no blank line after the closing  as part of the code block.
-
-Here’s the fixed version with proper spacing so the text renders outside the code block:
+Got it — the problem is GitHub is treating your text as part of the code block because there’s no empty line between `  wrapper needed:
 
 # 1. Programming Foundations
 
@@ -21,6 +19,7 @@ Every flaky test, memory leak, CI slowness, and concurrency bug traces back to t
 A program is a set of instructions that the CPU executes step by step.
 
 ### Full Java Execution Pipeline
+
 ```text
 Source Code (.java)
          ↓
@@ -48,6 +47,7 @@ JVM interprets or JIT-compiles bytecode
 CPU executes native instructions
 
 CPU Execution Flow
+
 Write Java Code
          ↓
 Compile to Bytecode
@@ -79,6 +79,7 @@ Compiler vs Interpreter
 
 
 Java’s Hybrid Model
+
 .java
    ↓ javac
    ↓
@@ -113,6 +114,7 @@ OFF → 0
 
 Decimal to Binary Conversion
 Convert  to binary:
+
 13 ÷ 2 = 6 remainder 1
 6  ÷ 2 = 3 remainder 0  
 3  ÷ 2 = 1 remainder 1
@@ -121,11 +123,13 @@ Convert  to binary:
 Read bottom-up: 
 
 Binary to Decimal
+
 1101₂  = (1 × 2³) + (1 × 2²) + (0 × 2¹) + (1 × 2⁰)
        = 8 + 4 + 0 + 1 = 13
 
 
 Bits & Bytes
+
 | **Unit** | **Meaning** |
 | 1 bit | Single binary digit |
 | 1 byte | 8 bits |
@@ -134,6 +138,7 @@ Bits & Bytes
 
 
 Two’s Complement (Signed Numbers)
+
 Leftmost bit = sign bit
 0 → positive
 1 → negative
@@ -158,6 +163,7 @@ Used for: Objects, arrays, dynamic allocations
 Characteristics: Shared across threads, garbage collected, larger but slower
 
 Stack vs Heap Visualization
+
 STACK                          HEAP
 +-------------------+          +----------------------+
 | age = 25          |          | User Object          |
@@ -179,6 +185,7 @@ CPU vs RAM
 
 
 CPU Processing Flow
+
 RAM
   ↓
 CPU Cache
@@ -191,6 +198,7 @@ Result Back to RAM
 
 
 CPU Cache Levels
+
 | **Cache** | **Speed** |
 | L1 | Fastest |
 | L2 | Fast |
@@ -199,11 +207,13 @@ CPU Cache Levels
 
 Why Buffering Matters
 Without buffering:
+
 Read byte → system call → read byte → system call
 
 Very expensive.
 
 With buffering:
+
 Read large chunk once
          ↓
 Serve data from memory buffer
@@ -218,17 +228,20 @@ Large test data processing, report generation, and log parsing depend heavily on
 Variables in Memory
 
 Primitive Variables
+
 int age = 25;
 
 Stored directly in stack memory.
 
 Reference Variables
+
 String name = "John";
 
 Reference stored in stack
 Actual object stored in heap
 
 Memory Layout
+
 STACK (main frame)
 +------+-------------+
 | age  | 25          |
@@ -245,12 +258,14 @@ HEAP
 
 Primitive vs Reference Copy
 Primitive Copy:
+
 int x = 5;
 int y = x;
 
  gets actual value copy.
 
 Reference Copy:
+
 int[] arr1 = {1,2,3};
 int[] arr2 = arr1;
 
@@ -271,6 +286,7 @@ Input / Output (I/O) Flow
 Programs communicate with Keyboard, Files, Network, Console, and Devices.
 
 Java File Reading Example
+
 BufferedReader reader =
     new BufferedReader(
         new FileReader("data.txt")
@@ -280,6 +296,7 @@ String line = reader.readLine();
 
 
 Internal Flow
+
 Java Program
       ↓
 OS System Call
@@ -294,6 +311,7 @@ Returned as String
 
 
 Standard Streams
+
 | **Stream** | **Purpose** |
 | http://System.in | Input |
 | http://System.out | Output |
@@ -303,6 +321,7 @@ Standard Streams
 Blocking vs Non-Blocking I/O
 Blocking I/O:
 Thread waits until operation completes.
+
 Thread blocked until data arrives
 
 
@@ -311,10 +330,12 @@ Thread can continue handling other tasks. Useful for scalable servers, high-conc
 
 Why BufferedReader Is Faster
 Without buffering:
+
 1 byte read → system call → repeat
 
 
 With buffering:
+
 Large chunk read once
          ↓
 Served from memory
@@ -329,9 +350,11 @@ SDET Lead Insight
 Final Engineering Perspective
 
 Understanding these fundamentals transforms you from:
+
 Code Writer
 
 into:
+
 Systems Engineer
 
 
@@ -376,6 +399,5 @@ Fast exponentiation
 Mathematical thinking for DSA
 Interview-level optimization thinking
 
-**Key fix:** There’s now a blank line between ``` and `At the lowest level...` so GitHub treats it as normal text, not code.
-
-Paste this into your `JavaFullFile.md` and it should render properly now.
+**Rule to remember for GitHub markdown:**
+Always put an empty line before and after every ``` code block. That’s why your text was getting stuck inside the block.
