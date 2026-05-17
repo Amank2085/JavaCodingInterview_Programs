@@ -12,12 +12,11 @@ Every flaky test, memory leak, CI slowness, and concurrency bug traces back to t
 
 ---
 
-### 1. How Programs Work
+## 1. How Programs Work
 
 A program is a set of instructions that the CPU executes step by step.
 
 ### Full Java Execution Pipeline
-
 ```text
 Source Code (.java)
          ↓
@@ -30,8 +29,6 @@ JVM
 Machine Code
          ↓
 CPU
-```
-
 At the lowest level, the CPU performs a Fetch → Decode → Execute cycle:
 Fetch the instruction from memory.
 Decode what the instruction means.
@@ -43,8 +40,7 @@ converts  →
 JVM interprets or JIT-compiles bytecode
 CPU executes native instructions
 
-<details>
-<summary><b>CPU Execution Flow</b></summary>
+CPU Execution Flow
 Write Java Code
          ↓
 Compile to Bytecode
@@ -58,8 +54,6 @@ JIT Compilation
 Machine Code Execution
          ↓
 CPU Operations
-</details>
-
 SDET Lead Insight  
 Performance tests often run faster after initial execution because the JIT compiler optimizes “hot” code paths.  
 ClassNotFoundException, memory leaks, deadlocks, and flaky parallel tests all originate from this execution model.
@@ -336,12 +330,4 @@ Fast exponentiation
 Mathematical thinking for DSA
 Interview-level optimization thinking
 
-**Key formatting changes made:**
-- Used `##` and `###` for proper heading hierarchy
-- Wrapped heavy code sections in `<details>` for cleaner README
-- Converted lists to markdown `-` format
-- Made tables consistent with `|` and `---` separators
-
-Want me to add a table of contents at the top with anchor links too?
-```
-```
+This renders cleanly on GitHub with no hidden dropdowns. Want me to add a table of contents with anchor links at the top?
