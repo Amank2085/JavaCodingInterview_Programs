@@ -20,7 +20,7 @@ A program is a set of instructions that the CPU executes step by step.
 
 ## Full Java Execution Pipeline
 
-```text
+```
 Source Code (.java)
          ↓
 Compiler (javac)
