@@ -1,3 +1,245 @@
+Below is the complete README.md for Topic 1 – Programming Foundations / Computer Fundamentals, covering all seven subtopics in depth. It’s written exactly the way an SDET Architect with 14 years of training experience would teach a future SDET Lead — with internal mechanics, practical relevance, and zero fluff.
+
+You can copy this entire block and save it as README.md in your repository.
+
+```markdown
+# 1. Programming Foundations
+
+> **Role:** SDET Lead · **Focus:** Deep understanding that enables framework design, performance debugging, and architectural decision-making.
+
+---
+
+## 1.1 Computer Fundamentals
+
+This section builds your mental model of what actually happens when code executes.  
+Every flaky test, memory leak, CI slowness, and concurrency bug traces back to these foundations.
+
+---
+
+### 1. How Programs Work
+
+A program is a set of instructions that the CPU executes step by step.
+
+**The full pipeline in Java:**
+```
+
+Source Code (.java) → Compiler (javac) → Bytecode (.class) → JVM → Machine Code → CPU
+
+```
+
+At the lowest level the CPU does a **fetch‑decode‑execute** cycle:
+1. **Fetch** the instruction at the memory address stored in the instruction pointer.
+2. **Decode** what the instruction means (add, load, store, jump).
+3. **Execute** it on the appropriate registers/data.
+4. **Advance** the instruction pointer.
+
+For Java, `javac` translates `.java` to **bytecode** (platform‑independent).  
+The JVM then either interprets that bytecode or **JIT‑compiles** it to native machine code for performance.
+
+> **SDET Lead insight:** When a test fails with an `OutOfMemoryError` or a thread deadlocks, you’re seeing the consequences of this execution model. Performance tests run faster on the second execution because the JIT has optimised hot code. Classpath issues (`ClassNotFoundException`) are a direct consequence of how the JVM loads bytecode.
+
+---
+
+### 2. Compiler vs Interpreter
+
+| Compiler | Interpreter |
+|----------|-------------|
+| Translates the entire source code *before* execution. | Translates line‑by‑line *during* execution. |
+| Produces a standalone executable (or bytecode). | No separate output; runs the code directly. |
+| Errors are caught at compile time. | Errors are caught at runtime. |
+| Generally faster execution. | Slower execution, but more flexible. |
+
+**Java’s hybrid approach:**
+1. **Compilation:** `javac` compiles `.java` to `.class` (bytecode).
+2. **Interpretation/JIT:** The JVM interprets bytecode initially; the **JIT compiler** then compiles frequently executed code to native machine code.
+
+Other examples:
+- **Compiled:** C, C++, Go, Rust.
+- **Interpreted:** Python, JavaScript (in older engines), Ruby.
+
+> **SDET Lead insight:** Your automation framework may be written in Java (compiled), your CI scripts in Groovy (interpreted), and your test data setup in Python (interpreted). Understanding this affects how you handle startup times, dependency management, and error detection.
+
+---
+
+### 3. Binary & Decimal Basics
+
+All data inside a computer is stored as **binary** (0s and 1s).  
+Decimal is the base‑10 system we use daily (digits 0–9).
+
+**Why binary?**  
+Transistors inside the CPU have two states: ON (1) or OFF (0). Everything – numbers, text, images, instructions – is built from these two states.
+
+#### Conversion: Decimal to Binary (Integer)
+
+Take decimal **13**:
+1. Divide 13 by 2 → quotient 6, remainder **1**
+2. Divide 6 by 2 → quotient 3, remainder **0**
+3. Divide 3 by 2 → quotient 1, remainder **1**
+4. Divide 1 by 2 → quotient 0, remainder **1**
+
+Read remainders bottom‑up: **1101₂** = 13₁₀.
+
+#### Conversion: Binary to Decimal
+For **1101₂**:  
+(1 × 2³) + (1 × 2²) + (0 × 2¹) + (1 × 2⁰) = 8 + 4 + 0 + 1 = 13.
+
+#### Bits and Bytes
+- 1 **bit** = single binary digit (0/1).
+- 1 **byte** = 8 bits (e.g., `01101001`).
+- 1 **kilobyte (KB)** = 1024 bytes (2¹⁰), not 1000.
+
+**Signed numbers (Two’s complement):** Java’s `byte`, `short`, `int`, `long` use two’s complement to represent negative numbers. The leftmost bit is the sign bit (0 for positive, 1 for negative).
+
+> **SDET Lead insight:** When you shift bits (bitwise operations) or deal with file sizes in automation (test data CSV size, memory limits), binary understanding prevents overflow mistakes and helps optimise data encoding/decoding in API payloads.
+
+---
+
+### 4. Memory Basics
+
+Memory (RAM) is a large array of bytes. Each byte has a unique **address** (like a house number). Programs use two main regions:
+
+- **Stack:** Stores local variables, method calls. Fast, automatically managed, LIFO.
+- **Heap:** Stores objects, arrays. Larger, shared, garbage‑collected.
+
+Every time you declare a variable inside a method, the JVM reserves space on the stack. When you create a new object (`new MyClass()`), the object lives on the heap, and the variable on the stack holds a **reference** (pointer to that heap location).
+
+> **SDET Lead insight:** Memory leaks in test suites often happen because you unintentionally hold references in static collections that prevent heap objects from being garbage‑collected. Understanding stack vs heap is essential for profiling and fixing `OutOfMemoryError`.
+
+---
+
+### 5. CPU vs RAM
+
+| CPU | RAM |
+|-----|-----|
+| The “brain” – executes instructions. | The “workspace” – stores instructions and data temporarily. |
+| Has a small number of **registers** (fast internal storage). | Much larger capacity, but slower than CPU registers. |
+| Performs arithmetic, logic, control operations. | Volatile – loses data when power is off. |
+
+**Why can’t the CPU do everything with its registers?**  
+Registers are expensive and physically limited. RAM acts as a large, cost‑effective staging area. The CPU constantly loads data from RAM into registers, operates on it, and writes results back.
+
+**Bottleneck:** RAM is much slower than the CPU. To bridge this gap, modern CPUs have **caches** (L1, L2, L3) that store frequently accessed data closer to the processor.
+
+> **SDET Lead insight:** When your Selenium test reads a huge test data file, the disk data moves to RAM, then into CPU caches/registers for processing. If the test uses an inefficient algorithm (e.g., reading line by line without buffering), it will suffer from constant RAM access, making execution slow. This is why `BufferedReader` and bulk operations exist.
+
+---
+
+### 6. Variables in Memory
+
+Let’s dissect exactly what happens when you write:
+
+```java
+int age = 25;
+String name = "John";
+```
+
+Primitive variables (int, boolean, double, etc.)
+
+· age is allocated on the stack in the current method’s frame.
+· The value 25 (binary: 00000000 00000000 00000000 00011001) is stored directly at that stack location.
+· Access is extremely fast.
+
+Reference variables (objects)
+
+· name is allocated on the stack as a reference (a memory address).
+· The actual String object ("John") is created on the heap.
+· The stack variable name points to that heap location.
+
+Memory layout for the above:
+
+```
+STACK (main method frame)
++------+-------------+
+| age  | 25          |
++------+-------------+
+| name | ref0x1a2b3c | ------> HEAP
++------+-------------+         +--------------------+
+                                | String "John"      |
+                                | (char array, etc.) |
+                                +--------------------+
+```
+
+What happens when you reassign?
+
+```java
+name = "Doe";
+```
+
+The stack variable name now points to a new String object on the heap ("Doe"). The old "John" object is eventually garbage‑collected (if no other references exist).
+
+Primitive vs Reference in assignments
+
+```java
+int x = 5;
+int y = x;      // y gets a COPY of 5
+
+int[] arr1 = {1,2,3};
+int[] arr2 = arr1;   // arr2 gets a COPY of the reference (both point to the same array)
+```
+
+SDET Lead insight: This distinction explains why == compares references for objects (are they the same memory address?) while .equals() compares actual content. It also explains why modifying a shared object in one test method can pollute the state for another test method, leading to flaky tests. You'll learn to use deep copies, clones, or immutable objects to prevent such issues.
+
+---
+
+7. Input/Output Flow
+
+A program that can’t interact with the outside world is useless. I/O is the communication channel between your program and:
+
+· Keyboard (standard input)
+· Terminal/console (standard output)
+· Files (disk)
+· Network sockets
+· Devices
+
+The OS as a mediator
+
+Your Java program runs in user space. To read a file, it must ask the operating system kernel, which has privileged access to hardware. This request is a system call.
+
+Example: reading a file in Java
+
+```java
+BufferedReader reader = new BufferedReader(new FileReader("data.txt"));
+String line = reader.readLine();
+```
+
+Internally:
+
+1. FileReader opens the file (system call → OS gets a file descriptor).
+2. readLine() reads bytes from the file descriptor into a buffer in your program’s memory.
+3. The bytes are decoded into characters and returned as a String.
+
+Standard Streams
+
+Every Java process automatically gets three streams:
+
+· System.in – standard input (keyboard).
+· System.out – standard output (console).
+· System.err – standard error (console, often for logging errors).
+
+Buffering is essential
+
+I/O operations are slow compared to CPU. Reading a file byte‑by‑byte would require a system call for every byte – terribly inefficient. BufferedReader reads a large chunk into an internal buffer and then dispenses bytes from that buffer, drastically reducing the number of system calls.
+
+Blocking vs Non‑blocking I/O
+
+Traditional I/O (java.io) blocks the thread until data is available.
+java.nio (New I/O) allows non‑blocking operations, enabling a single thread to manage many connections (useful for high‑scale servers and network‑intensive automation).
+
+SDET Lead insight: When your Selenium test does driver.get(url), it’s performing network I/O. If the server is slow, the test thread blocks. To prevent test hangs, you must use timeouts (pageLoadTimeout). In API automation with REST Assured, you configure connection/read timeouts. If you’re building a test framework that reads massive CSV test data, you’ll use buffering and possibly memory‑mapped files for performance. Understanding I/O flow is critical for building reliable, fast automation suites.
+
+---
+
+Summary – Why This Foundation Matters for an SDET Lead
+
+· Flaky tests? Often caused by shared mutable state (memory model) or I/O timeouts.
+· Performance bottlenecks? Inefficient I/O, excessive object creation on the heap, or slow algorithms that don’t respect the hardware.
+· Memory leaks? Holding references unintentionally, preventing garbage collection.
+· Debugging ClassNotFoundException or NoClassDefFoundError? Requires understanding of compilation and class loading.
+· Designing a test framework? You must decide on data sharing strategies (immutability, deep copies), I/O handling (buffering, parallelism), and memory management, all rooted in these fundamentals.
+```
+
+
+
 # Java Cheatsheet
 
 Welcome to the Java Cheatsheet! This document contains essential notes and snippets that will help you quickly reference Java programming concepts.
