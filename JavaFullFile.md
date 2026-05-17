@@ -549,3 +549,573 @@ After completing this roadmap, the learner should think like:
 - Distributed Systems Engineer
 - Scalable Automation Engineer
 - Software Architect
+---
+
+# 1.1 How Computers Work
+
+> Goal: Build a mental model of what actually happens inside a computer when a program runs.
+
+Most developers write code without understanding what the machine is doing internally.
+
+But performance engineering, JVM tuning, concurrency debugging, flaky test analysis, and scalable framework design all depend on understanding how computers execute instructions.
+
+This section explains the lowest-level execution model that every programming language ultimately relies on.
+
+---
+
+# Big Picture
+
+At the highest level:
+
+```text
+Human Writes Code
+        ↓
+Compiler / Interpreter Translates Code
+        ↓
+Operating System Loads Program
+        ↓
+CPU Executes Instructions
+        ↓
+Memory Stores Data
+        ↓
+Output Produced
+```
+
+No matter which language you use:
+- Java
+- Python
+- C++
+- JavaScript
+- Go
+
+eventually the CPU executes machine instructions.
+
+---
+
+# Program Execution Flow
+
+A program is a sequence of instructions executed by the CPU step by step.
+
+Example:
+
+```java
+int a = 10;
+int b = 20;
+int sum = a + b;
+```
+
+Humans understand this as:
+
+```text
+Store 10
+Store 20
+Add values
+Store result
+```
+
+But the CPU only understands low-level machine instructions.
+
+Internally, the flow becomes something conceptually like:
+
+```text
+LOAD 10 INTO REGISTER
+LOAD 20 INTO REGISTER
+ADD VALUES
+STORE RESULT IN MEMORY
+```
+
+---
+
+# High-Level Program Execution Flow
+
+```text
+Source Code
+     ↓
+Compiler / Interpreter
+     ↓
+Machine Instructions
+     ↓
+Operating System Loads Program
+     ↓
+CPU Executes Instructions
+     ↓
+Memory Updated
+     ↓
+Output Generated
+```
+
+---
+
+# Real Internal Execution Pipeline
+
+```text
+Program Stored on Disk
+          ↓
+OS Loads Program into RAM
+          ↓
+CPU Fetches Instruction
+          ↓
+CPU Decodes Instruction
+          ↓
+CPU Executes Instruction
+          ↓
+Result Stored in Register/Memory
+          ↓
+Next Instruction Executes
+```
+
+---
+
+# Why Programs Need RAM
+
+Programs cannot execute directly from disk.
+
+Disk storage:
+- large
+- persistent
+- slow
+
+RAM:
+- temporary
+- fast
+- directly accessible by CPU
+
+Execution flow:
+
+```text
+SSD/HDD
+   ↓
+RAM
+   ↓
+CPU Cache
+   ↓
+CPU Registers
+   ↓
+Execution
+```
+
+---
+
+# Fetch Decode Execute Cycle
+
+The CPU continuously performs a loop called:
+
+```text
+Fetch → Decode → Execute
+```
+
+This is the foundation of all computing.
+
+---
+
+# Step 1 — Fetch
+
+The CPU fetches the next instruction from memory.
+
+Example:
+
+```text
+ADD R1, R2
+```
+
+The instruction is copied from RAM into the CPU.
+
+The Program Counter (PC) register stores the address of the next instruction.
+
+---
+
+# Step 2 — Decode
+
+The CPU decodes the instruction.
+
+Meaning:
+- What operation is required?
+- Which registers are involved?
+- Is memory access needed?
+
+Example:
+
+```text
+ADD R1, R2
+```
+
+Decoded as:
+
+```text
+Add value of Register 1 and Register 2
+```
+
+---
+
+# Step 3 — Execute
+
+The CPU executes the operation.
+
+The Arithmetic Logic Unit (ALU) performs:
+- addition
+- subtraction
+- comparisons
+- logical operations
+
+Example:
+
+```text
+R1 = 10
+R2 = 20
+
+R1 + R2 = 30
+```
+
+---
+
+# Full CPU Execution Visualization
+
+```text
+                +-------------------+
+                | Program in Memory |
+                +-------------------+
+                           ↓
+                  FETCH Instruction
+                           ↓
+                +-------------------+
+                | Control Unit      |
+                | Decodes Instruction|
+                +-------------------+
+                           ↓
+                     EXECUTE
+                           ↓
+                +-------------------+
+                | ALU Performs Work |
+                +-------------------+
+                           ↓
+                    Store Result
+```
+
+---
+
+# CPU Instruction Processing
+
+The CPU does NOT understand:
+- Java
+- Python
+- Selenium
+- APIs
+
+It only understands machine instructions.
+
+Machine instructions are binary operations.
+
+Example:
+
+```text
+10110000 01100001
+```
+
+Different CPUs have different instruction sets.
+
+Examples:
+- x86
+- ARM
+- RISC-V
+
+This is why compiled programs may behave differently across architectures.
+
+---
+
+# Instruction Set Architecture (ISA)
+
+An ISA defines:
+- supported instructions
+- register structure
+- memory addressing rules
+- execution model
+
+Examples:
+
+| Architecture | Common Usage |
+|---|---|
+| x86 | Intel/AMD desktops |
+| ARM | Mobile devices, Apple Silicon |
+| RISC-V | Modern open architecture |
+
+---
+
+# Registers
+
+Registers are tiny ultra-fast memory locations inside the CPU.
+
+They are MUCH faster than RAM.
+
+CPU execution depends heavily on registers.
+
+---
+
+# Why Registers Exist
+
+Accessing RAM is expensive compared to CPU speed.
+
+Without registers:
+
+```text
+CPU → RAM → CPU → RAM
+```
+
+would be extremely slow.
+
+Registers reduce memory access overhead.
+
+---
+
+# Register Flow
+
+```text
+RAM
+ ↓
+CPU Cache
+ ↓
+Registers
+ ↓
+ALU Operations
+```
+
+---
+
+# Common Register Types
+
+| Register | Purpose |
+|---|---|
+| Program Counter (PC) | Address of next instruction |
+| Instruction Register | Current instruction |
+| Accumulator | Stores intermediate results |
+| Stack Pointer | Tracks stack memory |
+| General Purpose Registers | Temporary data storage |
+
+---
+
+# Arithmetic Logic Unit (ALU)
+
+The ALU is the mathematical engine of the CPU.
+
+It performs:
+- arithmetic operations
+- logical operations
+- comparisons
+- bitwise operations
+
+---
+
+# ALU Operations
+
+## Arithmetic
+
+```text
+10 + 20
+50 - 10
+5 × 4
+```
+
+---
+
+## Logical
+
+```text
+AND
+OR
+NOT
+XOR
+```
+
+---
+
+## Comparison
+
+```text
+>
+<
+==
+!=
+```
+
+---
+
+# Machine Instructions
+
+Machine instructions are the lowest-level executable commands.
+
+Example conceptual instructions:
+
+```text
+LOAD
+STORE
+ADD
+SUB
+JUMP
+COMPARE
+```
+
+---
+
+# Conditional Execution Example
+
+Java:
+
+```java
+if (a > b) {
+    System.out.println("A");
+}
+```
+
+Conceptually becomes:
+
+```text
+COMPARE a, b
+JUMP_IF_GREATER
+PRINT
+```
+
+---
+
+# Control Flow Internally
+
+Loops and conditions are implemented using jumps.
+
+Example:
+
+```java
+for(int i = 0; i < 5; i++)
+```
+
+Internally:
+
+```text
+CHECK CONDITION
+JUMP BACK
+CHECK CONDITION
+JUMP BACK
+```
+
+CPU execution is fundamentally controlled jumping between instructions.
+
+---
+
+# CPU Is Extremely Fast
+
+Modern CPUs execute billions of instructions per second.
+
+Approximate scale:
+
+| Component | Speed |
+|---|---|
+| Registers | Fastest |
+| L1 Cache | Extremely Fast |
+| RAM | Slower |
+| SSD | Much Slower |
+| HDD | Slowest |
+
+This speed difference is why:
+- caching matters
+- buffering matters
+- batching matters
+- memory optimization matters
+
+---
+
+# SDET Lead Insight
+
+Understanding CPU execution explains many real-world engineering problems.
+
+---
+
+## Why Infinite Loops Freeze Systems
+
+```java
+while(true) {
+
+}
+```
+
+CPU continuously executes instructions without stopping.
+
+Result:
+- high CPU usage
+- thread starvation
+- server instability
+
+---
+
+## Why Nested Loops Become Slow
+
+```java
+for(...)
+   for(...)
+```
+
+More iterations = more CPU instructions.
+
+Complexity directly impacts execution time.
+
+---
+
+## Why Logging Excessively Slows Automation
+
+```java
+System.out.println()
+```
+
+causes:
+- I/O operations
+- buffer flushing
+- CPU interruptions
+
+Heavy logging can drastically slow large frameworks.
+
+---
+
+## Why Memory Access Patterns Matter
+
+Sequential memory access is CPU-cache friendly.
+
+Random access causes:
+- cache misses
+- slower execution
+- memory latency
+
+This is critical in:
+- large data processing
+- reporting engines
+- distributed systems
+
+---
+
+# Engineering Perspective
+
+Understanding computer execution transforms thinking from:
+
+```text
+"I wrote code"
+```
+
+to:
+
+```text
+"I understand what the machine is doing"
+```
+
+That mental shift is what separates:
+- framework users
+from
+- systems engineers
+
+---
+
+# Key Takeaways
+
+- Programs are executed instruction by instruction
+- CPU performs Fetch → Decode → Execute
+- Registers are ultra-fast CPU memory
+- ALU performs calculations and logic
+- Machine instructions are binary-level operations
+- RAM stores active program data
+- CPU performance depends heavily on memory access patterns
+
+---
