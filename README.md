@@ -1,35 +1,25 @@
-1. Programming Foundations
+# 1. Programming Foundations
 
-Role: SDET Lead
-Focus: Deep understanding that enables framework design, performance debugging, and architectural decision-making.
+> Role: SDET Lead  
+> Focus: Deep understanding that enables framework design, performance debugging, and architectural decision-making.
 
-⸻
+---
 
-1.1 Computer Fundamentals
+# 1.1 Computer Fundamentals
 
 This section builds your mental model of what actually happens when code executes.
 
 Every flaky test, memory leak, CI slowness, and concurrency bug traces back to these foundations.
 
-⸻
+---
 
-1. How Programs Work
+# 1. How Programs Work
 
 A program is a set of instructions that the CPU executes step by step.
 
-Full Java Execution Pipeline
+## Full Java Execution Pipeline
 
-Source Code (.java)
-        ↓
-Compiler (javac)
-        ↓
-Bytecode (.class)
-        ↓
-JVM
-        ↓
-Machine Code
-        ↓
-CPU
+text Source Code (.java)         ↓ Compiler (javac)         ↓ Bytecode (.class)         ↓ JVM         ↓ Machine Code         ↓ CPU 
 
 At the lowest level, the CPU performs a Fetch → Decode → Execute cycle:
 
@@ -40,156 +30,123 @@ At the lowest level, the CPU performs a Fetch → Decode → Execute cycle:
 
 For Java:
 
-* javac converts .java → .class
-* JVM interprets or JIT-compiles bytecode
-* CPU executes native instructions
+- javac converts .java → .class
+- JVM interprets or JIT-compiles bytecode
+- CPU executes native instructions
 
-CPU Execution Flow
+## CPU Execution Flow
 
-Write Java Code
-        ↓
-Compile to Bytecode
-        ↓
-JVM Loads Classes
-        ↓
-Bytecode Verification
-        ↓
-JIT Compilation
-        ↓
-Machine Code Execution
-        ↓
-CPU Operations
+text Write Java Code         ↓ Compile to Bytecode         ↓ JVM Loads Classes         ↓ Bytecode Verification         ↓ JIT Compilation         ↓ Machine Code Execution         ↓ CPU Operations 
 
-SDET Lead Insight
+> ### SDET Lead Insight
+>
+> Performance tests often run faster after initial execution because the JIT compiler optimizes “hot” code paths.
+>
+> ClassNotFoundException, memory leaks, deadlocks, and flaky parallel tests all originate from this execution model.
 
-Performance tests often run faster after initial execution because the JIT compiler optimizes “hot” code paths.
+---
 
-ClassNotFoundException, memory leaks, deadlocks, and flaky parallel tests all originate from this execution model.
+# 2. Compiler vs Interpreter
 
-⸻
+| Compiler | Interpreter |
+|---|---|
+| Translates entire code before execution | Translates during execution |
+| Produces executable/bytecode | No standalone output |
+| Compile-time errors | Runtime errors |
+| Faster execution | Slower but flexible |
 
-2. Compiler vs Interpreter
+---
 
-Compiler	Interpreter
-Translates entire code before execution	Translates during execution
-Produces executable/bytecode	No standalone output
-Compile-time errors	Runtime errors
-Faster execution	Slower but flexible
+## Java’s Hybrid Model
 
-⸻
+text .java    ↓ javac    ↓ .class (Bytecode)    ↓ JVM Interpreter    ↓ JIT Compiler    ↓ Native Machine Code 
 
-Java’s Hybrid Model
+### Examples
 
-.java
-   ↓
-javac
-   ↓
-.class (Bytecode)
-   ↓
-JVM Interpreter
-   ↓
-JIT Compiler
-   ↓
-Native Machine Code
+#### Compiled Languages
+- C
+- C++
+- Go
+- Rust
 
-Examples
+#### Interpreted Languages
+- Python
+- JavaScript
+- Ruby
 
-Compiled Languages
+> ### SDET Lead Insight
+>
+> Automation ecosystems usually combine multiple runtime models:
+>
+> - Java → compiled
+> - Groovy → interpreted
+> - Python → interpreted
+>
+> Understanding this helps with startup optimization, debugging, and CI/CD pipeline tuning.
 
-* C
-* C++
-* Go
-* Rust
+---
 
-Interpreted Languages
-
-* Python
-* JavaScript
-* Ruby
-
-SDET Lead Insight
-
-Automation ecosystems usually combine multiple runtime models:
-
-* Java → compiled
-* Groovy → interpreted
-* Python → interpreted
-
-Understanding this helps with startup optimization, debugging, and CI/CD pipeline tuning.
-
-⸻
-
-3. Binary & Decimal Basics
+# 3. Binary & Decimal Basics
 
 Computers store everything as binary:
 
-0 and 1
+text 0 and 1 
 
 Because transistors only have two physical states:
 
-* ON → 1
-* OFF → 0
+- ON → 1
+- OFF → 0
 
-⸻
+---
 
-Decimal to Binary Conversion
+# Decimal to Binary Conversion
 
 Convert 13 to binary:
 
-13 ÷ 2 = 6 remainder 1
-6 ÷ 2 = 3 remainder 0
-3 ÷ 2 = 1 remainder 1
-1 ÷ 2 = 0 remainder 1
+text 13 ÷ 2 = 6 remainder 1 6 ÷ 2 = 3 remainder 0 3 ÷ 2 = 1 remainder 1 1 ÷ 2 = 0 remainder 1 
 
 Read bottom-up:
 
-1101₂ = 13₁₀
+text 1101₂ = 13₁₀ 
 
-⸻
+---
 
-Binary to Decimal
+# Binary to Decimal
 
-1101₂
-= (1 × 2³)
-+ (1 × 2²)
-+ (0 × 2¹)
-+ (1 × 2⁰)
-= 8 + 4 + 0 + 1
-= 13
+text 1101₂  = (1 × 2³) + (1 × 2²) + (0 × 2¹) + (1 × 2⁰)  = 8 + 4 + 0 + 1 = 13 
 
-⸻
+---
 
-Bits & Bytes
+# Bits & Bytes
 
-Unit	Meaning
-1 bit	Single binary digit
-1 byte	8 bits
-1 KB	1024 bytes
-1 MB	1024 KB
+| Unit | Meaning |
+|---|---|
+| 1 bit | Single binary digit |
+| 1 byte | 8 bits |
+| 1 KB | 1024 bytes |
+| 1 MB | 1024 KB |
 
-⸻
+---
 
-Two’s Complement (Signed Numbers)
+# Two’s Complement (Signed Numbers)
 
 Java integer types use two’s complement.
 
-Leftmost bit = sign bit
-0 → positive
-1 → negative
+text Leftmost bit = sign bit 0 → positive 1 → negative 
 
-SDET Lead Insight
+> ### SDET Lead Insight
+>
+> Binary understanding becomes critical for:
+>
+> - Bitwise operations
+> - Memory optimization
+> - Encoding/decoding payloads
+> - File processing
+> - Performance tuning
 
-Binary understanding becomes critical for:
+---
 
-* Bitwise operations
-* Memory optimization
-* Encoding/decoding payloads
-* File processing
-* Performance tuning
-
-⸻
-
-4. Memory Basics
+# 4. Memory Basics
 
 RAM is essentially a giant array of bytes.
 
@@ -197,349 +154,316 @@ Each byte has a unique memory address.
 
 Programs primarily use:
 
-* Stack Memory
-* Heap Memory
+- Stack Memory
+- Heap Memory
 
-⸻
+---
 
-Stack Memory
-
-Used for:
-
-* Method calls
-* Local variables
-* Execution frames
-
-Characteristics:
-
-* Fast
-* Thread-specific
-* Auto-cleaned
-* LIFO structure
-
-⸻
-
-Heap Memory
+# Stack Memory
 
 Used for:
 
-* Objects
-* Arrays
-* Dynamic allocations
+- Method calls
+- Local variables
+- Execution frames
 
 Characteristics:
 
-* Shared across threads
-* Garbage collected
-* Larger but slower
+- Fast
+- Thread-specific
+- Auto-cleaned
+- LIFO structure
 
-⸻
+---
 
-Stack vs Heap Visualization
+# Heap Memory
 
-STACK                          HEAP
-+-------------------+          +----------------------+
-| age = 25          |          | User Object          |
-| user = 0xA12F ----|--------->| name = "John"        |
-+-------------------+          +----------------------+
+Used for:
 
-SDET Lead Insight
+- Objects
+- Arrays
+- Dynamic allocations
 
-Memory leaks in automation frameworks usually happen because references remain reachable through:
+Characteristics:
 
-* static collections
-* ThreadLocals
-* cached driver objects
+- Shared across threads
+- Garbage collected
+- Larger but slower
 
-preventing garbage collection.
+---
 
-⸻
+# Stack vs Heap Visualization
 
-5. CPU vs RAM
+text STACK                          HEAP +-------------------+          +----------------------+ | age = 25          |          | User Object          | | user = 0xA12F ----|--------->| name = "John"        | +-------------------+          +----------------------+ 
 
-CPU	RAM
-Executes instructions	Stores data/instructions
-Extremely fast	Slower than CPU
-Contains registers/cache	Large storage capacity
+> ### SDET Lead Insight
+>
+> Memory leaks in automation frameworks usually happen because references remain reachable through:
+>
+> - static collections
+> - ThreadLocals
+> - cached driver objects
+>
+> preventing garbage collection.
 
-⸻
+---
 
-CPU Processing Flow
+# 5. CPU vs RAM
 
-RAM
- ↓
-CPU Cache
- ↓
-Registers
- ↓
-ALU Operations
- ↓
-Result Back to RAM
+| CPU | RAM |
+|---|---|
+| Executes instructions | Stores data/instructions |
+| Extremely fast | Slower than CPU |
+| Contains registers/cache | Large storage capacity |
 
-⸻
+---
 
-CPU Cache Levels
+# CPU Processing Flow
 
-Cache	Speed
-L1	Fastest
-L2	Fast
-L3	Shared but larger
+text RAM  ↓ CPU Cache  ↓ Registers  ↓ ALU Operations  ↓ Result Back to RAM 
 
-⸻
+---
 
-Why Buffering Matters
+# CPU Cache Levels
+
+| Cache | Speed |
+|---|---|
+| L1 | Fastest |
+| L2 | Fast |
+| L3 | Shared but larger |
+
+---
+
+# Why Buffering Matters
 
 Without buffering:
 
-Read byte
-→ system call
-→ read byte
-→ system call
+text Read byte → system call → read byte → system call 
 
 Very expensive.
 
 With buffering:
 
-Read large chunk once
-↓
-Serve data from memory buffer
+text Read large chunk once ↓ Serve data from memory buffer 
 
 Much faster.
 
-SDET Lead Insight
+> ### SDET Lead Insight
+>
+> Large test data processing, report generation, and log parsing depend heavily on efficient buffering strategies.
 
-Large test data processing, report generation, and log parsing depend heavily on efficient buffering strategies.
+---
 
-⸻
+# 6. Variables in Memory
 
-6. Variables in Memory
+## Primitive Variables
 
-Primitive Variables
-
-int age = 25;
+java int age = 25; 
 
 Stored directly in stack memory.
 
-⸻
+---
 
-Reference Variables
+## Reference Variables
 
-String name = "John";
+java String name = "John"; 
 
-* Reference stored in stack
-* Actual object stored in heap
+- Reference stored in stack
+- Actual object stored in heap
 
-⸻
+---
 
-Memory Layout
+# Memory Layout
 
-STACK (main frame)
-+------+-------------+
-| age  | 25          |
-+------+-------------+
-| name | ref0x1a2b3c | --------+
-+------+-------------+         |
-                                ↓
-HEAP
-+----------------------------+
-| String Object "John"       |
-| char[]                     |
-+----------------------------+
+text STACK (main frame)  +------+-------------+ | age  | 25          | +------+-------------+ | name | ref0x1a2b3c | --------+ +------+-------------+         |                                 ↓ HEAP +----------------------------+ | String Object "John"       | | char[]                     | +----------------------------+ 
 
-⸻
+---
 
-Reassignment
+# Reassignment
 
-name = "Doe";
+java name = "Doe"; 
 
 Now:
 
-name → new heap object
+text name → new heap object 
 
 Old object becomes eligible for GC if unreferenced.
 
-⸻
+---
 
-Primitive vs Reference Copy
+# Primitive vs Reference Copy
 
-Primitive Copy
+## Primitive Copy
 
-int x = 5;
-int y = x;
+java int x = 5; int y = x; 
 
 y gets actual value copy.
 
-⸻
+---
 
-Reference Copy
+## Reference Copy
 
-int[] arr1 = {1,2,3};
-int[] arr2 = arr1;
+java int[] arr1 = {1,2,3}; int[] arr2 = arr1; 
 
 Both references point to SAME object.
 
-⸻
+---
 
-Reference Visualization
+# Reference Visualization
 
-arr1 ───┐
-        ├──→ SAME ARRAY OBJECT
-arr2 ───┘
+text arr1 ───┐         ├──→ SAME ARRAY OBJECT arr2 ───┘ 
 
-SDET Lead Insight
+> ### SDET Lead Insight
+>
+> Shared mutable state is one of the biggest causes of flaky automation.
+>
+> Understanding references explains:
+>
+> - == vs .equals()
+> - deep copy vs shallow copy
+> - object pollution across tests
+> - thread-safety issues
 
-Shared mutable state is one of the biggest causes of flaky automation.
+---
 
-Understanding references explains:
-
-* == vs .equals()
-* deep copy vs shallow copy
-* object pollution across tests
-* thread-safety issues
-
-⸻
-
-7. Input / Output (I/O) Flow
+# 7. Input / Output (I/O) Flow
 
 Programs communicate with:
 
-* Keyboard
-* Files
-* Network
-* Console
-* Devices
+- Keyboard
+- Files
+- Network
+- Console
+- Devices
 
-⸻
+---
 
-Java File Reading Example
+# Java File Reading Example
 
-BufferedReader reader =
-    new BufferedReader(
-        new FileReader("data.txt")
-    );
-String line = reader.readLine();
+java BufferedReader reader =     new BufferedReader(         new FileReader("data.txt")     );  String line = reader.readLine(); 
 
-⸻
+---
 
-Internal Flow
+# Internal Flow
 
-Java Program
-     ↓
-OS System Call
-     ↓
-Kernel Accesses Disk
-     ↓
-Bytes Loaded into Buffer
-     ↓
-Decoded into Characters
-     ↓
-Returned as String
+text Java Program      ↓ OS System Call      ↓ Kernel Accesses Disk      ↓ Bytes Loaded into Buffer      ↓ Decoded into Characters      ↓ Returned as String 
 
-⸻
+---
 
-Standard Streams
+# Standard Streams
 
-Stream	Purpose
-System.in	Input
-System.out	Output
-System.err	Errors
+| Stream | Purpose |
+|---|---|
+| System.in | Input |
+| System.out | Output |
+| System.err | Errors |
 
-⸻
+---
 
-Blocking vs Non-Blocking I/O
+# Blocking vs Non-Blocking I/O
 
-Blocking I/O
+## Blocking I/O
 
 Thread waits until operation completes.
 
-Thread blocked
-until data arrives
+text Thread blocked until data arrives 
 
-⸻
+---
 
-Non-Blocking I/O (NIO)
+## Non-Blocking I/O (NIO)
 
 Thread can continue handling other tasks.
 
 Useful for:
+- scalable servers
+- high-concurrency systems
+- large automation infrastructures
 
-* scalable servers
-* high-concurrency systems
-* large automation infrastructures
+---
 
-⸻
-
-Why BufferedReader Is Faster
+# Why BufferedReader Is Faster
 
 Without buffering:
 
-1 byte read
-→ system call
-→ repeat
+text 1 byte read → system call → repeat 
 
 With buffering:
 
-Large chunk read once
-↓
-Served from memory
+text Large chunk read once ↓ Served from memory 
 
 Huge performance gain.
 
-SDET Lead Insight
+> ### SDET Lead Insight
+>
+> Selenium driver.get(url) performs network I/O.
+>
+> Slow responses block the test thread.
+>
+> This is why:
+>
+> - timeouts matter
+> - retries matter
+> - async APIs matter
+> - buffering matters
 
-Selenium driver.get(url) performs network I/O.
+---
 
-Slow responses block the test thread.
-
-This is why:
-
-* timeouts matter
-* retries matter
-* async APIs matter
-* buffering matters
-
-⸻
-
-Final Engineering Perspective
+# Final Engineering Perspective
 
 Understanding these fundamentals transforms you from:
 
-Code Writer
+text Code Writer 
 
 into:
 
-Systems Engineer
+text Systems Engineer 
 
 You begin understanding:
 
-* Why frameworks become slow
-* Why memory leaks happen
-* Why tests fail only in parallel
-* Why CPU spikes occur
-* Why garbage collection pauses happen
-* Why buffering improves performance
-* Why thread contention occurs
+- Why frameworks become slow
+- Why memory leaks happen
+- Why tests fail only in parallel
+- Why CPU spikes occur
+- Why garbage collection pauses happen
+- Why buffering improves performance
+- Why thread contention occurs
 
-⸻
+---
 
-Summary
+# Summary
 
 This chapter gives you the mental model required for:
 
-* JVM understanding
-* Framework architecture
-* Multithreading
-* Performance engineering
-* Selenium optimization
-* Memory debugging
-* CI/CD troubleshooting
-* Large-scale automation systems
+- JVM understanding
+- Framework architecture
+- Multithreading
+- Performance engineering
+- Selenium optimization
+- Memory debugging
+- CI/CD troubleshooting
+- Large-scale automation systems
 
 Once these foundations become intuitive, Java and automation frameworks stop feeling like “magic.”
 
 You start seeing the system beneath the code.
 
-⸻
+---
+
+# Next Section
+
+# 2. Maths for Programming & DSA
+
+We will cover:
+
+- Number systems
+- Prime numbers
+- GCD & LCM
+- Bit manipulation math
+- Modular arithmetic
+- Logarithms
+- Fast exponentiation
+- Mathematical thinking for DSA
+- Interview-level optimization thinking
 
 
 # Java Cheatsheet
