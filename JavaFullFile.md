@@ -78,13 +78,14 @@ ClassNotFoundException, memory leaks, deadlocks, and flaky parallel tests all or
 
 ---
 
-2. Compiler vs Interpreter
+### 2. Compiler vs Interpreter
 
-Compiler Interpreter
-Translates entire code before execution Translates during execution
-Produces executable/bytecode No standalone output
-Compile-time errors Runtime errors
-Faster execution Slower but flexible
+| **Compiler** | **Interpreter** |
+| --- | --- |
+| Translates entire code before execution | Translates during execution |
+| Produces executable/bytecode | No standalone output |
+| Compile-time errors | Runtime errors |
+| Faster execution | Slower but flexible |
 
 ---
 
