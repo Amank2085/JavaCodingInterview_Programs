@@ -30,7 +30,7 @@ JVM
 Machine Code
          ↓
 CPU
-</details>
+```
 
 At the lowest level, the CPU performs a Fetch → Decode → Execute cycle:
 Fetch the instruction from memory.
