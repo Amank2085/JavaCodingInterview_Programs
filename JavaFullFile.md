@@ -1,527 +1,551 @@
-# 1. Programming Foundations
-
-> **Role**: SDET Lead  
-> **Focus**: Deep understanding that enables framework design, performance debugging, and architectural decision-making.
-
+# Complete Java + DSA + System Design + Automation Engineering Roadmap
+> From Beginner to JVM-Aware SDET Architect  
+> Deep Systems Thinking • Java Engineering • Scalable Automation • Distributed Systems
 ---
-
-# 1.1 Computer Fundamentals
-
-This section builds your mental model of what actually happens when code executes.
-
-Every flaky test, memory leak, CI slowness, and concurrency bug traces back to these foundations.
-
----
-
-# 1. How Programs Work
-
-A program is a set of instructions that the CPU executes step by step.
-
-## Full Java Execution Pipeline
-
+# Roadmap Philosophy
+This roadmap is designed to transform a learner from:
 ```text
-Source Code (.java)
-         ↓
-Compiler (javac)
-         ↓
-Bytecode (.class)
-         ↓
-JVM
-         ↓
-Machine Code
-         ↓
-CPU
+Code Writer
 ```
-
-At the lowest level, the CPU performs a:
-
-Fetch → Decode → Execute cycle
-
-- Fetch the instruction from memory
-- Decode what the instruction means
-- Execute the operation
-- Advance to the next instruction
-
-For Java:
-
-- `javac` converts source code into bytecode
-- JVM interprets or JIT-compiles bytecode
-- CPU executes native machine instructions
-
-## CPU Execution Flow
-
+into:
 ```text
-Write Java Code
-         ↓
-Compile to Bytecode
-         ↓
-JVM Loads Classes
-         ↓
-Bytecode Verification
-         ↓
-JIT Compilation
-         ↓
-Machine Code Execution
-         ↓
-CPU Operations
+Systems Engineer
 ```
-
-### SDET Lead Insight
-
-Performance tests often run faster after initial execution because the JIT compiler optimizes hot code paths.
-
-Common issues like:
-
-- `ClassNotFoundException`
-- memory leaks
-- deadlocks
-- flaky parallel tests
-
-all originate from this execution model.
-
+The focus is not just syntax or interview preparation.
+The goal is deep understanding of:
+- Computer Science fundamentals
+- JVM internals
+- Memory behavior
+- Concurrency
+- Framework architecture
+- Performance engineering
+- Distributed systems
+- Scalable automation infrastructure
 ---
-
-# Compiler vs Interpreter
-
-| **Compiler** | **Interpreter** |
-|---|---|
-| Translates entire code before execution | Translates during execution |
-| Produces executable/bytecode | No standalone output |
-| Compile-time errors | Runtime errors |
-| Faster execution | Slower but flexible |
-
----
-
-# Java’s Hybrid Model
-
+# Learning Architecture
+The roadmap is divided into progressive engineering phases.
+Each phase builds the mental model required for the next phase.
 ```text
-.java
-   ↓ javac
-.class (Bytecode)
-   ↓
-JVM Interpreter
-   ↓
-JIT Compiler
-   ↓
-Native Machine Code
+Computer Science Foundations
+            ↓
+Programming Foundations
+            ↓
+Java Engineering
+            ↓
+Problem Solving & DSA
+            ↓
+Concurrency & JVM
+            ↓
+Architecture & Design
+            ↓
+Automation Framework Engineering
+            ↓
+Distributed Systems Thinking
 ```
-
-### Examples
-
-Compiled Languages:
-- C
-- C++
-- Go
-- Rust
-
-Interpreted Languages:
-- Python
-- JavaScript
-- Ruby
-
-### SDET Lead Insight
-
-Automation ecosystems usually combine multiple runtime models:
-
-- Java → compiled + JIT optimized
-- Groovy → interpreted
-- Python → interpreted
-
-Understanding this helps with:
-- startup optimization
-- debugging
-- CI/CD pipeline tuning
-
 ---
-
-# Binary & Decimal Basics
-
-Computers store everything as binary:
-
-- `0`
-- `1`
-
-Because transistors only have two physical states:
-
-- ON → `1`
-- OFF → `0`
-
+# PHASE 1 — Core Computer Science Foundations
+> Goal: Understand how computers, memory, CPU, operating systems, and programs actually work internally.
 ---
-
-## Decimal to Binary Conversion
-
-Convert `13` to binary:
-
-```text
-13 ÷ 2 = 6 remainder 1
-6  ÷ 2 = 3 remainder 0
-3  ÷ 2 = 1 remainder 1
-1  ÷ 2 = 0 remainder 1
-```
-
-Read bottom-up:
-
-```text
-1101
-```
-
+## 1. Computer Fundamentals
+### 1.1 How Computers Work
+- Program Execution Flow
+- Fetch Decode Execute Cycle
+- CPU Instruction Processing
+- Registers and ALU
+- Machine Instructions
+### 1.2 Binary & Number Systems
+- Decimal Numbers
+- Binary Numbers
+- Hexadecimal Numbers
+- Octal Numbers
+- Bits & Bytes
+- Data Representation
+### 1.3 Memory Fundamentals
+- RAM Basics
+- Memory Addresses
+- Stack Concept
+- Heap Concept
+- Static vs Dynamic Memory
+- Memory Allocation Basics
+### 1.4 CPU Architecture Basics
+- CPU vs RAM
+- Cache Memory
+- L1 L2 L3 Cache
+- Registers
+- Instruction Pipeline
+### 1.5 Operating System Basics
+- Processes
+- Threads
+- Scheduling
+- Context Switching
+- Virtual Memory
+- System Calls
+### 1.6 Input / Output Fundamentals
+- File Systems
+- Disk Operations
+- Buffering
+- Blocking vs Non-Blocking I/O
+- Network I/O Basics
 ---
-
-## Binary to Decimal
-
-```text
-1101₂ = (1 × 2³) + (1 × 2²) + (0 × 2¹) + (1 × 2⁰)
-
-      = 8 + 4 + 0 + 1
-
-      = 13
-```
-
+## 2. Maths for Programming & DSA
+### 2.1 Basic Mathematics
+- Number Systems
+- Prime Numbers
+- Factors & Multiples
+- GCD & LCM
+- Exponents
+- Logarithms
+- Modular Arithmetic
+### 2.2 Problem Solving Mathematics
+- Factorial
+- Fibonacci
+- Fast Exponentiation
+- Sieve of Eratosthenes
+- Matrix Basics
+- Probability Basics
+- Combinatorics
+### 2.3 Bit Manipulation
+- AND OR XOR
+- Left Shift
+- Right Shift
+- Bitmasking
+- Set Bits Count
+- Power of Two
+- XOR Tricks
 ---
-
-# Bits & Bytes
-
-| **Unit** | **Meaning** |
-|---|---|
-| 1 bit | Single binary digit |
-| 1 byte | 8 bits |
-| 1 KB | 1024 bytes |
-| 1 MB | 1024 KB |
-
+## 3. Time & Space Complexity
+### 3.1 Complexity Fundamentals
+- Time Complexity
+- Space Complexity
+- Best Case
+- Average Case
+- Worst Case
+### 3.2 Complexity Classes
+- O(1)
+- O(log n)
+- O(n)
+- O(n log n)
+- O(n²)
+- O(2^n)
+- O(n!)
+### 3.3 Complexity Analysis
+- Loop Analysis
+- Nested Loops
+- Recursive Complexity
+- Master Theorem
+- Amortized Analysis
 ---
-
-# Two’s Complement (Signed Numbers)
-
-Leftmost bit = sign bit
-
-- `0` → positive
-- `1` → negative
-
-### SDET Lead Insight
-
-Binary understanding becomes critical for:
-
-- bitwise operations
-- memory optimization
-- encoding/decoding payloads
-- file processing
-- performance tuning
-
+# PHASE 2 — Java Language Engineering
+> Goal: Build strong Java fundamentals with deep runtime understanding.
 ---
-
-# Memory Basics
-
-RAM is essentially a giant array of bytes.
-
-Each byte has a unique memory address.
-
-Programs primarily use:
-- Stack Memory
-- Heap Memory
-
+## 4. Java Fundamentals
+### 4.1 Java Introduction
+- History of Java
+- Java Features
+- JDK vs JRE vs JVM
+- Java Editions
+- Bytecode
+- Java Compilation Flow
+### 4.2 Java Syntax & Structure
+- First Java Program
+- Class Structure
+- Main Method
+- Packages
+- Imports
+### 4.3 Variables & Data Types
+- Primitive Types
+- Non-Primitive Types
+- Type Casting
+- Wrapper Classes
+- Autoboxing & Unboxing
+### 4.4 Operators
+- Arithmetic
+- Relational
+- Logical
+- Bitwise
+- Assignment
+- Ternary
+- instanceof
+### 4.5 Control Flow
+- if else
+- switch
+- Modern switch
+- Loops
+- break & continue
+### 4.6 Methods
+- Method Declaration
+- Parameters
+- Return Types
+- Overloading
+- Varargs
+- Recursion
 ---
-
-## Stack Memory
-
-Used for:
-- method calls
-- local variables
-- execution frames
-
-Characteristics:
-- fast
-- thread-specific
-- auto-cleaned
-- LIFO structure
-
+## 5. Object-Oriented Programming (OOP)
+### 5.1 Classes & Objects
+- Objects
+- References
+- Object Lifecycle
+- Memory Allocation
+### 5.2 Constructors
+- Default Constructor
+- Parameterized Constructor
+- Constructor Chaining
+- Private Constructors
+### 5.3 Core OOP Principles
+- Encapsulation
+- Inheritance
+- Polymorphism
+- Abstraction
+### 5.4 Advanced OOP Concepts
+- Association
+- Aggregation
+- Composition
+- Coupling
+- Cohesion
+### 5.5 Java Keywords
+- this
+- super
+- static
+- final
+- transient
+- volatile
+### 5.6 Object Class Internals
+- equals()
+- hashCode()
+- toString()
+- clone()
+- finalize()
+### 5.7 Immutable Objects
+- Immutable Classes
+- String Immutability
+- Defensive Copying
 ---
-
-## Heap Memory
-
-Used for:
-- objects
-- arrays
-- dynamic allocations
-
-Characteristics:
-- shared across threads
-- garbage collected
-- larger but slower
-
+## 6. Exception Handling
+- try catch
+- finally
+- throw
+- throws
+- Checked Exceptions
+- Unchecked Exceptions
+- Custom Exceptions
+- Exception Propagation
+- try-with-resources
 ---
-
-# Stack vs Heap Visualization
-
-```text
-STACK                          HEAP
-+-------------------+          +----------------------+
-| age = 25          |          | User Object          |
-| user = 0xA12F ----|--------->| name = "John"        |
-+-------------------+          +----------------------+
-```
-
-### SDET Lead Insight
-
-Memory leaks in automation frameworks usually happen because references remain reachable through:
-
-- static collections
-- `ThreadLocal`
-- cached driver objects
-
-preventing garbage collection.
-
+## 7. String Handling
+- String Internals
+- String Pool
+- StringBuilder
+- StringBuffer
+- Regex
+- String APIs
 ---
-
-# CPU vs RAM
-
-| **CPU** | **RAM** |
-|---|---|
-| Executes instructions | Stores data/instructions |
-| Extremely fast | Slower than CPU |
-| Contains registers/cache | Large storage capacity |
-
+## 8. Arrays & Programming Logic
+### 8.1 Arrays
+- 1D Arrays
+- 2D Arrays
+- Jagged Arrays
+### 8.2 Logic Building Programs
+- Prime Number
+- Palindrome
+- Armstrong Number
+- Fibonacci
+- Reverse Number
+### 8.3 Pattern Printing
+- Pyramid
+- Diamond
+- Butterfly
+- Hollow Patterns
+- Pascal Triangle
 ---
-
-# CPU Processing Flow
-
-```text
-RAM
- ↓
-CPU Cache
- ↓
-Registers
- ↓
-ALU Operations
- ↓
-Result Back to RAM
-```
-
+# PHASE 3 — Problem Solving & DSA
+> Goal: Develop algorithmic thinking and scalable problem-solving ability.
 ---
-
-# CPU Cache Levels
-
-| **Cache** | **Speed** |
-|---|---|
-| L1 | Fastest |
-| L2 | Fast |
-| L3 | Shared but larger |
-
+## 9. DSA Problem Solving Patterns
+### 9.1 Array Patterns
+- Prefix Sum
+- Suffix Sum
+- Kadane’s Algorithm
+- Two Pointer
+- Sliding Window
+- Binary Search
+### 9.2 String Patterns
+- Anagram
+- Palindrome
+- Pattern Matching
+- Sliding Window
+### 9.3 Hashing Patterns
+- Frequency Count
+- Duplicate Detection
+- Prefix Hashing
+### 9.4 Recursion & Backtracking
+- Subsequences
+- Permutations
+- N Queens
+- Maze Problems
+### 9.5 Linked List Patterns
+- Reversal
+- Cycle Detection
+- Fast Slow Pointer
+### 9.6 Stack & Queue Patterns
+- Monotonic Stack
+- Next Greater Element
+- BFS
+### 9.7 Tree Patterns
+- DFS
+- BFS
+- Diameter
+- LCA
+### 9.8 Graph Patterns
+- BFS
+- DFS
+- Dijkstra
+- Topological Sort
+- Union Find
+### 9.9 Dynamic Programming
+- 1D DP
+- 2D DP
+- Knapsack
+- LIS
+- Grid DP
+### 9.10 Greedy Algorithms
+- Activity Selection
+- Interval Scheduling
 ---
-
-# Why Buffering Matters
-
-Without buffering:
-
-```text
-Read byte → system call → read byte → system call
-```
-
-Very expensive.
-
-With buffering:
-
-```text
-Read large chunk once
-         ↓
-Serve data from memory buffer
-```
-
-Much faster.
-
-### SDET Lead Insight
-
-Large test data processing, report generation, and log parsing depend heavily on efficient buffering strategies.
-
+# PHASE 4 — Advanced Java Engineering
+> Goal: Understand modern Java internals, concurrency, JVM behavior, and runtime engineering.
 ---
-
-# Variables in Memory
-
-## Primitive Variables
-
-```java
-int age = 25;
-```
-
-Stored directly in stack memory.
-
+## 10. Collection Framework
+- List Internals
+- Set Internals
+- Map Internals
+- Hashing
+- Resizing
+- Load Factor
+- Treeification
+- Concurrent Collections
+- Comparator & Comparable
+- Generics
 ---
-
-## Reference Variables
-
-```java
-String name = "John";
-```
-
-- Reference stored in stack
-- Actual object stored in heap
-
+## 11. Java 8+ Features
+- Lambda Expressions
+- Functional Interfaces
+- Stream API
+- Collectors
+- Method References
+- Parallel Streams
+- Primitive Streams
 ---
-
-# Memory Layout
-
-```text
-STACK (main frame)
-
-+------+-------------+
-| age  | 25          |
-+------+-------------+
-| name | ref0x1a2b3c | --------+
-+------+-------------+         |
-                               ↓
-HEAP
-+----------------------------+
-| String Object "John"       |
-| char[]                     |
-+----------------------------+
-```
-
+## 12. File Handling
+- File APIs
+- BufferedReader
+- BufferedWriter
+- Serialization
+- NIO
+- Path API
 ---
-
-# Primitive vs Reference Copy
-
-## Primitive Copy
-
-```java
-int x = 5;
-int y = x;
-```
-
-`y` gets an actual value copy.
-
+## 13. Multithreading & Concurrency
+### Core Concurrency
+- Thread Lifecycle
+- Runnable
+- Callable
+- Synchronization
+- Race Conditions
+- Deadlocks
+### Executor Framework
+- Thread Pools
+- Future
+- CompletableFuture
+### Advanced Concurrency
+- volatile
+- Atomic Classes
+- CAS
+- ForkJoinPool
+- Virtual Threads
+### Concurrent Collections
+- ConcurrentHashMap
+- BlockingQueue
+- CopyOnWriteArrayList
 ---
-
-## Reference Copy
-
-```java
-int[] arr1 = {1,2,3};
-int[] arr2 = arr1;
-```
-
-Both references point to the SAME object.
-
-```text
-arr1 ───┐
-        ├──→ SAME ARRAY OBJECT
-arr2 ───┘
-```
-
-### SDET Lead Insight
-
-Shared mutable state is one of the biggest causes of flaky automation.
-
-Understanding references explains:
-- `==` vs `.equals()`
-- deep copy vs shallow copy
-- object pollution across tests
-- thread-safety issues
-
+## 14. JDBC
+- JDBC Architecture
+- Connection
+- Statement
+- PreparedStatement
+- ResultSet
+- Transactions
 ---
-
-# Input / Output (I/O) Flow
-
-Programs communicate with:
-- keyboard
-- files
-- network
-- console
-- devices
-
+## 15. Annotations & Reflection
+### Annotations
+- Built-in
+- Custom
+- Meta Annotations
+### Reflection
+- Class Object
+- Dynamic Method Invocation
+- Accessing Private Members
 ---
-
-# Java File Reading Example
-
-```java
-BufferedReader reader =
-    new BufferedReader(
-        new FileReader("data.txt")
-    );
-
-String line = reader.readLine();
-```
-
+## 16. JVM & Memory Management
+### JVM Architecture
+- Heap
+- Stack
+- Metaspace
+- Method Area
+- Class Loader
+### JVM Execution Engine
+- Interpreter
+- JIT Compiler
+- Escape Analysis
+- Inline Optimization
+### Garbage Collection
+- Minor GC
+- Major GC
+- G1GC
+- ZGC
+### Memory Engineering
+- Heap vs Stack
+- Memory Leaks
+- OutOfMemoryError
+- GC Tuning
 ---
-
-# Internal Flow
-
-```text
-Java Program
-      ↓
-OS System Call
-      ↓
-Kernel Accesses Disk
-      ↓
-Bytes Loaded into Buffer
-      ↓
-Decoded into Characters
-      ↓
-Returned as String
-```
-
+# PHASE 5 — Software Design & Architecture
+> Goal: Learn scalable software engineering and architecture thinking.
 ---
-
-# Standard Streams
-
-| **Stream** | **Purpose** |
-|---|---|
-| `System.in` | Input |
-| `System.out` | Output |
-| `System.err` | Errors |
-
+## 17. Design Patterns
+### Creational
+- Singleton
+- Factory
+- Builder
+### Structural
+- Adapter
+- Facade
+- Decorator
+- Proxy
+### Behavioral
+- Strategy
+- Observer
+- Command
+- Template Method
 ---
-
-# Blocking vs Non-Blocking I/O
-
-## Blocking I/O
-
-Thread waits until operation completes.
-
-```text
-Thread blocked until data arrives
-```
-
+## 18. Low Level Design (LLD)
+### SOLID Principles
+- SRP
+- OCP
+- LSP
+- ISP
+- DIP
+### UML
+- Class Diagram
+- Sequence Diagram
+### LLD Projects
+- Parking Lot
+- ATM
+- Cab Booking
+- Elevator System
 ---
-
-## Non-Blocking I/O (NIO)
-
-Thread can continue handling other tasks.
-
-Useful for:
-- scalable servers
-- high concurrency systems
-- large automation infrastructures
-
+## 19. High Level Design (HLD)
+### Scalability Fundamentals
+- Load Balancing
+- Caching
+- CAP Theorem
+- Sharding
+### Distributed Systems
+- API Gateway
+- Kafka Basics
+- Event Driven Systems
+### System Design Problems
+- WhatsApp
+- Instagram Feed
+- Netflix
+- Uber
+- URL Shortener
 ---
-
-# Why BufferedReader Is Faster
-
-Without buffering:
-
-```text
-1 byte read → system call → repeat
-```
-
-With buffering:
-
-```text
-Large chunk read once
-         ↓
-Served from memory
-```
-
-Huge performance gain.
-
-### SDET Lead Insight
-
-Selenium performs network I/O.
-
-Slow responses block the test thread.
-
-This is why:
-- timeouts
-- retries
-- async APIs
-- buffering
-
-matter.
-
+# PHASE 6 — Automation Framework Engineering
+> Goal: Become a scalable automation framework architect.
 ---
+## 20. Selenium
+- WebDriver Internals
+- Wait Strategies
+- Actions API
+- Frames
+- JavaScriptExecutor
+---
+## 21. TestNG
+- Assertions
+- Listeners
+- DataProvider
+- Parallel Execution
+---
+## 22. Maven
+- Dependencies
+- Plugins
+- Profiles
+- Build Lifecycle
+---
+## 23. Framework Design
+- Page Object Model
+- Page Factory
+- Hybrid Framework
+- BDD Framework
+- Driver Management
+- Reporting Architecture
+- Retry Architecture
+---
+## 24. API Automation
+- Rest Assured
+- JSON Parsing
+- Authentication
+- API Validation
+---
+## 25. Reporting & Logging
+- Log4j
+- SLF4J
+- ExtentReports
+- Allure Reports
+---
+## 26. CI/CD & Infrastructure
+- Jenkins
+- GitHub Actions
+- Selenium Grid
+- Docker
+- Parallel Execution Infrastructure
+---
+# PHASE 7 — Advanced Engineering & Interview Mastery
+> Goal: Think like a principal engineer and performance-focused architect.
+---
+## 27. Modern Java Features
+- var
+- Records
+- Sealed Classes
+- Pattern Matching
+- Text Blocks
+- Optional
+- Modules
+- Virtual Threads
+---
+## 28. Important Interview Topics
+- == vs equals
+- final vs finally vs finalize
+- HashMap Internals
+- String Immutability
+- Synchronization
+- JVM Questions
+- Stream API Questions
+---
+## 29. Engineering Best Practices
+- Clean Code
+- Naming Conventions
+- Logging Best Practices
+- Exception Handling Best Practices
+- Secure Coding
+- Performance Optimization
+- Reusability
+---
+# Final Goal
+After completing this roadmap, the learner should think like:
+- JVM Engineer
+- Performance Engineer
+- SDET Architect
+- Framework Designer
+- Distributed Systems Engineer
+- Scalable Automation Engineer
+- Software Architect
