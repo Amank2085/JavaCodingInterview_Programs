@@ -29,6 +29,8 @@ JVM
 Machine Code
          ↓
 CPU
+```
+
 At the lowest level, the CPU performs a Fetch → Decode → Execute cycle:
 Fetch the instruction from memory.
 Decode what the instruction means.
