@@ -36,7 +36,17 @@ For Java:
 
 ## CPU Execution Flow
 
-text Write Java Code         ↓ Compile to Bytecode         ↓ JVM Loads Classes         ↓ Bytecode Verification         ↓ JIT Compilation         ↓ Machine Code Execution         ↓ CPU Operations 
+Source Code (.java)
+        ↓
+Compiler (javac)
+        ↓
+Bytecode (.class)
+        ↓
+JVM
+        ↓
+Machine Code
+        ↓
+CPU
 
 > ### SDET Lead Insight
 >
