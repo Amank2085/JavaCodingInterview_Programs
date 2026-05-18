@@ -46,527 +46,15 @@ Distributed Systems Thinking
 # PHASE 1 — Core Computer Science Foundations
 > Goal: Understand how computers, memory, CPU, operating systems, and programs actually work internally.
 ---
-## 1. Computer Fundamentals
-### 1.1 How Computers Work
-- Program Execution Flow
-- Fetch Decode Execute Cycle
-- CPU Instruction Processing
-- Registers and ALU
-- Machine Instructions
-### 1.2 Binary & Number Systems
-- Decimal Numbers
-- Binary Numbers
-- Hexadecimal Numbers
-- Octal Numbers
-- Bits & Bytes
-- Data Representation
-### 1.3 Memory Fundamentals
-- RAM Basics
-- Memory Addresses
-- Stack Concept
-- Heap Concept
-- Static vs Dynamic Memory
-- Memory Allocation Basics
-### 1.4 CPU Architecture Basics
-- CPU vs RAM
-- Cache Memory
-- L1 L2 L3 Cache
-- Registers
-- Instruction Pipeline
-### 1.5 Operating System Basics
-- Processes
-- Threads
-- Scheduling
-- Context Switching
-- Virtual Memory
-- System Calls
-### 1.6 Input / Output Fundamentals
-- File Systems
-- Disk Operations
-- Buffering
-- Blocking vs Non-Blocking I/O
-- Network I/O Basics
----
-## 2. Maths for Programming & DSA
-### 2.1 Basic Mathematics
-- Number Systems
-- Prime Numbers
-- Factors & Multiples
-- GCD & LCM
-- Exponents
-- Logarithms
-- Modular Arithmetic
-### 2.2 Problem Solving Mathematics
-- Factorial
-- Fibonacci
-- Fast Exponentiation
-- Sieve of Eratosthenes
-- Matrix Basics
-- Probability Basics
-- Combinatorics
-### 2.3 Bit Manipulation
-- AND OR XOR
-- Left Shift
-- Right Shift
-- Bitmasking
-- Set Bits Count
-- Power of Two
-- XOR Tricks
----
-## 3. Time & Space Complexity
-### 3.1 Complexity Fundamentals
-- Time Complexity
-- Space Complexity
-- Best Case
-- Average Case
-- Worst Case
-### 3.2 Complexity Classes
-- O(1)
-- O(log n)
-- O(n)
-- O(n log n)
-- O(n²)
-- O(2^n)
-- O(n!)
-### 3.3 Complexity Analysis
-- Loop Analysis
-- Nested Loops
-- Recursive Complexity
-- Master Theorem
-- Amortized Analysis
----
-# PHASE 2 — Java Language Engineering
-> Goal: Build strong Java fundamentals with deep runtime understanding.
----
-## 4. Java Fundamentals
-### 4.1 Java Introduction
-- History of Java
-- Java Features
-- JDK vs JRE vs JVM
-- Java Editions
-- Bytecode
-- Java Compilation Flow
-### 4.2 Java Syntax & Structure
-- First Java Program
-- Class Structure
-- Main Method
-- Packages
-- Imports
-### 4.3 Variables & Data Types
-- Primitive Types
-- Non-Primitive Types
-- Type Casting
-- Wrapper Classes
-- Autoboxing & Unboxing
-### 4.4 Operators
-- Arithmetic
-- Relational
-- Logical
-- Bitwise
-- Assignment
-- Ternary
-- instanceof
-### 4.5 Control Flow
-- if else
-- switch
-- Modern switch
-- Loops
-- break & continue
-### 4.6 Methods
-- Method Declaration
-- Parameters
-- Return Types
-- Overloading
-- Varargs
-- Recursion
----
-## 5. Object-Oriented Programming (OOP)
-### 5.1 Classes & Objects
-- Objects
-- References
-- Object Lifecycle
-- Memory Allocation
-### 5.2 Constructors
-- Default Constructor
-- Parameterized Constructor
-- Constructor Chaining
-- Private Constructors
-### 5.3 Core OOP Principles
-- Encapsulation
-- Inheritance
-- Polymorphism
-- Abstraction
-### 5.4 Advanced OOP Concepts
-- Association
-- Aggregation
-- Composition
-- Coupling
-- Cohesion
-### 5.5 Java Keywords
-- this
-- super
-- static
-- final
-- transient
-- volatile
-### 5.6 Object Class Internals
-- equals()
-- hashCode()
-- toString()
-- clone()
-- finalize()
-### 5.7 Immutable Objects
-- Immutable Classes
-- String Immutability
-- Defensive Copying
----
-## 6. Exception Handling
-- try catch
-- finally
-- throw
-- throws
-- Checked Exceptions
-- Unchecked Exceptions
-- Custom Exceptions
-- Exception Propagation
-- try-with-resources
----
-## 7. String Handling
-- String Internals
-- String Pool
-- StringBuilder
-- StringBuffer
-- Regex
-- String APIs
----
-## 8. Arrays & Programming Logic
-### 8.1 Arrays
-- 1D Arrays
-- 2D Arrays
-- Jagged Arrays
-### 8.2 Logic Building Programs
-- Prime Number
-- Palindrome
-- Armstrong Number
-- Fibonacci
-- Reverse Number
-### 8.3 Pattern Printing
-- Pyramid
-- Diamond
-- Butterfly
-- Hollow Patterns
-- Pascal Triangle
----
-# PHASE 3 — Problem Solving & DSA
-> Goal: Develop algorithmic thinking and scalable problem-solving ability.
----
-## 9. DSA Problem Solving Patterns
-### 9.1 Array Patterns
-- Prefix Sum
-- Suffix Sum
-- Kadane’s Algorithm
-- Two Pointer
-- Sliding Window
-- Binary Search
-### 9.2 String Patterns
-- Anagram
-- Palindrome
-- Pattern Matching
-- Sliding Window
-### 9.3 Hashing Patterns
-- Frequency Count
-- Duplicate Detection
-- Prefix Hashing
-### 9.4 Recursion & Backtracking
-- Subsequences
-- Permutations
-- N Queens
-- Maze Problems
-### 9.5 Linked List Patterns
-- Reversal
-- Cycle Detection
-- Fast Slow Pointer
-### 9.6 Stack & Queue Patterns
-- Monotonic Stack
-- Next Greater Element
-- BFS
-### 9.7 Tree Patterns
-- DFS
-- BFS
-- Diameter
-- LCA
-### 9.8 Graph Patterns
-- BFS
-- DFS
-- Dijkstra
-- Topological Sort
-- Union Find
-### 9.9 Dynamic Programming
-- 1D DP
-- 2D DP
-- Knapsack
-- LIS
-- Grid DP
-### 9.10 Greedy Algorithms
-- Activity Selection
-- Interval Scheduling
----
-# PHASE 4 — Advanced Java Engineering
-> Goal: Understand modern Java internals, concurrency, JVM behavior, and runtime engineering.
----
-## 10. Collection Framework
-- List Internals
-- Set Internals
-- Map Internals
-- Hashing
-- Resizing
-- Load Factor
-- Treeification
-- Concurrent Collections
-- Comparator & Comparable
-- Generics
----
-## 11. Java 8+ Features
-- Lambda Expressions
-- Functional Interfaces
-- Stream API
-- Collectors
-- Method References
-- Parallel Streams
-- Primitive Streams
----
-## 12. File Handling
-- File APIs
-- BufferedReader
-- BufferedWriter
-- Serialization
-- NIO
-- Path API
----
-## 13. Multithreading & Concurrency
-### Core Concurrency
-- Thread Lifecycle
-- Runnable
-- Callable
-- Synchronization
-- Race Conditions
-- Deadlocks
-### Executor Framework
-- Thread Pools
-- Future
-- CompletableFuture
-### Advanced Concurrency
-- volatile
-- Atomic Classes
-- CAS
-- ForkJoinPool
-- Virtual Threads
-### Concurrent Collections
-- ConcurrentHashMap
-- BlockingQueue
-- CopyOnWriteArrayList
----
-## 14. JDBC
-- JDBC Architecture
-- Connection
-- Statement
-- PreparedStatement
-- ResultSet
-- Transactions
----
-## 15. Annotations & Reflection
-### Annotations
-- Built-in
-- Custom
-- Meta Annotations
-### Reflection
-- Class Object
-- Dynamic Method Invocation
-- Accessing Private Members
----
-## 16. JVM & Memory Management
-### JVM Architecture
-- Heap
-- Stack
-- Metaspace
-- Method Area
-- Class Loader
-### JVM Execution Engine
-- Interpreter
-- JIT Compiler
-- Escape Analysis
-- Inline Optimization
-### Garbage Collection
-- Minor GC
-- Major GC
-- G1GC
-- ZGC
-### Memory Engineering
-- Heap vs Stack
-- Memory Leaks
-- OutOfMemoryError
-- GC Tuning
----
-# PHASE 5 — Software Design & Architecture
-> Goal: Learn scalable software engineering and architecture thinking.
----
-## 17. Design Patterns
-### Creational
-- Singleton
-- Factory
-- Builder
-### Structural
-- Adapter
-- Facade
-- Decorator
-- Proxy
-### Behavioral
-- Strategy
-- Observer
-- Command
-- Template Method
----
-## 18. Low Level Design (LLD)
-### SOLID Principles
-- SRP
-- OCP
-- LSP
-- ISP
-- DIP
-### UML
-- Class Diagram
-- Sequence Diagram
-### LLD Projects
-- Parking Lot
-- ATM
-- Cab Booking
-- Elevator System
----
-## 19. High Level Design (HLD)
-### Scalability Fundamentals
-- Load Balancing
-- Caching
-- CAP Theorem
-- Sharding
-### Distributed Systems
-- API Gateway
-- Kafka Basics
-- Event Driven Systems
-### System Design Problems
-- WhatsApp
-- Instagram Feed
-- Netflix
-- Uber
-- URL Shortener
----
-# PHASE 6 — Automation Framework Engineering
-> Goal: Become a scalable automation framework architect.
----
-## 20. Selenium
-- WebDriver Internals
-- Wait Strategies
-- Actions API
-- Frames
-- JavaScriptExecutor
----
-## 21. TestNG
-- Assertions
-- Listeners
-- DataProvider
-- Parallel Execution
----
-## 22. Maven
-- Dependencies
-- Plugins
-- Profiles
-- Build Lifecycle
----
-## 23. Framework Design
-- Page Object Model
-- Page Factory
-- Hybrid Framework
-- BDD Framework
-- Driver Management
-- Reporting Architecture
-- Retry Architecture
----
-## 24. API Automation
-- Rest Assured
-- JSON Parsing
-- Authentication
-- API Validation
----
-## 25. Reporting & Logging
-- Log4j
-- SLF4J
-- ExtentReports
-- Allure Reports
----
-## 26. CI/CD & Infrastructure
-- Jenkins
-- GitHub Actions
-- Selenium Grid
-- Docker
-- Parallel Execution Infrastructure
----
-# PHASE 7 — Advanced Engineering & Interview Mastery
-> Goal: Think like a principal engineer and performance-focused architect.
----
-## 27. Modern Java Features
-- var
-- Records
-- Sealed Classes
-- Pattern Matching
-- Text Blocks
-- Optional
-- Modules
-- Virtual Threads
----
-## 28. Important Interview Topics
-- == vs equals
-- final vs finally vs finalize
-- HashMap Internals
-- String Immutability
-- Synchronization
-- JVM Questions
-- Stream API Questions
----
-## 29. Engineering Best Practices
-- Clean Code
-- Naming Conventions
-- Logging Best Practices
-- Exception Handling Best Practices
-- Secure Coding
-- Performance Optimization
-- Reusability
----
-# Final Goal
-After completing this roadmap, the learner should think like:
-- JVM Engineer
-- Performance Engineer
-- SDET Architect
-- Framework Designer
-- Distributed Systems Engineer
-- Scalable Automation Engineer
-- Software Architect
----
-
-# 1.1 How Computers Work
-
-> Goal: Build a mental model of what actually happens inside a computer when a program runs.
-
+# 1. Computer Fundamentals
+## 1.1 How Computers Work
+> **Goal:** Build a mental model of what actually happens inside a computer when a program runs.
+> 
 Most developers write code without understanding what the machine is doing internally.
-
 But performance engineering, JVM tuning, concurrency debugging, flaky test analysis, and scalable framework design all depend on understanding how computers execute instructions.
-
 This section explains the lowest-level execution model that every programming language ultimately relies on.
-
----
-
-# Big Picture
-
+### Big Picture
 At the highest level:
-
 ```text
 Human Writes Code
         ↓
@@ -579,55 +67,51 @@ CPU Executes Instructions
 Memory Stores Data
         ↓
 Output Produced
+
 ```
-
 No matter which language you use:
-- Java
-- Python
-- C++
-- JavaScript
-- Go
-
+ * Java
+ * Python
+ * C++
+ * JavaScript
+ * Go
 eventually the CPU executes machine instructions.
-
----
-
+### 🌟 Real-World Analogy: Ek Chef aur Uska Restaurant
+Computer ko chalte hue dekhna ek busy restaurant ke kitchen jaisa hai:
+ * **Human (You) = Recipe Author:** Tumne ek naye dish ki recipe English mein likhi (High-level Code).
+ * **Compiler/Interpreter = Language Translator:** Kitchen ka head chef sirf French samajhta hai, toh ek translator ne tumhari recipe ko French mein badal diya (Machine Instructions).
+ * **Disk (SSD/HDD) = Storage Godown:** Yeh restaurant ka bohot bada cold storage room hai jo kitchen se thoda door hai. Saara raashan aur purani files yahin padi hain.
+ * **RAM = Kitchen Counter / Cooking Table:** Chef godown se saara saaman utha kar kitchen ke table par laata hai taaki fatafat utha sake.
+ * **CPU = The Head Chef:** Jo dimaag chala kar khana banata hai (instructions execute karta hai).
+ * **Registers = Chef ke Haath aur Chopboard:** Bilkul unke samne rakha chota sa space jahan wo immediate nimbu nichod rahe hain ya pyaaz kaat rahe hain.
+ * **Output = Tayar Dish:** Jo customer ke samne jaati hai.
 # Program Execution Flow
-
 A program is a sequence of instructions executed by the CPU step by step.
-
 Example:
-
 ```java
 int a = 10;
 int b = 20;
 int sum = a + b;
+
 ```
-
 Humans understand this as:
-
 ```text
 Store 10
 Store 20
 Add values
 Store result
-```
 
+```
 But the CPU only understands low-level machine instructions.
-
 Internally, the flow becomes something conceptually like:
-
 ```text
-LOAD 10 INTO REGISTER
-LOAD 20 INTO REGISTER
+LOAD 10 INTO REGISTER R1
+LOAD 20 INTO REGISTER R2
 ADD VALUES
-STORE RESULT IN MEMORY
+STORE RESULT IN MEMORY (RAM)
+
 ```
-
----
-
 # High-Level Program Execution Flow
-
 ```text
 Source Code
      ↓
@@ -642,12 +126,9 @@ CPU Executes Instructions
 Memory Updated
      ↓
 Output Generated
+
 ```
-
----
-
 # Real Internal Execution Pipeline
-
 ```text
 Program Stored on Disk
           ↓
@@ -662,460 +143,308 @@ CPU Executes Instruction
 Result Stored in Register/Memory
           ↓
 Next Instruction Executes
+
 ```
-
----
-
 # Why Programs Need RAM
-
 Programs cannot execute directly from disk.
-
 Disk storage:
-- large
-- persistent
-- slow
-
+ * large
+ * persistent
+ * slow
 RAM:
-- temporary
-- fast
-- directly accessible by CPU
-
+ * temporary
+ * fast
+ * directly accessible by CPU
 Execution flow:
-
 ```text
-SSD/HDD
-   ↓
-RAM
-   ↓
-CPU Cache
-   ↓
-CPU Registers
-   ↓
-Execution
+SSD/HDD ──────────► RAM ──────────► CPU Cache ──────────► CPU Registers ──────────► Execution
+(Bada, Slow)     (Fast Table)      (Super Fast)          (Ultra Fast Haath)
+
 ```
-
----
-
+### 🧠 Hinglish Intuition: Study Table vs Ghar ki Library
+Maano tum ek book padh rahe ho:
+ * Tumhara **Ghar ka Library Room** tumhari **Hard Disk (SSD)** hai. Wahan 5000 books hain, par wahan jaakar har line padhna bohot time-consuming hai.
+ * Tumhari **Study Table** tumhari **RAM** hai. Tum library se 2 books utha kar table par rakh lete ho taaki bina uthe fatafat padh sako.
+**Computer Logic:** Disk storage mechanical ho ya flash, CPU ki processing speed ke samne ek ghoonghe (snail) jaisi hai. Agar CPU directly SSD se data mangega, toh CPU free baith kar bore hota rahega (idle state). Isliye, OS pehle program ko utha kar RAM (Study Table) par phenk deta hai jahan se CPU use directly access kar sake.
 # Fetch Decode Execute Cycle
-
 The CPU continuously performs a loop called:
-
 ```text
 Fetch → Decode → Execute
+
 ```
-
-This is the foundation of all computing.
-
----
-
+This is the foundation of all computing. CPU ek ziddi mazdoor hai jo subah se shaam tak sirf yahi teen kaam bina ruke karta rehta hai.
 # Step 1 — Fetch
-
 The CPU fetches the next instruction from memory.
-
 Example:
-
 ```text
 ADD R1, R2
-```
 
+```
 The instruction is copied from RAM into the CPU.
-
 The Program Counter (PC) register stores the address of the next instruction.
-
----
-
+ * **Analogy:** Chef ne kitchen counter par rakhi recipe ki agli line padi: *"Tel garam karke aaloo daalo."*
 # Step 2 — Decode
-
 The CPU decodes the instruction.
-
 Meaning:
-- What operation is required?
-- Which registers are involved?
-- Is memory access needed?
-
+ * What operation is required?
+ * Which registers are involved?
+ * Is memory access needed?
 Example:
-
 ```text
 ADD R1, R2
+
 ```
-
 Decoded as:
-
 ```text
 Add value of Register 1 and Register 2
+
 ```
-
----
-
+ * **Analogy:** Chef ka dimaag samajhta hai ki *"Aaloo"* aur *"Tel"* do alag cheezein hain aur unhe *"Fry"* karna hai. (Control Unit iska matlab nikalta hai).
 # Step 3 — Execute
-
 The CPU executes the operation.
-
 The Arithmetic Logic Unit (ALU) performs:
-- addition
-- subtraction
-- comparisons
-- logical operations
-
+ * addition
+ * subtraction
+ * comparisons
+ * logical operations
 Example:
-
 ```text
 R1 = 10
 R2 = 20
 
 R1 + R2 = 30
+
 ```
-
----
-
+ * **Analogy:** Chef ne aaloo ko utha kar frying pan mein daal diya. Action perform ho gaya!
 # Full CPU Execution Visualization
-
 ```text
                 +-------------------+
-                | Program in Memory |
+                | Program in Memory | (RAM)
                 +-------------------+
                            ↓
-                  FETCH Instruction
+                  FETCH Instruction  (PC register tracks location)
                            ↓
                 +-------------------+
                 | Control Unit      |
-                | Decodes Instruction|
+                | Decodes Instruction| (Matlab samjho kya karna hai)
                 +-------------------+
                            ↓
                      EXECUTE
                            ↓
                 +-------------------+
-                | ALU Performs Work |
+                | ALU Performs Work | (Registers par calculation hoti hai)
                 +-------------------+
                            ↓
-                    Store Result
+                    Store Result     (Pehle register mein, fir RAM mein)
+
 ```
-
----
-
 # CPU Instruction Processing
-
 The CPU does NOT understand:
-- Java
-- Python
-- Selenium
-- APIs
-
-It only understands machine instructions.
-
-Machine instructions are binary operations.
-
+ * Java
+ * Python
+ * Selenium
+ * APIs
+It only understands machine instructions. Machine instructions are binary operations.
 Example:
-
 ```text
 10110000 01100001
+
 ```
-
 Different CPUs have different instruction sets.
-
 Examples:
-- x86
-- ARM
-- RISC-V
-
+ * x86
+ * ARM
+ * RISC-V
 This is why compiled programs may behave differently across architectures.
-
----
-
 # Instruction Set Architecture (ISA)
-
 An ISA defines:
-- supported instructions
-- register structure
-- memory addressing rules
-- execution model
-
-Examples:
-
-| Architecture | Common Usage |
-|---|---|
-| x86 | Intel/AMD desktops |
-| ARM | Mobile devices, Apple Silicon |
-| RISC-V | Modern open architecture |
-
----
-
+ * supported instructions
+ * register structure
+ * memory addressing rules
+ * execution model
+### 📄 Hinglish Intuition: Hardware-Software Contract
+ISA basically ek CPU hardware aur software ke beech ka ek **Agreement / Contract** hai. Yeh define karta hai ki is hardware ko chalane ke liye kaun-kaun se words valid hain.
+| Architecture | Common Usage | Analogy & Nature |
+|---|---|---|
+| **x86** | Intel/AMD desktops & Servers | **Heavy Truck (CISC):** Complex aur bade kaam ek baar mein kar sakta hai. |
+| **ARM** | Mobile devices, Apple Silicon | **Sports Bike (RISC):** Highly efficient, instructions chhote aur bohot tez hote hain. |
+| **RISC-V** | Modern open architecture | Open-source modern standard. |
+Agar tumne ek book French (x86) ke liye likhi hai, toh use Japanese (ARM) ka processor bina translation ke nahi padh sakta. Yahi wajah hai ki native compiled programs alag architectures par directly nahi chalte.
 # Registers
-
-Registers are tiny ultra-fast memory locations inside the CPU.
-
-They are MUCH faster than RAM.
-
-CPU execution depends heavily on registers.
-
----
-
+Registers are tiny ultra-fast memory locations inside the CPU. They are MUCH faster than RAM. CPU execution depends heavily on registers.
 # Why Registers Exist
-
 Accessing RAM is expensive compared to CPU speed.
-
 Without registers:
-
 ```text
 CPU → RAM → CPU → RAM
+
 ```
-
-would be extremely slow.
-
-Registers reduce memory access overhead.
-
----
-
+would be extremely slow. Registers reduce memory access overhead.
 # Register Flow
-
 ```text
-RAM
- ↓
-CPU Cache
- ↓
-Registers
- ↓
-ALU Operations
+RAM ───► CPU Cache ───► Registers ───► ALU Operations
+
 ```
-
----
-
+### ⚡ ALU Operation Fandamental: ALU kahan kaam karta hai?
+> **⚠️ Super Important Clariity:** ALU kabhi bhi directly RAM par calculation nahi karta!
+> 
+Socho tum ek math problem solve kar rahe ho (10 + 20). Tumhare paas ek badi notebook (RAM) hai. Par jab tum calculation karte ho, tum dimaag ke ek chote se kone (**Registers**) mein 10 aur 20 ko rakhte ho, unhe plus karte ho, aur fir final answer 30 notebook mein likhte ho.
+Same way, RAM se data pehle registers mein **LOAD** hota hai, ALU un registers par operation karta hai, output ko ek register mein **STORE** karta hai, aur baad mein wo data RAM mein sync hota hai.
 # Common Register Types
-
-| Register | Purpose |
-|---|---|
-| Program Counter (PC) | Address of next instruction |
-| Instruction Register | Current instruction |
-| Accumulator | Stores intermediate results |
-| Stack Pointer | Tracks stack memory |
-| General Purpose Registers | Temporary data storage |
-
----
-
+| Register | Purpose | Hinglish Meaning |
+|---|---|---|
+| **Program Counter (PC)** | Address of next instruction | Agle instruction ka address yaad rakhta hai. |
+| **Instruction Register** | Current instruction | Jo instruction abhi execute ho raha hai use hold karta hai. |
+| **Accumulator** | Stores intermediate results | Calculations ke beech ka temporary result rakhne ke liye. |
+| **Stack Pointer** | Tracks stack memory | Stack memory ke top location ko track karta hai. |
+| **General Purpose Registers** | Temporary data storage | R1, R2 jaise registers jo random variables ka data hold karte hain. |
 # Arithmetic Logic Unit (ALU)
-
 The ALU is the mathematical engine of the CPU.
-
 It performs:
-- arithmetic operations
-- logical operations
-- comparisons
-- bitwise operations
-
----
-
+ * arithmetic operations
+ * logical operations
+ * comparisons
+ * bitwise operations
 # ALU Operations
-
 ## Arithmetic
-
 ```text
 10 + 20
 50 - 10
 5 × 4
+
 ```
-
----
-
 ## Logical
-
 ```text
 AND
 OR
 NOT
 XOR
+
 ```
-
----
-
 ## Comparison
-
 ```text
 >
 <
 ==
 !=
+
 ```
-
----
-
 # Machine Instructions
-
 Machine instructions are the lowest-level executable commands.
-
 Example conceptual instructions:
-
 ```text
-LOAD
-STORE
-ADD
-SUB
-JUMP
-COMPARE
+LOAD    (RAM se register mein laao)
+STORE   (Register se RAM mein bhejo)
+ADD     (Values ko plus karo)
+SUB     (Minus karo)
+JUMP    (Kisi doosre instruction par koodo)
+COMPARE (Dono values ko check karo)
+
 ```
-
----
-
 # Conditional Execution Example
-
 Java:
-
 ```java
 if (a > b) {
     System.out.println("A");
 }
+
 ```
-
 Conceptually becomes:
-
 ```text
 COMPARE a, b
-JUMP_IF_GREATER
-PRINT
+JUMP_IF_GREATER to LINE 4
+JUMP to LINE 5 (Skip Print)
+PRINT "A"
+
 ```
-
----
-
 # Control Flow Internally
-
 Loops and conditions are implemented using jumps.
-
 Example:
-
 ```java
 for(int i = 0; i < 5; i++)
-```
 
+```
 Internally:
-
 ```text
-CHECK CONDITION
-JUMP BACK
-CHECK CONDITION
-JUMP BACK
+CHECK CONDITION (COMPARE i, 5)
+JUMP_IF_FALSE to EXIT_LOOP
+// [Loop Body Code Here]
+INCREMENT i
+JUMP BACK to CHECK CONDITION
+
 ```
-
 CPU execution is fundamentally controlled jumping between instructions.
-
----
-
 # CPU Is Extremely Fast
-
 Modern CPUs execute billions of instructions per second.
-
 Approximate scale:
-
-| Component | Speed |
-|---|---|
-| Registers | Fastest |
-| L1 Cache | Extremely Fast |
-| RAM | Slower |
-| SSD | Much Slower |
-| HDD | Slowest |
-
+| Component | Speed | Analogy |
+|---|---|---|
+| **Registers** | Fastest | Apne haath mein pakda hua saaman |
+| **L1/L2 Cache** | Extremely Fast | Kitchen counter par rakha hua saaman |
+| **RAM** | Slower | Kitchen ke bahar bade table par rakha saaman |
+| **SSD** | Much Slower | Ghar ke door wale godown mein rakha saaman |
+| **HDD** | Slowest | Dusre shehar ke warehouse mein rakha saaman |
 This speed difference is why:
-- caching matters
-- buffering matters
-- batching matters
-- memory optimization matters
-
----
-
+ * caching matters
+ * buffering matters
+ * batching matters
+ * memory optimization matters
 # SDET Lead Insight
-
 Understanding CPU execution explains many real-world engineering problems.
-
----
-
 ## Why Infinite Loops Freeze Systems
-
 ```java
 while(true) {
-
+    // No break or exit condition
 }
+
 ```
-
 CPU continuously executes instructions without stopping.
-
-Result:
-- high CPU usage
-- thread starvation
-- server instability
-
----
-
+ * **Result:** high CPU usage, thread starvation, server instability.
+ * **Hinglish Intuition:** Socho ek worker ko tumne ek gol ghumne wale track par daal diya aur bola *"Bhaagte raho!"*. Wo itna busy ho jayega ki agar koi dusra urgent kaam lekar aayega, toh wo use dekhega bhi nahi. Under the hood, CPU ka Fetch-Decode-Execute cycle usi loop ke instructions mein fans jata hai. Core ka utilization **100%** touch ho jata hai. Operating System ke baki threads ko CPU ka time (resource) hi nahi milta (**Thread Starvation**), jisse pura system responsive nahi rehta.
 ## Why Nested Loops Become Slow
-
 ```java
 for(...)
    for(...)
+
 ```
-
-More iterations = more CPU instructions.
-
-Complexity directly impacts execution time.
-
----
-
+More iterations = more CPU instructions. Complexity directly impacts execution time.
+ * **Hinglish Intuition:** Agar loop ke andar loop hai (O(N^2)), toh operations multiply ho rahe hain. Agar bahar wala loop 1000 baar chal raha hai aur andar wala bhi 1000 baar, toh total 1000 \times 1000 = 1,000,000 iterations! CPU ko har ek iteration ke liye alag se fetch, decode, aur execute cycle chalani padegi. Billions of extra machine instructions chalengi, toh system slow ho hi jayega.
 ## Why Logging Excessively Slows Automation
-
 ```java
 System.out.println()
+
 ```
-
 causes:
-- I/O operations
-- buffer flushing
-- CPU interruptions
-
+ * I/O operations
+ * buffer flushing
+ * CPU interruptions
 Heavy logging can drastically slow large frameworks.
-
----
-
+ * **Hinglish Intuition:** Socho ek factory worker har ek product banane ke baad rukta hai, apni diary nikalta hai, aur likhta hai *"Maine ek part banaya"*, fir agla part banata hai. Factory ki production speed crash ho jayegi!
+ * **Under the Hood:** System.out.println ek **I/O (Input/Output) operation** hai. Data ko screen par display karne ya file mein write karne ke liye CPU ko rukna padta hai aur Operating System ke kernel level par context switch karna padta hai. I/O operations RAM aur CPU ki execution speed se 10,000\times slow hote hain. Pura automation suite is extra waiting time ki wajah se drag hone lagta hai.
 ## Why Memory Access Patterns Matter
-
-Sequential memory access is CPU-cache friendly.
-
-Random access causes:
-- cache misses
-- slower execution
-- memory latency
-
-This is critical in:
-- large data processing
-- reporting engines
-- distributed systems
-
----
-
+Sequential memory access is CPU-cache friendly. Random access causes cache misses, slower execution, and memory latency. This is critical in large data processing, reporting engines, and distributed systems.
+ * **Hinglish Intuition:** Agar tum supermarket mein ek hi line (aisle) se saara saaman ek ke baad ek utha rahe ho (**Sequential**), toh kaam fatafat hoga. Par agar tum ek cheez Row 1 se uthate ho aur dusri Row 50 se (**Random**), toh tum chalte-chalte thak jaoge.
+ * **Under the Hood:** CPU ke paas ek bohot fast memory hoti hai jise **L1/L2 Cache** kehte hain. Jab tum ek sequential structure (jaise Array) use karte ho, toh CPU smartness dikhakar aage ka pura chunk utha kar Cache mein pehle hi bhar leta hai (**Cache Prefetching** / **Cache Hit**). Random access (jaise Linked List) mein har data element alag-alag scattered memory locations par hota hai, jisse **Cache Miss** hota hai aur CPU ko har baar slow RAM ke paas jana padta hai.
 # Engineering Perspective
-
 Understanding computer execution transforms thinking from:
-
 ```text
 "I wrote code"
+
 ```
-
 to:
-
 ```text
 "I understand what the machine is doing"
+
 ```
-
 That mental shift is what separates:
-- framework users
-from
-- systems engineers
-
----
-
+ * framework users
+   from
+ * systems engineers
 # Key Takeaways
-
-- Programs are executed instruction by instruction
-- CPU performs Fetch → Decode → Execute
-- Registers are ultra-fast CPU memory
-- ALU performs calculations and logic
-- Machine instructions are binary-level operations
-- RAM stores active program data
-- CPU performance depends heavily on memory access patterns
-
----
+ * Programs are executed instruction by instruction.
+ * CPU performs **Fetch → Decode → Execute** loop continuously.
+ * **Registers** are ultra-fast CPU memory where ALU actually performs all calculations.
+ * **ALU** performs math, logic, and comparisons.
+ * Machine instructions are binary-level operations (1s and 0s) defined by the **ISA** (x86, ARM).
+ * RAM stores active program data because Disk is too slow.
+ * CPU performance depends heavily on memory access patterns (Cache hits vs Cache misses).
