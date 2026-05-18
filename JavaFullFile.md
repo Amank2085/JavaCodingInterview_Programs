@@ -654,6 +654,1750 @@
 
 - Pascal Triangle — P2
 
+# PHASE 3 — Problem Solving & DSA
+
+> Goal: Develop algorithmic thinking and scalable problem-solving ability.
+
+---
+
+# 10. DSA Problem Solving Patterns
+
+## 10.1 Array Patterns
+
+- Prefix Sum — P1
+
+- Suffix Sum — P2
+
+- Kadane’s Algorithm — P1
+
+- Two Pointer — P0
+
+- Sliding Window — P0
+
+- Binary Search — P0
+
+---
+
+## 10.2 String Patterns
+
+- Anagram — P1
+
+- Palindrome — P1
+
+- Pattern Matching — P2
+
+- Sliding Window — P1
+
+---
+
+## 10.3 Hashing Patterns
+
+- Frequency Count — P0
+
+- Duplicate Detection — P0
+
+- Prefix Hashing — P2
+
+---
+
+## 10.4 Recursion & Backtracking
+
+- Subsequences — P2
+
+- Permutations — P2
+
+- N Queens — P3
+
+- Maze Problems — P3
+
+---
+
+## 10.5 Linked List Patterns
+
+- Reversal — P1
+
+- Cycle Detection — P1
+
+- Fast Slow Pointer — P1
+
+---
+
+## 10.6 Stack & Queue Patterns
+
+- Monotonic Stack — P2
+
+- Next Greater Element — P2
+
+- BFS — P1
+
+---
+
+## 10.7 Tree Patterns
+
+- DFS — P1
+
+- BFS — P1
+
+- Diameter — P2
+
+- LCA — P2
+
+---
+
+## 10.8 Graph Patterns
+
+- BFS — P1
+
+- DFS — P1
+
+- Dijkstra — P2
+
+- Topological Sort — P2
+
+- Union Find — P2
+
+---
+
+## 10.9 Dynamic Programming
+
+- 1D DP — P1
+
+- 2D DP — P2
+
+- Knapsack — P2
+
+- LIS — P2
+
+- Grid DP — P2
+
+---
+
+## 10.10 Greedy Algorithms
+
+- Activity Selection — P2
+
+- Interval Scheduling — P2
+
+---
+
+# PHASE 4 — Advanced Java Engineering
+
+> Goal: Understand modern Java internals, concurrency, JVM behavior, and runtime engineering.
+
+---
+
+# 11. Collection Framework
+
+## 11.1 Collections Overview
+
+- Collection Hierarchy
+
+- Iterable
+
+- Collection Interface
+
+- Collections vs Collection
+
+- List vs Set vs Queue vs Map
+
+- Internal Working Overview
+
+- Time Complexity Comparison
+
+---
+
+## 11.2 List Implementations
+
+- ArrayList
+
+- LinkedList
+
+- Vector
+
+- Stack
+
+- CopyOnWriteArrayList
+
+- Internal Array Growth
+
+- Dynamic Resizing
+
+- Random Access vs Sequential Access
+
+- Memory Overhead
+
+- ArrayList vs LinkedList
+
+---
+
+## 11.3 Set Implementations
+
+- HashSet
+
+- LinkedHashSet
+
+- TreeSet
+
+- CopyOnWriteArraySet
+
+- Hashing Basics
+
+- Uniqueness Mechanism
+
+- Ordering vs Sorting
+
+- Tree Balancing Basics
+
+---
+
+## 11.4 Queue Implementations
+
+- Queue Interface
+
+- PriorityQueue
+
+- Deque
+
+- ArrayDeque
+
+- BlockingQueue
+
+- Priority Heap Internals
+
+- FIFO vs LIFO
+
+---
+
+## 11.5 Map Implementations
+
+- HashMap
+
+- LinkedHashMap
+
+- TreeMap
+
+- Hashtable
+
+- WeakHashMap
+
+- IdentityHashMap
+
+- EnumMap
+
+- ConcurrentHashMap
+
+- ConcurrentSkipListMap
+
+---
+
+## 11.6 HashMap Internals (VERY IMPORTANT)
+
+- Hashing Mechanism
+
+- hashCode() & equals()
+
+- Buckets
+
+- Collision Handling
+
+- Chaining
+
+- Load Factor
+
+- Rehashing
+
+- Resizing
+
+- Treeification
+
+- Red Black Tree Basics
+
+- Why Capacity Powers of 2
+
+- Internal put() Flow
+
+- Internal get() Flow
+
+- Concurrent Modification Issues
+
+---
+
+## 11.7 Iterators
+
+- Iterator
+
+- ListIterator
+
+- Enumeration
+
+- Fail Fast vs Fail Safe
+
+- ConcurrentModificationException
+
+- Internal modCount Mechanism
+
+---
+
+## 11.8 Comparator & Comparable
+
+- Comparable
+
+- Comparator
+
+- Custom Sorting
+
+- Sorting Internals
+
+- TimSort Basics
+
+---
+
+## 11.9 Generics
+
+- Generic Classes
+
+- Generic Methods
+
+- Wildcards
+
+- Upper Bound
+
+- Lower Bound
+
+- PECS Principle
+
+- Type Erasure
+
+- Heap Pollution
+
+---
+
+## 11.10 Concurrent Collections
+
+- ConcurrentHashMap
+
+- CopyOnWriteArrayList
+
+- ConcurrentSkipListMap
+
+- BlockingQueue
+
+- ConcurrentLinkedQueue
+
+- Synchronized Collections
+
+- Lock Striping
+
+- Segment Locking
+
+- CAS in Concurrent Collections
+
+---
+
+## 11.11 Collections Utility Class
+
+- Collections.sort()
+
+- Collections.reverse()
+
+- Collections.shuffle()
+
+- Collections.binarySearch()
+
+- Collections.unmodifiableList()
+
+- Collections.synchronizedList()
+
+---
+
+## 11.12 Performance Engineering with Collections
+
+- Time Complexity of Collections
+
+- Space Complexity
+
+- Memory Consumption
+
+- Choosing Correct Collection
+
+- Cache Friendliness
+
+- Object Overhead
+
+- GC Impact
+
+- Collections in High-Concurrency Systems
+
+---
+
+## 11.13 Real Engineering Usage
+
+- Collections in Selenium Frameworks
+
+- ThreadLocal + Collections
+
+- Caching Test Data
+
+- Parallel Execution Data Handling
+
+- API Response Mapping
+
+- Retry Queues
+
+- Event Buffers
+
+- Framework Memory Leaks
+
+- Shared Mutable State Problems
+
+---
+
+# 12. Java 8+ Features
+
+## 12.1 Lambda Expressions
+
+- Lambda Syntax — P0
+
+- Functional Programming — P1
+
+- Method References — P1
+
+---
+
+## 12.2 Functional Interfaces
+
+- Predicate — P1
+
+- Function — P1
+
+- Consumer — P1
+
+- Supplier — P1
+
+- BiFunction — P2
+
+---
+
+## 12.3 Stream API
+
+- map — P0
+
+- filter — P0
+
+- reduce — P1
+
+- flatMap — P1
+
+- Parallel Streams — P2
+
+---
+
+## 12.4 Collectors
+
+- groupingBy — P1
+
+- partitioningBy — P2
+
+- joining — P1
+
+- mapping — P2
+
+---
+
+# 13. File Handling & NIO
+
+## 13.1 File Handling Basics
+
+- File APIs — P1
+
+- BufferedReader — P1
+
+- BufferedWriter — P1
+
+---
+
+## 13.2 Serialization
+
+- Serialization — P2
+
+- Deserialization — P2
+
+---
+
+## 13.3 NIO
+
+- Path API — P1
+
+- Files API — P1
+
+- Channels — P2
+
+- Buffers — P2
+
+---
+
+# 14. Multithreading & Concurrency
+
+## 14.1 Core Concurrency
+
+- Thread Lifecycle — P0
+
+- Runnable — P0
+
+- Callable — P1
+
+- Synchronization — P0
+
+- Race Conditions — P0
+
+- Deadlocks — P1
+
+---
+
+## 14.2 Executor Framework
+
+- ExecutorService — P0
+
+- Thread Pools — P0
+
+- Future — P1
+
+- CompletableFuture — P1
+
+---
+
+## 14.3 Advanced Concurrency
+
+- volatile — P1
+
+- Atomic Classes — P1
+
+- CAS — P2
+
+- ForkJoinPool — P2
+
+- Virtual Threads — P2
+
+---
+
+## 14.4 Concurrent Collections
+
+- ConcurrentHashMap — P1
+
+- BlockingQueue — P1
+
+- CopyOnWriteArrayList — P2
+
+---
+
+# 15. Database Engineering
+
+## 15.1 SQL Fundamentals
+
+- Joins — P0
+
+- Group By — P1
+
+- Subqueries — P1
+
+- Views — P2
+
+- Stored Procedures — P3
+
+---
+
+## 15.2 Database Internals
+
+- Indexing — P1
+
+- Query Optimization — P2
+
+- Transactions — P1
+
+- Locks — P1
+
+- Isolation Levels — P1
+
+- ACID Properties — P1
+
+---
+
+## 15.3 Database Design
+
+- Normalization — P1
+
+- Denormalization — P2
+
+- ER Diagrams — P2
+
+---
+
+## 15.4 NoSQL Basics
+
+- Redis Basics — P2
+
+- MongoDB Basics — P2
+
+- Key Value Stores — P2
+
+---
+
+# 16. JDBC
+
+## 16.1 JDBC Fundamentals
+
+- JDBC Architecture — P1
+
+- Connection — P1
+
+- Statement — P1
+
+- PreparedStatement — P1
+
+- ResultSet — P1
+
+---
+
+## 16.2 Transactions
+
+- Transactions — P1
+
+- Batch Processing — P2
+
+---
+
+# 17. Annotations & Reflection
+
+## 17.1 Annotations
+
+- Built-in Annotations — P1
+
+- Custom Annotations — P2
+
+- Meta Annotations — P2
+
+---
+
+## 17.2 Reflection API
+
+- Class Object — P2
+
+- Dynamic Method Invocation — P2
+
+- Accessing Private Members — P2
+
+---
+
+# 18. JVM & Memory Management
+
+## 18.1 JVM Architecture
+
+- Heap — P0
+
+- Stack — P0
+
+- Metaspace — P1
+
+- Method Area — P1
+
+- Class Loader — P1
+
+---
+
+## 18.2 JVM Execution Engine
+
+- Interpreter — P1
+
+- JIT Compiler — P1
+
+- Escape Analysis — P3
+
+- Inline Optimization — P3
+
+---
+
+## 18.3 Garbage Collection
+
+- Minor GC — P1
+
+- Major GC — P1
+
+- G1GC — P2
+
+- ZGC — P3
+
+---
+
+## 18.4 Memory Engineering
+
+- Heap vs Stack — P0
+
+- Memory Leaks — P1
+
+- OutOfMemoryError — P1
+
+- GC Tuning — P3
+
+# PHASE 5 — Software Design & Architecture
+
+> Goal: Learn scalable software engineering and architecture thinking.
+
+---
+
+# 19. Design Patterns
+
+## 19.1 Creational Patterns
+
+- Singleton — P0
+
+- Factory — P1
+
+- Builder — P1
+
+---
+
+## 19.2 Structural Patterns
+
+- Adapter — P2
+
+- Facade — P1
+
+- Decorator — P2
+
+- Proxy — P2
+
+---
+
+## 19.3 Behavioral Patterns
+
+- Strategy — P1
+
+- Observer — P1
+
+- Command — P2
+
+- Template Method — P2
+
+---
+
+# 20. Low Level Design
+
+## 20.1 SOLID Principles
+
+- SRP — P0
+
+- OCP — P1
+
+- LSP — P2
+
+- ISP — P2
+
+- DIP — P1
+
+---
+
+## 20.2 UML
+
+- Class Diagram — P1
+
+- Sequence Diagram — P1
+
+---
+
+## 20.3 LLD Projects
+
+- Parking Lot — P2
+
+- ATM — P2
+
+- Cab Booking — P2
+
+- Elevator System — P3
+
+---
+
+# 21. High Level Design
+
+## 21.1 Scalability Fundamentals
+
+- Load Balancing — P1
+
+- Caching — P1
+
+- CAP Theorem — P2
+
+- Sharding — P3
+
+---
+
+## 21.2 Distributed Systems
+
+- API Gateway — P2
+
+- Kafka Basics — P2
+
+- Event Driven Systems — P2
+
+- Distributed Caching — P2
+
+---
+
+## 21.3 System Design Problems
+
+- WhatsApp — P2
+
+- Instagram Feed — P2
+
+- Netflix — P2
+
+- Uber — P3
+
+- URL Shortener — P2
+
+---
+
+# PHASE 6 — Automation Framework Engineering
+
+> Goal: Become a scalable automation framework architect for product-based companies.
+
+---
+
+# 22. Selenium Automation Engineering
+
+## 22.1 Selenium Fundamentals
+
+- WebDriver Internals — P0
+
+- Browser Driver Architecture — P1
+
+- Selenium W3C Protocol — P1
+
+- Selenium Grid Architecture — P1
+
+- Selenium 4 Features — P1
+
+- Browser Communication Flow — P1
+
+- DOM Interaction Internals — P1
+
+- Locator Strategies — P0
+
+- Relative Locators — P2
+
+---
+
+## 22.2 Synchronization & Wait Strategies
+
+- Implicit Wait — P1
+
+- Explicit Wait — P0
+
+- Fluent Wait — P1
+
+- Custom Wait Utilities — P1
+
+- Dynamic Element Handling — P1
+
+- AJAX Synchronization — P2
+
+- Retry Mechanisms — P1
+
+- Polling Mechanisms — P2
+
+---
+
+## 22.3 Advanced Selenium
+
+- Actions API — P1
+
+- JavaScriptExecutor — P1
+
+- Frames — P1
+
+- Windows & Tabs — P1
+
+- Alerts — P1
+
+- File Upload/Download — P1
+
+- Cookies Handling — P2
+
+- Shadow DOM — P2
+
+- Dynamic Web Elements — P1
+
+- Capturing Screenshots — P1
+
+- Browser Logs — P2
+
+---
+
+## 22.4 Selenium Grid & Distributed Execution
+
+- Selenium Grid Architecture — P1
+
+- Hub & Node Concepts — P1
+
+- Distributed Test Execution — P1
+
+- Parallel Browser Execution — P1
+
+- RemoteWebDriver — P1
+
+- Docker Selenium Grid — P2
+
+- Cloud Selenium Grid — P2
+
+---
+
+## 22.5 Framework Stability Engineering
+
+- Smart Locators — P1
+
+- Self-Healing Concepts — P2
+
+- Failure Recovery Design — P2
+
+- Retry Analyzer — P1
+
+- Test Stability Engineering — P1
+
+- Dynamic Wait Engine — P1
+
+- Flaky Test Reduction — P1
+
+- Cross Browser Strategy — P1
+
+---
+
+# 23. Playwright Automation Engineering
+
+## 23.1 Playwright Fundamentals
+
+- Playwright Architecture — P1
+
+- Browser Contexts — P0
+
+- Auto Waiting — P0
+
+- Headless Execution — P1
+
+- Browser Isolation — P1
+
+- Cross Browser Testing — P1
+
+---
+
+## 23.2 Advanced Playwright
+
+- Network Interception — P1
+
+- API Mocking — P1
+
+- HAR Recording — P2
+
+- Tracing — P1
+
+- Screenshots — P1
+
+- Video Recording — P1
+
+- Storage State — P1
+
+- Geolocation Testing — P2
+
+---
+
+## 23.3 Playwright Framework Design
+
+- Fixtures — P1
+
+- Parallel Execution — P1
+
+- Config-Driven Framework — P1
+
+- Environment Management — P1
+
+- Test Hooks — P1
+
+- Reusable Components — P1
+
+- Custom Reporters — P2
+
+---
+
+## 23.4 Enterprise Playwright Infrastructure
+
+- Dockerized Playwright — P2
+
+- CI/CD Integration — P1
+
+- Distributed Execution — P2
+
+- Cloud Execution — P2
+
+- Playwright in Kubernetes — P3
+
+- Scalable Execution Strategy — P2
+
+---
+
+# 24. Mobile Automation Engineering (Appium)
+
+## 24.1 Mobile Fundamentals
+
+- Android Basics — P1
+
+- iOS Basics — P1
+
+- Emulator vs Real Device — P1
+
+- APK & IPA Basics — P2
+
+- Mobile App Lifecycle — P2
+
+- Hybrid Apps — P1
+
+---
+
+## 24.2 Appium Fundamentals
+
+- Appium Architecture — P1
+
+- Desired Capabilities — P1
+
+- Appium Server — P1
+
+- Driver Types — P1
+
+- UiAutomator2 — P2
+
+- XCUITest — P2
+
+- Appium Inspector — P1
+
+---
+
+## 24.3 Mobile Interactions
+
+- Accessibility IDs — P1
+
+- XPath Strategies — P1
+
+- Gestures — P1
+
+- Scroll — P1
+
+- Swipe — P1
+
+- Touch Actions — P1
+
+- Device Rotation — P2
+
+- Notifications Handling — P2
+
+---
+
+## 24.4 Advanced Appium
+
+- Hybrid Apps — P1
+
+- WebView Handling — P1
+
+- Parallel Device Execution — P2
+
+- Device Farms — P2
+
+- Mobile Logs — P2
+
+- Performance Data — P3
+
+- Deep Linking — P2
+
+---
+
+## 24.5 Mobile Framework Design
+
+- Cross Platform Framework — P1
+
+- Device Management — P2
+
+- Reporting — P1
+
+- Retry Mechanisms — P1
+
+- Parallel Device Infrastructure — P2
+
+- Cloud Device Execution — P2
+
+---
+
+# 25. API Automation Engineering
+
+## 25.1 API Fundamentals
+
+- REST APIs — P0
+
+- SOAP Basics — P2
+
+- HTTP Methods — P0
+
+- Request Response Lifecycle — P0
+
+- Status Codes — P0
+
+- Headers & Cookies — P1
+
+---
+
+## 25.2 Rest Assured
+
+- Request Specification — P1
+
+- Response Validation — P1
+
+- Authentication — P1
+
+- Path Parameters — P1
+
+- Query Parameters — P1
+
+- Serialization — P1
+
+- Deserialization — P1
+
+---
+
+## 25.3 API Validation
+
+- JSON Validation — P1
+
+- Schema Validation — P1
+
+- Response Assertions — P1
+
+- Data Validation — P1
+
+- Contract Testing — P2
+
+- API Chaining — P1
+
+---
+
+## 25.4 Enterprise API Testing
+
+- Service Virtualization — P2
+
+- API Mocking — P1
+
+- Retry Testing — P1
+
+- Rate Limiting Testing — P2
+
+- API Performance Testing — P2
+
+- API Security Testing — P2
+
+- Async API Testing — P2
+
+---
+
+# 26. Test Framework Architecture
+
+## 26.1 Framework Design Patterns
+
+- Page Object Model — P0
+
+- Page Factory — P1
+
+- Screenplay Pattern — P2
+
+- Fluent Design Pattern — P2
+
+- Factory Pattern — P1
+
+- Singleton Pattern — P1
+
+---
+
+## 26.2 Framework Architecture
+
+- Layered Architecture — P1
+
+- Modular Design — P1
+
+- Dependency Injection — P1
+
+- Configuration Management — P1
+
+- Environment Management — P1
+
+- Driver Factory Design — P1
+
+---
+
+## 26.3 Enterprise Framework Features
+
+- Dynamic Reporting — P1
+
+- Retry Architecture — P1
+
+- Smart Wait Engine — P1
+
+- Thread-Safe Framework Design — P1
+
+- Logging Architecture — P1
+
+- Screenshot Strategy — P1
+
+- Test Data Management — P1
+
+---
+
+## 26.4 Parallel Infrastructure
+
+- Parallel Test Execution — P1
+
+- Distributed Test Execution — P1
+
+- Selenium Grid Integration — P1
+
+- ThreadLocal Driver Management — P1
+
+- CI/CD Parallel Pipelines — P2
+
+- Containerized Execution — P2
+
+# PHASE 5 — Software Design & Architecture
+
+> Goal: Learn scalable software engineering and architecture thinking.
+
+---
+
+# 19. Design Patterns
+
+## 19.1 Creational Patterns
+
+- Singleton — P0
+
+- Factory — P1
+
+- Builder — P1
+
+---
+
+## 19.2 Structural Patterns
+
+- Adapter — P2
+
+- Facade — P1
+
+- Decorator — P2
+
+- Proxy — P2
+
+---
+
+## 19.3 Behavioral Patterns
+
+- Strategy — P1
+
+- Observer — P1
+
+- Command — P2
+
+- Template Method — P2
+
+---
+
+# 20. Low Level Design
+
+## 20.1 SOLID Principles
+
+- SRP — P0
+
+- OCP — P1
+
+- LSP — P2
+
+- ISP — P2
+
+- DIP — P1
+
+---
+
+## 20.2 UML
+
+- Class Diagram — P1
+
+- Sequence Diagram — P1
+
+---
+
+## 20.3 LLD Projects
+
+- Parking Lot — P2
+
+- ATM — P2
+
+- Cab Booking — P2
+
+- Elevator System — P3
+
+---
+
+# 21. High Level Design
+
+## 21.1 Scalability Fundamentals
+
+- Load Balancing — P1
+
+- Caching — P1
+
+- CAP Theorem — P2
+
+- Sharding — P3
+
+---
+
+## 21.2 Distributed Systems
+
+- API Gateway — P2
+
+- Kafka Basics — P2
+
+- Event Driven Systems — P2
+
+- Distributed Caching — P2
+
+---
+
+## 21.3 System Design Problems
+
+- WhatsApp — P2
+
+- Instagram Feed — P2
+
+- Netflix — P2
+
+- Uber — P3
+
+- URL Shortener — P2
+
+---
+
+# PHASE 6 — Automation Framework Engineering
+
+> Goal: Become a scalable automation framework architect for product-based companies.
+
+---
+
+# 22. Selenium Automation Engineering
+
+## 22.1 Selenium Fundamentals
+
+- WebDriver Internals — P0
+
+- Browser Driver Architecture — P1
+
+- Selenium W3C Protocol — P1
+
+- Selenium Grid Architecture — P1
+
+- Selenium 4 Features — P1
+
+- Browser Communication Flow — P1
+
+- DOM Interaction Internals — P1
+
+- Locator Strategies — P0
+
+- Relative Locators — P2
+
+---
+
+## 22.2 Synchronization & Wait Strategies
+
+- Implicit Wait — P1
+
+- Explicit Wait — P0
+
+- Fluent Wait — P1
+
+- Custom Wait Utilities — P1
+
+- Dynamic Element Handling — P1
+
+- AJAX Synchronization — P2
+
+- Retry Mechanisms — P1
+
+- Polling Mechanisms — P2
+
+---
+
+## 22.3 Advanced Selenium
+
+- Actions API — P1
+
+- JavaScriptExecutor — P1
+
+- Frames — P1
+
+- Windows & Tabs — P1
+
+- Alerts — P1
+
+- File Upload/Download — P1
+
+- Cookies Handling — P2
+
+- Shadow DOM — P2
+
+- Dynamic Web Elements — P1
+
+- Capturing Screenshots — P1
+
+- Browser Logs — P2
+
+---
+
+## 22.4 Selenium Grid & Distributed Execution
+
+- Selenium Grid Architecture — P1
+
+- Hub & Node Concepts — P1
+
+- Distributed Test Execution — P1
+
+- Parallel Browser Execution — P1
+
+- RemoteWebDriver — P1
+
+- Docker Selenium Grid — P2
+
+- Cloud Selenium Grid — P2
+
+---
+
+## 22.5 Framework Stability Engineering
+
+- Smart Locators — P1
+
+- Self-Healing Concepts — P2
+
+- Failure Recovery Design — P2
+
+- Retry Analyzer — P1
+
+- Test Stability Engineering — P1
+
+- Dynamic Wait Engine — P1
+
+- Flaky Test Reduction — P1
+
+- Cross Browser Strategy — P1
+
+---
+
+# 23. Playwright Automation Engineering
+
+## 23.1 Playwright Fundamentals
+
+- Playwright Architecture — P1
+
+- Browser Contexts — P0
+
+- Auto Waiting — P0
+
+- Headless Execution — P1
+
+- Browser Isolation — P1
+
+- Cross Browser Testing — P1
+
+---
+
+## 23.2 Advanced Playwright
+
+- Network Interception — P1
+
+- API Mocking — P1
+
+- HAR Recording — P2
+
+- Tracing — P1
+
+- Screenshots — P1
+
+- Video Recording — P1
+
+- Storage State — P1
+
+- Geolocation Testing — P2
+
+---
+
+## 23.3 Playwright Framework Design
+
+- Fixtures — P1
+
+- Parallel Execution — P1
+
+- Config-Driven Framework — P1
+
+- Environment Management — P1
+
+- Test Hooks — P1
+
+- Reusable Components — P1
+
+- Custom Reporters — P2
+
+---
+
+## 23.4 Enterprise Playwright Infrastructure
+
+- Dockerized Playwright — P2
+
+- CI/CD Integration — P1
+
+- Distributed Execution — P2
+
+- Cloud Execution — P2
+
+- Playwright in Kubernetes — P3
+
+- Scalable Execution Strategy — P2
+
+---
+
+# 24. Mobile Automation Engineering (Appium)
+
+## 24.1 Mobile Fundamentals
+
+- Android Basics — P1
+
+- iOS Basics — P1
+
+- Emulator vs Real Device — P1
+
+- APK & IPA Basics — P2
+
+- Mobile App Lifecycle — P2
+
+- Hybrid Apps — P1
+
+---
+
+## 24.2 Appium Fundamentals
+
+- Appium Architecture — P1
+
+- Desired Capabilities — P1
+
+- Appium Server — P1
+
+- Driver Types — P1
+
+- UiAutomator2 — P2
+
+- XCUITest — P2
+
+- Appium Inspector — P1
+
+---
+
+## 24.3 Mobile Interactions
+
+- Accessibility IDs — P1
+
+- XPath Strategies — P1
+
+- Gestures — P1
+
+- Scroll — P1
+
+- Swipe — P1
+
+- Touch Actions — P1
+
+- Device Rotation — P2
+
+- Notifications Handling — P2
+
+---
+
+## 24.4 Advanced Appium
+
+- Hybrid Apps — P1
+
+- WebView Handling — P1
+
+- Parallel Device Execution — P2
+
+- Device Farms — P2
+
+- Mobile Logs — P2
+
+- Performance Data — P3
+
+- Deep Linking — P2
+
+---
+
+## 24.5 Mobile Framework Design
+
+- Cross Platform Framework — P1
+
+- Device Management — P2
+
+- Reporting — P1
+
+- Retry Mechanisms — P1
+
+- Parallel Device Infrastructure — P2
+
+- Cloud Device Execution — P2
+
+---
+
+# 25. API Automation Engineering
+
+## 25.1 API Fundamentals
+
+- REST APIs — P0
+
+- SOAP Basics — P2
+
+- HTTP Methods — P0
+
+- Request Response Lifecycle — P0
+
+- Status Codes — P0
+
+- Headers & Cookies — P1
+
+---
+
+## 25.2 Rest Assured
+
+- Request Specification — P1
+
+- Response Validation — P1
+
+- Authentication — P1
+
+- Path Parameters — P1
+
+- Query Parameters — P1
+
+- Serialization — P1
+
+- Deserialization — P1
+
+---
+
+## 25.3 API Validation
+
+- JSON Validation — P1
+
+- Schema Validation — P1
+
+- Response Assertions — P1
+
+- Data Validation — P1
+
+- Contract Testing — P2
+
+- API Chaining — P1
+
+---
+
+## 25.4 Enterprise API Testing
+
+- Service Virtualization — P2
+
+- API Mocking — P1
+
+- Retry Testing — P1
+
+- Rate Limiting Testing — P2
+
+- API Performance Testing — P2
+
+- API Security Testing — P2
+
+- Async API Testing — P2
+
+---
+
+# 26. Test Framework Architecture
+
+## 26.1 Framework Design Patterns
+
+- Page Object Model — P0
+
+- Page Factory — P1
+
+- Screenplay Pattern — P2
+
+- Fluent Design Pattern — P2
+
+- Factory Pattern — P1
+
+- Singleton Pattern — P1
+
+---
+
+## 26.2 Framework Architecture
+
+- Layered Architecture — P1
+
+- Modular Design — P1
+
+- Dependency Injection — P1
+
+- Configuration Management — P1
+
+- Environment Management — P1
+
+- Driver Factory Design — P1
+
+---
+
+## 26.3 Enterprise Framework Features
+
+- Dynamic Reporting — P1
+
+- Retry Architecture — P1
+
+- Smart Wait Engine — P1
+
+- Thread-Safe Framework Design — P1
+
+- Logging Architecture — P1
+
+- Screenshot Strategy — P1
+
+- Test Data Management — P1
+
+---
+
+## 26.4 Parallel Infrastructure
+
+- Parallel Test Execution — P1
+
+- Distributed Test Execution — P1
+
+- Selenium Grid Integration — P1
+
+- ThreadLocal Driver Management — P1
+
+- CI/CD Parallel Pipelines — P2
+
+- Containerized Execution — P2
+
 ---
 # PHASE 1 — Core Computer Science Foundations
 > Goal: Understand how computers, memory, CPU, operating systems, and programs actually work internally.
