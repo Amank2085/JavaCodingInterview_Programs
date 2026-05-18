@@ -1,1172 +1,658 @@
 # Complete Java + DSA + System Design + Automation Engineering Roadmap
+## Priority-Based Learning Structure for Product-Based Company Lead SDET Roles
 
-> From Beginner to JVM-Aware Lead SDET Architect  
-> Deep Systems Thinking • Java Engineering • Scalable Automation • Distributed Systems • Product Engineering
-
----
-
-# Roadmap Philosophy
-
-This roadmap is designed to transform a learner from:
-
-text id="w1" Code Writer 
-
-into:
-
-text id="w2" Systems Engineer 
-
-The focus is not just syntax or interview preparation.
-
-The goal is deep understanding of:
-
-- Computer Science fundamentals
-- JVM internals
-- Memory behavior
-- Concurrency
-- Networking
-- Framework architecture
-- Distributed systems
-- Scalable automation infrastructure
-- Performance engineering
-- Production systems
-- Automation platform engineering
+> Goal:
+> Learn topics in the exact order that maximizes:
+>
+> - Product company interview readiness
+> - Lead SDET capability
+> - Framework architecture skills
+> - JVM understanding
+> - Scalable automation engineering
+> - Distributed systems understanding
+> - AI-powered QA engineering
 
 ---
 
-# Learning Architecture
+# PRIORITY LEGEND
 
-text id="w3" Computer Science Foundations             ↓ Programming & Mathematical Thinking             ↓ Java Language Engineering             ↓ Problem Solving & DSA             ↓ Concurrency & JVM Internals             ↓ Software Design & Architecture             ↓ Automation Framework Engineering             ↓ Distributed Systems & Scalability             ↓ Production Engineering Mindset             ↓ Lead SDET / Platform Engineering 
+| Priority | Meaning |
+|---|---|
+| P0 | Absolute Core |
+| P1 | High Priority |
+| P2 | Important |
+| P3 | Advanced / Specialized |
+| P4 | Leadership / Long-Term Mastery |
 
 ---
 
 # PHASE 1 — Core Computer Science Foundations
 
-> Goal: Understand how computers, memory, CPU, operating systems, networking, and execution models work internally.
+> Goal: Understand how computers, operating systems, memory, networking, and execution models actually work.
 
 ---
 
 # 1. Computer Fundamentals
 
 ## 1.1 How Computers Work
-- Program Execution Flow
-- Fetch Decode Execute Cycle
-- CPU Instruction Processing
-- Registers and ALU
-- Machine Instructions
+
+- Program Execution Flow — P0
+
+- Fetch Decode Execute Cycle — P0
+
+- CPU Instruction Processing — P1
+
+- Registers and ALU — P1
+
+- Machine Instructions — P1
+
+---
 
 ## 1.2 Compiler vs Interpreter
-- Compiler Basics
-- Interpreter Basics
-- Compilation Process
-- Runtime Execution
-- Source Code vs Machine Code
-- Bytecode
-- Hybrid Execution Models
-- Ahead-of-Time Compilation
-- Just-in-Time Compilation
+
+- Compiler Basics — P0
+
+- Interpreter Basics — P0
+
+- Compilation Process — P1
+
+- Runtime Execution — P1
+
+- Source Code vs Machine Code — P1
+
+- Bytecode — P1
+
+- Hybrid Execution Models — P2
+
+- Ahead-of-Time Compilation — P3
+
+- Just-in-Time Compilation — P1
+
+---
 
 ## 1.3 Binary & Number Systems
-- Decimal
-- Binary
-- Hexadecimal
-- Octal
-- Bits & Bytes
-- Data Representation
-- Signed vs Unsigned Numbers
-- Two’s Complement
-- ASCII
-- Unicode
-- UTF-8 Encoding
+
+- Decimal — P1
+
+- Binary — P1
+
+- Hexadecimal — P2
+
+- Octal — P3
+
+- Bits & Bytes — P1
+
+- Data Representation — P1
+
+- Signed vs Unsigned Numbers — P2
+
+- Two’s Complement — P2
+
+- ASCII — P2
+
+- Unicode — P2
+
+- UTF-8 Encoding — P2
+
+---
 
 ## 1.4 Memory Fundamentals
-- RAM Basics
-- Memory Addresses
-- Stack vs Heap
-- Static vs Dynamic Memory
-- Memory Allocation
-- Memory Fragmentation
-- Memory Access Patterns
-- Function Call Stack
+
+- RAM Basics — P0
+
+- Memory Addresses — P1
+
+- Stack vs Heap — P0
+
+- Static vs Dynamic Memory — P1
+
+- Memory Allocation — P1
+
+- Memory Fragmentation — P2
+
+- Memory Access Patterns — P2
+
+- Function Call Stack — P1
+
+---
 
 ## 1.5 CPU Architecture Basics
-- CPU vs RAM
-- Registers
-- ALU
-- Control Unit
-- Cache Memory
-- L1/L2/L3 Cache
-- CPU Pipeline
-- Instruction-Level Parallelism
+
+- CPU vs RAM — P1
+
+- Registers — P2
+
+- ALU — P2
+
+- Control Unit — P3
+
+- Cache Memory — P2
+
+- L1/L2/L3 Cache — P2
+
+- CPU Pipeline — P3
+
+- Instruction-Level Parallelism — P3
+
+---
 
 ## 1.6 Operating System Basics
-- Processes
-- Threads
-- Scheduling
-- Context Switching
-- Virtual Memory
-- Paging
-- System Calls
-- Process Isolation
-- Deadlock Basics
+
+- Processes — P0
+
+- Threads — P0
+
+- Scheduling — P1
+
+- Context Switching — P1
+
+- Virtual Memory — P2
+
+- Paging — P3
+
+- System Calls — P2
+
+- Process Isolation — P2
+
+- Deadlock Basics — P1
+
+---
 
 ## 1.7 Input / Output Fundamentals
-- File Systems
-- Disk Operations
-- Streams
-- Buffering
-- Blocking vs Non-Blocking I/O
-- Network I/O
-- Sockets Basics
+
+- File Systems — P2
+
+- Disk Operations — P2
+
+- Streams — P1
+
+- Buffering — P1
+
+- Blocking vs Non-Blocking I/O — P1
+
+- Network I/O — P2
+
+- Sockets Basics — P2
 
 ---
 
 # 2. Networking Fundamentals
 
 ## 2.1 Networking Basics
-- OSI Model
-- TCP/IP Model
-- IP Address
-- MAC Address
-- Ports
-- DNS
+
+- OSI Model — P2
+
+- TCP/IP Model — P1
+
+- IP Address — P1
+
+- MAC Address — P3
+
+- Ports — P1
+
+- DNS — P2
+
+---
 
 ## 2.2 HTTP & Web Communication
-- HTTP Protocol
-- HTTPS
-- TLS/SSL Basics
-- Request Response Cycle
-- REST APIs
-- gRPC Basics
-- WebSockets
+
+- HTTP Protocol — P0
+
+- HTTPS — P1
+
+- TLS/SSL Basics — P2
+
+- Request Response Cycle — P0
+
+- REST APIs — P0
+
+- gRPC Basics — P3
+
+- WebSockets — P2
+
+---
 
 ## 2.3 Authentication & Sessions
-- Cookies
-- Sessions
-- JWT
-- OAuth Basics
-- CORS
+
+- Cookies — P1
+
+- Sessions — P1
+
+- JWT — P1
+
+- OAuth Basics — P2
+
+- CORS — P2
+
+---
 
 ## 2.4 Infrastructure Networking
-- Reverse Proxy
-- Load Balancer
-- CDN Basics
-- API Gateway Basics
+
+- Reverse Proxy — P3
+
+- Load Balancer — P2
+
+- CDN Basics — P3
+
+- API Gateway Basics — P2
 
 ---
 
 # 3. Maths for Programming & DSA
 
 ## 3.1 Basic Mathematics
-- Number Systems
-- Prime Numbers
-- Factors & Multiples
-- GCD & LCM
-- Exponents
-- Logarithms
-- Modular Arithmetic
+
+- Number Systems — P1
+
+- Prime Numbers — P1
+
+- Factors & Multiples — P1
+
+- GCD & LCM — P1
+
+- Exponents — P1
+
+- Logarithms — P2
+
+- Modular Arithmetic — P2
+
+---
 
 ## 3.2 Problem Solving Mathematics
-- Factorial
-- Fibonacci
-- Fast Exponentiation
-- Sieve of Eratosthenes
-- Matrix Basics
-- Probability Basics
-- Combinatorics
+
+- Factorial — P1
+
+- Fibonacci — P1
+
+- Fast Exponentiation — P2
+
+- Sieve of Eratosthenes — P2
+
+- Matrix Basics — P3
+
+- Probability Basics — P2
+
+- Combinatorics — P3
+
+---
 
 ## 3.3 Bit Manipulation
-- AND OR XOR
-- Left Shift
-- Right Shift
-- Bitmasking
-- Set Bits Count
-- Power of Two
-- XOR Tricks
+
+- AND OR XOR — P1
+
+- Left Shift — P2
+
+- Right Shift — P2
+
+- Bitmasking — P3
+
+- Set Bits Count — P2
+
+- Power of Two — P1
+
+- XOR Tricks — P2
 
 ---
 
 # 4. Time & Space Complexity
 
 ## 4.1 Complexity Fundamentals
-- Time Complexity
-- Space Complexity
-- Best Case
-- Average Case
-- Worst Case
+
+- Time Complexity — P0
+
+- Space Complexity — P0
+
+- Best Case — P1
+
+- Average Case — P1
+
+- Worst Case — P1
+
+---
 
 ## 4.2 Complexity Classes
-- O(1)
-- O(log n)
-- O(n)
-- O(n log n)
-- O(n²)
-- O(2^n)
-- O(n!)
+
+- O(1) — P0
+
+- O(log n) — P0
+
+- O(n) — P0
+
+- O(n log n) — P0
+
+- O(n²) — P1
+
+- O(2^n) — P1
+
+- O(n!) — P2
+
+---
 
 ## 4.3 Complexity Analysis
-- Loop Analysis
-- Nested Loop Analysis
-- Recursive Complexity
-- Master Theorem
-- Amortized Analysis
+
+- Loop Analysis — P0
+
+- Nested Loop Analysis — P1
+
+- Recursive Complexity — P1
+
+- Master Theorem — P3
+
+- Amortized Analysis — P3
 
 ---
 
 # PHASE 2 — Java Language Engineering
 
-> Goal: Build strong Java fundamentals with runtime-level understanding.
+> Goal: Become JVM-aware instead of syntax-only developer.
 
 ---
 
 # 5. Java Fundamentals
 
 ## 5.1 Java Introduction
-- History of Java
-- Features of Java
-- Java Editions
-- JDK vs JRE vs JVM
-- Java Compilation Flow
-- Bytecode
-- Platform Independence
+
+- History of Java — P3
+
+- Features of Java — P1
+
+- Java Editions — P2
+
+- JDK vs JRE vs JVM — P0
+
+- Java Compilation Flow — P0
+
+- Bytecode — P1
+
+- Platform Independence — P1
+
+---
 
 ## 5.2 Java Syntax & Structure
-- First Java Program
-- Class Structure
-- Main Method
-- Packages
-- Imports
-- Comments
-- Naming Conventions
+
+- First Java Program — P3
+
+- Class Structure — P1
+
+- Main Method — P1
+
+- Packages — P1
+
+- Imports — P1
+
+- Comments — P4
+
+- Naming Conventions — P1
+
+---
 
 ## 5.3 Variables & Data Types
-- Primitive Types
-- Non-Primitive Types
-- Variables
-- Scope
-- Type Casting
-- Wrapper Classes
-- Autoboxing & Unboxing
+
+- Primitive Types — P0
+
+- Non-Primitive Types — P0
+
+- Variables — P0
+
+- Scope — P1
+
+- Type Casting — P1
+
+- Wrapper Classes — P1
+
+- Autoboxing & Unboxing — P1
+
+---
 
 ## 5.4 Operators
-- Arithmetic
-- Relational
-- Logical
-- Bitwise
-- Assignment
-- Unary
-- Ternary
-- instanceof
+
+- Arithmetic — P0
+
+- Relational — P0
+
+- Logical — P0
+
+- Bitwise — P2
+
+- Assignment — P1
+
+- Unary — P1
+
+- Ternary — P1
+
+- instanceof — P2
+
+---
 
 ## 5.5 Control Flow
-- if else
-- switch
-- Modern switch
-- Loops
-- break
-- continue
+
+- if else — P0
+
+- switch — P1
+
+- Modern switch — P2
+
+- Loops — P0
+
+- break — P1
+
+- continue — P1
+
+---
 
 ## 5.6 Methods
-- Method Declaration
-- Parameters
-- Return Types
-- Method Overloading
-- Varargs
-- Recursion
+
+- Method Declaration — P0
+
+- Parameters — P0
+
+- Return Types — P0
+
+- Method Overloading — P1
+
+- Varargs — P2
+
+- Recursion — P1
 
 ---
 
 # 6. Object-Oriented Programming
 
 ## 6.1 Classes & Objects
-- Classes
-- Objects
-- References
-- Object Lifecycle
-- Memory Allocation
+
+- Classes — P0
+
+- Objects — P0
+
+- References — P0
+
+- Object Lifecycle — P1
+
+- Memory Allocation — P1
+
+---
 
 ## 6.2 Constructors
-- Default Constructor
-- Parameterized Constructor
-- Constructor Chaining
-- Private Constructors
+
+- Default Constructor — P1
+
+- Parameterized Constructor — P1
+
+- Constructor Chaining — P2
+
+- Private Constructors — P2
+
+---
 
 ## 6.3 Core OOP Principles
-- Encapsulation
-- Inheritance
-- Polymorphism
-- Abstraction
+
+- Encapsulation — P0
+
+- Inheritance — P0
+
+- Polymorphism — P0
+
+- Abstraction — P0
+
+---
 
 ## 6.4 Advanced OOP Concepts
-- Association
-- Aggregation
-- Composition
-- Coupling
-- Cohesion
+
+- Association — P1
+
+- Aggregation — P2
+
+- Composition — P1
+
+- Coupling — P2
+
+- Cohesion — P2
+
+---
 
 ## 6.5 Java Keywords
-- this
-- super
-- static
-- final
-- transient
-- volatile
+
+- this — P1
+
+- super — P1
+
+- static — P0
+
+- final — P0
+
+- transient — P3
+
+- volatile — P2
+
+---
 
 ## 6.6 Object Class Internals
-- equals()
-- hashCode()
-- toString()
-- clone()
-- finalize()
+
+- equals() — P0
+
+- hashCode() — P0
+
+- toString() — P1
+
+- clone() — P3
+
+- finalize() — P3
+
+---
 
 ## 6.7 Immutable Objects
-- Immutable Classes
-- String Immutability
-- Defensive Copying
+
+- Immutable Classes — P1
+
+- String Immutability — P1
+
+- Defensive Copying — P2
 
 ---
 
 # 7. Exception Handling
 
 ## 7.1 Exception Basics
-- try catch
-- finally
-- throw
-- throws
+
+- try catch — P0
+
+- finally — P1
+
+- throw — P1
+
+- throws — P1
+
+---
 
 ## 7.2 Exception Types
-- Checked Exceptions
-- Unchecked Exceptions
-- Custom Exceptions
-- Exception Propagation
+
+- Checked Exceptions — P1
+
+- Unchecked Exceptions — P1
+
+- Custom Exceptions — P1
+
+- Exception Propagation — P1
+
+---
 
 ## 7.3 Advanced Exception Handling
-- try-with-resources
-- Multi Catch
-- Best Practices
+
+- try-with-resources — P1
+
+- Multi Catch — P2
+
+- Best Practices — P1
 
 ---
 
 # 8. String Handling
 
 ## 8.1 String Basics
-- String Internals
-- String Pool
-- Immutability
+
+- String Internals — P1
+
+- String Pool — P1
+
+- Immutability — P1
+
+---
 
 ## 8.2 Mutable Strings
-- StringBuilder
-- StringBuffer
+
+- StringBuilder — P0
+
+- StringBuffer — P1
+
+---
 
 ## 8.3 Regex & APIs
-- Regex
-- Pattern & Matcher
-- Common String APIs
+
+- Regex — P2
+
+- Pattern & Matcher — P2
+
+- Common String APIs — P1
 
 ---
 
 # 9. Arrays & Programming Logic
 
 ## 9.1 Arrays
-- 1D Arrays
-- 2D Arrays
-- Jagged Arrays
+
+- 1D Arrays — P0
+
+- 2D Arrays — P1
+
+- Jagged Arrays — P2
+
+---
 
 ## 9.2 Logic Building Programs
-- Prime Number
-- Armstrong Number
-- Palindrome
-- Fibonacci
-- Reverse Number
+
+- Prime Number — P1
+
+- Armstrong Number — P2
+
+- Palindrome — P1
+
+- Fibonacci — P1
+
+- Reverse Number — P1
+
+---
 
 ## 9.3 Pattern Printing
-- Pyramid
-- Diamond
-- Butterfly
-- Hollow Patterns
-- Pascal Triangle
 
----
+- Pyramid — P3
 
-# PHASE 3 — Problem Solving & DSA
+- Diamond — P3
 
-> Goal: Develop algorithmic thinking and scalable problem-solving ability.
+- Butterfly — P3
 
----
+- Hollow Patterns — P3
 
-# 10. DSA Problem Solving Patterns
-
-## 10.1 Array Patterns
-- Prefix Sum
-- Suffix Sum
-- Kadane’s Algorithm
-- Two Pointer
-- Sliding Window
-- Binary Search
-
-## 10.2 String Patterns
-- Anagram
-- Palindrome
-- Pattern Matching
-- Sliding Window
-
-## 10.3 Hashing Patterns
-- Frequency Count
-- Duplicate Detection
-- Prefix Hashing
-
-## 10.4 Recursion & Backtracking
-- Subsequences
-- Permutations
-- N Queens
-- Maze Problems
-
-## 10.5 Linked List Patterns
-- Reversal
-- Cycle Detection
-- Fast Slow Pointer
-
-## 10.6 Stack & Queue Patterns
-- Monotonic Stack
-- Next Greater Element
-- BFS
-
-## 10.7 Tree Patterns
-- DFS
-- BFS
-- Diameter
-- LCA
-
-## 10.8 Graph Patterns
-- BFS
-- DFS
-- Dijkstra
-- Topological Sort
-- Union Find
-
-## 10.9 Dynamic Programming
-- 1D DP
-- 2D DP
-- Knapsack
-- LIS
-- Grid DP
-
-## 10.10 Greedy Algorithms
-- Activity Selection
-- Interval Scheduling
-
----
-
-# PHASE 4 — Advanced Java Engineering
-
-> Goal: Understand modern Java internals, concurrency, JVM behavior, and runtime engineering.
-
----
-
-# 11. Collection Framework
-
-## 11.1 Collections Overview
-- Collection Hierarchy
-- Iterable
-- Collection Interface
-
-## 11.2 List Implementations
-- ArrayList
-- LinkedList
-- Vector
-- Stack
-- CopyOnWriteArrayList
-
-## 11.3 Set Implementations
-- HashSet
-- LinkedHashSet
-- TreeSet
-- CopyOnWriteArraySet
-
-## 11.4 Queue Implementations
-- PriorityQueue
-- Deque
-- ArrayDeque
-
-## 11.5 Map Implementations
-- HashMap
-- LinkedHashMap
-- TreeMap
-- Hashtable
-- ConcurrentHashMap
-- ConcurrentSkipListMap
-
-## 11.6 Iterators
-- Iterator
-- ListIterator
-- Enumeration
-- Fail Fast vs Fail Safe
-
-## 11.7 Comparator & Comparable
-- Comparable
-- Comparator
-- Custom Sorting
-
-## 11.8 Generics
-- Generic Classes
-- Wildcards
-- Type Erasure
-
----
-
-# 12. Java 8+ Features
-
-## 12.1 Lambda Expressions
-- Lambda Syntax
-- Functional Programming
-- Method References
-
-## 12.2 Functional Interfaces
-- Predicate
-- Function
-- Consumer
-- Supplier
-- BiFunction
-
-## 12.3 Stream API
-- map
-- filter
-- reduce
-- flatMap
-- Parallel Streams
-
-## 12.4 Collectors
-- groupingBy
-- partitioningBy
-- joining
-- mapping
-
----
-
-# 13. File Handling & NIO
-
-## 13.1 File Handling Basics
-- File APIs
-- BufferedReader
-- BufferedWriter
-
-## 13.2 Serialization
-- Serialization
-- Deserialization
-
-## 13.3 NIO
-- Path API
-- Files API
-- Channels
-- Buffers
-
----
-
-# 14. Multithreading & Concurrency
-
-## 14.1 Core Concurrency
-- Thread Lifecycle
-- Runnable
-- Callable
-- Synchronization
-- Race Conditions
-- Deadlocks
-
-## 14.2 Executor Framework
-- ExecutorService
-- Thread Pools
-- Future
-- CompletableFuture
-
-## 14.3 Advanced Concurrency
-- volatile
-- Atomic Classes
-- CAS
-- ForkJoinPool
-- Virtual Threads
-
-## 14.4 Concurrent Collections
-- ConcurrentHashMap
-- BlockingQueue
-- CopyOnWriteArrayList
-
----
-
-# 15. Database Engineering
-
-## 15.1 SQL Fundamentals
-- Joins
-- Group By
-- Subqueries
-- Views
-- Stored Procedures
-
-## 15.2 Database Internals
-- Indexing
-- Query Optimization
-- Transactions
-- Locks
-- Isolation Levels
-- ACID Properties
-
-## 15.3 Database Design
-- Normalization
-- Denormalization
-- ER Diagrams
-
-## 15.4 NoSQL Basics
-- Redis Basics
-- MongoDB Basics
-- Key Value Stores
-
----
-
-# 16. JDBC
-
-## 16.1 JDBC Fundamentals
-- JDBC Architecture
-- Connection
-- Statement
-- PreparedStatement
-- ResultSet
-
-## 16.2 Transactions
-- Transactions
-- Batch Processing
-
----
-
-# 17. Annotations & Reflection
-
-## 17.1 Annotations
-- Built-in Annotations
-- Custom Annotations
-- Meta Annotations
-
-## 17.2 Reflection API
-- Class Object
-- Dynamic Method Invocation
-- Accessing Private Members
-
----
-
-# 18. JVM & Memory Management
-
-## 18.1 JVM Architecture
-- Heap
-- Stack
-- Metaspace
-- Method Area
-- Class Loader
-
-## 18.2 JVM Execution Engine
-- Interpreter
-- JIT Compiler
-- Escape Analysis
-- Inline Optimization
-
-## 18.3 Garbage Collection
-- Minor GC
-- Major GC
-- G1GC
-- ZGC
-
-## 18.4 Memory Engineering
-- Heap vs Stack
-- Memory Leaks
-- OutOfMemoryError
-- GC Tuning
-
----
-
-# PHASE 5 — Software Design & Architecture
-
-> Goal: Learn scalable software engineering and architecture thinking.
-
----
-
-# 19. Design Patterns
-
-## 19.1 Creational Patterns
-- Singleton
-- Factory
-- Builder
-
-## 19.2 Structural Patterns
-- Adapter
-- Facade
-- Decorator
-- Proxy
-
-## 19.3 Behavioral Patterns
-- Strategy
-- Observer
-- Command
-- Template Method
-
----
-
-# 20. Low Level Design
-
-## 20.1 SOLID Principles
-- SRP
-- OCP
-- LSP
-- ISP
-- DIP
-
-## 20.2 UML
-- Class Diagram
-- Sequence Diagram
-
-## 20.3 LLD Projects
-- Parking Lot
-- ATM
-- Cab Booking
-- Elevator System
-
----
-
-# 21. High Level Design
-
-## 21.1 Scalability Fundamentals
-- Load Balancing
-- Caching
-- CAP Theorem
-- Sharding
-
-## 21.2 Distributed Systems
-- API Gateway
-- Kafka Basics
-- Event Driven Systems
-- Distributed Caching
-
-## 21.3 System Design Problems
-- WhatsApp
-- Instagram Feed
-- Netflix
-- Uber
-- URL Shortener
-
----
-
-# PHASE 6 — Automation Framework Engineering
-
-> Goal: Become a scalable automation framework architect for product-based companies.
-
----
-
-# 22. Selenium Automation Engineering
-
-## 22.1 Selenium Fundamentals
-- WebDriver Internals
-- Browser Driver Architecture
-- Selenium W3C Protocol
-- Selenium Grid Architecture
-
-## 22.2 Synchronization
-- Implicit Wait
-- Explicit Wait
-- Fluent Wait
-- Custom Wait Utilities
-
-## 22.3 Advanced Selenium
-- Actions API
-- JavaScriptExecutor
-- Frames
-- Windows & Tabs
-- Alerts
-- File Upload/Download
-- Shadow DOM
-- Dynamic Elements
-
-## 22.4 Framework Stability
-- Retry Mechanisms
-- Smart Locators
-- Self-Healing Concepts
-- Failure Recovery Design
-
----
-
-# 23. Playwright Automation Engineering
-
-## 23.1 Playwright Fundamentals
-- Browser Contexts
-- Auto Waiting
-- Headless Execution
-- Playwright Architecture
-
-## 23.2 Advanced Playwright
-- Network Interception
-- API Mocking
-- HAR Recording
-- Tracing
-- Screenshots
-- Video Recording
-
-## 23.3 Framework Design
-- Fixtures
-- Parallel Execution
-- Environment Management
-- Config-Driven Framework
-
-## 23.4 Enterprise Playwright
-- Dockerized Playwright
-- CI/CD Integration
-- Distributed Execution
-- Cloud Execution
-
----
-
-# 24. Mobile Automation Engineering (Appium)
-
-## 24.1 Mobile Fundamentals
-- Android Basics
-- iOS Basics
-- Emulator vs Real Device
-- APK & IPA Basics
-
-## 24.2 Appium Fundamentals
-- Appium Architecture
-- Desired Capabilities
-- Appium Server
-- Driver Types
-
-## 24.3 Mobile Interactions
-- Accessibility IDs
-- XPath Strategies
-- Gestures
-- Scroll
-- Swipe
-- Touch Actions
-
-## 24.4 Advanced Appium
-- Hybrid Apps
-- WebView Handling
-- Parallel Device Execution
-- Device Farms
-- Mobile Logs
-
-## 24.5 Mobile Framework Design
-- Cross Platform Framework
-- Device Management
-- Reporting
-- Retry Mechanisms
-
----
-
-# 25. API Automation Engineering
-
-## 25.1 Rest Assured
-- HTTP Methods
-- Request Specification
-- Response Validation
-- Authentication
-
-## 25.2 API Validation
-- Schema Validation
-- JSON Parsing
-- Serialization
-- Deserialization
-
-## 25.3 Enterprise API Testing
-- Contract Testing
-- API Mocking
-- Service Virtualization
-- Retry Testing
-- Rate Limiting Testing
-
----
-
-# 26. Test Framework Architecture
-
-## 26.1 Framework Design Patterns
-- Page Object Model
-- Page Factory
-- Screenplay Pattern
-- Fluent Design Pattern
-
-## 26.2 Framework Architecture
-- Layered Architecture
-- Modular Design
-- Dependency Injection
-- Configuration Management
-
-## 26.3 Enterprise Features
-- Dynamic Reporting
-- Retry Architecture
-- Smart Wait Engine
-- Test Data Management
-
-## 26.4 Parallel Infrastructure
-- Thread-Safe Framework Design
-- Parallel Test Execution
-- Distributed Test Infrastructure
-
----
-
-# 27. Build Tools & Dependency Management
-
-## 27.1 Maven
-- Maven Architecture
-- Build Lifecycle
-- pom.xml
-- Dependencies
-- Plugins
-- Profiles
-- Multi-Module Projects
-
-## 27.2 Gradle
-- Gradle Basics
-- Build Scripts
-- Dependency Management
-- Custom Tasks
-
-## 27.3 Artifact Repositories
-- Nexus Basics
-- Artifactory Basics
-- Version Management
-
----
-
-# 28. Test Execution & BDD Ecosystem
-
-## 28.1 TestNG
-- Assertions
-- Listeners
-- DataProvider
-- Parallel Execution
-
-## 28.2 JUnit
-- JUnit 4 vs JUnit 5
-- Assertions
-- Extensions
-
-## 28.3 Cucumber
-- Gherkin
-- Feature Files
-- Step Definitions
-- Hooks
-- Tags
-
-## 28.4 Serenity BDD
-- Serenity Architecture
-- Living Documentation
-- Reporting
-- Step Libraries
-- Serenity + Selenium
-- Serenity + Rest Assured
-
----
-
-# 29. CI/CD & Infrastructure Engineering
-
-## 29.1 CI/CD
-- Jenkins Pipelines
-- GitHub Actions
-- GitLab CI
-- Azure DevOps Basics
-
-## 29.2 Containerization
-- Docker Basics
-- Docker Compose
-- Selenium Docker Grid
-- Playwright Docker Setup
-
-## 29.3 Kubernetes Basics
-- Pods
-- Deployments
-- Services
-- Scaling Concepts
-
-## 29.4 Cloud Infrastructure
-- BrowserStack
-- Sauce Labs
-- LambdaTest
-- AWS Device Farm
-
----
-
-# 30. Reporting & Logging
-
-## 30.1 Logging
-- Log4j
-- SLF4J
-- Structured Logging
-
-## 30.2 Reporting
-- ExtentReports
-- Allure Reports
-- Serenity Reports
-- Dashboard Concepts
-
----
-
-# 31. Linux & DevOps Fundamentals
-
-## 31.1 Linux
-- Linux Commands
-- Processes
-- File Permissions
-- grep/sed/awk
-
-## 31.2 Shell Scripting
-- Variables
-- Loops
-- Automation Scripts
-
-## 31.3 DevOps Basics
-- SSH
-- Environment Variables
-- Cron Jobs
-- Docker Internals
-- Kubernetes Basics
-
----
-
-# PHASE 7 — Advanced Engineering & SDET Leadership
-
-> Goal: Think like a Lead SDET, automation architect, and performance-focused engineer.
-
----
-
-# 32. Modern Java Features
-
-## 32.1 Java Modern Features
-- var
-- Records
-- Sealed Classes
-- Pattern Matching
-- Text Blocks
-- Optional
-- Modules
-- Virtual Threads
-
----
-
-# 33. Observability & Production Engineering
-
-## 33.1 Observability
-- Metrics
-- Logs
-- Tracing
-- Distributed Tracing
-
-## 33.2 Monitoring Tools
-- Grafana Basics
-- Prometheus Basics
-- ELK Stack
-
-## 33.3 JVM Diagnostics
-- Heap Dumps
-- Thread Dumps
-- JVM Monitoring
-
----
-
-# 34. Performance Engineering
-
-## 34.1 Performance Testing
-- JMeter Basics
-- k6 Basics
-- Load Testing
-- Stress Testing
-
-## 34.2 Performance Analysis
-- Bottleneck Detection
-- Response Time Analysis
-- JVM Performance Basics
-
----
-
-# 35. Security Testing Basics
-
-## 35.1 Security Fundamentals
-- OWASP Basics
-- Authentication Testing
-- Authorization Testing
-- API Security Basics
-
----
-
-# 36. SDET Leadership Engineering
-
-## 36.1 Test Strategy
-- Test Pyramid
-- Shift Left Testing
-- Risk-Based Testing
-- Quality Gates
-
-## 36.2 Framework Ownership
-- Automation Standards
-- Technical Debt Reduction
-- Reusability Engineering
-- Automation ROI
-
-## 36.3 Leadership Skills
-- Code Reviews
-- Mentoring
-- Sprint Participation
-- Technical Design Discussions
-
-## 36.4 Reliability Engineering
-- Root Cause Analysis
-- Failure Analysis
-- Production Monitoring
-
----
-
-# 37. Important Interview Topics
-
-## 37.1 Java Interview Topics
-- == vs equals
-- final vs finally vs finalize
-- Deep Copy vs Shallow Copy
-- String Immutability
-- HashMap Internals
-
-## 37.2 JVM & Concurrency
-- Synchronization
-- Deadlocks
-- Stream API Questions
-- JVM Questions
-- Multithreading Questions
-
-## 37.3 Automation Architecture
-- Framework Design Discussions
-- Scalability Discussions
-- Parallel Execution Strategies
-
----
-
-# 38. Engineering Best Practices
-
-## 38.1 Clean Engineering
-- Clean Code
-- Naming Conventions
-- SOLID Principles
-- Reusability
-
-## 38.2 Production-Grade Practices
-- Logging Best Practices
-- Exception Handling Best Practices
-- Secure Coding
-- Performance Optimization
-
----
-
-# Final Goal
-
-After completing this roadmap, the learner should think like:
-
-- Lead SDET
-- JVM Engineer
-- Performance Engineer
-- Automation Architect
-- Framework Designer
-- Distributed Systems Engineer
-- Quality Platform Engineer
-- Scalable Automation Engineer
-- Software Architect
+- Pascal Triangle — P2
 
 ---
 # PHASE 1 — Core Computer Science Foundations
